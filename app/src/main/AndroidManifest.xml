@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="profitdevs.group.anticor">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="m">
+        <activity android:name="profitdevs.group.anticor.screen.main.send.detail.SendActivity" />
+        <activity android:name="profitdevs.group.anticor.screen.main.savollar.SavollarActivity" />
+        <activity android:name="profitdevs.group.anticor.screen.main.asosiy.AsosiyActivity" />
+        <activity android:name="profitdevs.group.anticor.screen.main.oneId.OneActivity" />
+        <activity
+            android:name="profitdevs.group.anticor.screen.main.news.NewsActivity"
+            android:label="@string/title_activity_news"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="profitdevs.group.anticor.screen.main.aboutapp.AboutAppActivity" />
+        <activity android:name="profitdevs.group.anticor.screen.main.faq.edit.ProfileEditActivity" />
+
+        <activity
+            android:name="profitdev.group.eantikor.screen.main.MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="profitdevs.group.anticor.screen.main.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+    </application>
+
+</manifest>

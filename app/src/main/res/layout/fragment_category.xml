@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.main.category.CategoryFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/tv_no_courses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/border_waring"
+                        android:fontFamily="@font/google_sans_medium"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/murojaatt"
+                        android:textColor="@color/red"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+
+                    <com.dx.dxloadingbutton.lib.LoadingButton
+                        android:id="@+id/btn_register"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        app:lb_btnColor="@color/status_sent"
+                        app:lb_btnDisabledColor="@android:color/darker_gray"
+                        app:lb_btnRippleColor="@color/colorAccent"
+                        app:lb_btnText="Авторизация"
+                        app:lb_cornerRadius="32"
+                        app:lb_resetAfterFailed="true"
+                        app:lb_rippleEnable="false" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/category_card1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:clipChildren="true"
+                        app:cardCornerRadius="5dp">
+
+                        <RelativeLayout
+                            android:id="@+id/list1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/img_category_thumbnail1"
+                                android:layout_width="102dp"
+                                android:layout_height="76dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginTop="10dp"
+                                android:contentDescription="@string/todo"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/cat1" />
+
+                            <LinearLayout
+                                android:id="@+id/layout_text1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="2dp"
+                                android:layout_toEndOf="@id/img_category_thumbnail1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_category_title1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/avenir_next_medium"
+                                    android:text="@string/catgory1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/category_card2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:clipChildren="true"
+                        app:cardCornerRadius="5dp">
+
+                        <RelativeLayout
+                            android:id="@+id/list2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/img_category_thumbnail2"
+                                android:layout_width="102dp"
+                                android:layout_height="76dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginTop="10dp"
+                                android:contentDescription="@string/todo"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/cat2" />
+
+                            <LinearLayout
+                                android:id="@+id/layout_text2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="2dp"
+                                android:layout_toEndOf="@id/img_category_thumbnail2"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_category_title2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/avenir_next_medium"
+                                    android:text="@string/category2"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/category_card3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:clipChildren="true"
+                        app:cardCornerRadius="5dp">
+
+                        <RelativeLayout
+                            android:id="@+id/list3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/img_category_thumbnail3"
+                                android:layout_width="102dp"
+                                android:layout_height="76dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="10dp"
+                                android:contentDescription="@string/todo"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/cat3" />
+
+                            <LinearLayout
+                                android:id="@+id/layout_text3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="2dp"
+                                android:layout_toEndOf="@id/img_category_thumbnail3"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_category_title3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/avenir_next_medium"
+                                    android:text="@string/category3"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/category_card4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:clipChildren="true"
+                        app:cardCornerRadius="5dp">
+
+                        <RelativeLayout
+                            android:id="@+id/list4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/img_category_thumbnail4"
+                                android:layout_width="102dp"
+                                android:layout_height="76dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginTop="10dp"
+                                android:contentDescription="@string/todo"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/cat4" />
+
+                            <LinearLayout
+                                android:id="@+id/layout_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="2dp"
+                                android:layout_toEndOf="@id/img_category_thumbnail4"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_category_title4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/avenir_next_medium"
+                                    android:text="@string/category4"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</FrameLayout>

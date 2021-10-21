@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mode">
+        <item>Andijon viloyati</item>
+        <item>Buxoro viloyati</item>
+        <item>Jizzax viloyati</item>
+        <item>Qashqadaryo viloyati</item>
+        <item>Navoiy viloyati</item>
+        <item>Namangan viloyati</item>
+        <item>Samarqand viloyati</item>
+        <item>Surxondaryo viloyati</item>
+        <item>Sirdaryo viloyati</item>
+        <item>Farg‘ona viloyati</item>
+        <item>Xorazm viloyati</item>
+        <item>Qoraqalpog‘iston Respublikasi</item>
+        <item>Toshkent shahar</item>
+    </string-array>
+    <string name="prompt">Select Mode</string>
+
+    <string name="app_name">Anticor</string>
+    <string name="input_mobile_number">Telefon raqamini kiriting…</string>
+    <string name="continue_button">DAVOM ETISH</string>
+    <string name="number_phone">Telefon raqam:</string>
+    <string name="add_to_basket">Korzinkaga qo\'shish</string>
+    <string name="update_basket">O\'zgartirish</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="input_phone_number">Kirish yoki ro‘yxatdan o‘tish uchun telefon raqamingizni kiriting</string>
+    <string name="please_input_code">Sizning raqamingizga tasdiqlash kodi yuborildi. Iltimos, kodni kiriting</string>
+    <string name="sign">Kirish</string>
+    <string name="confirm">Tasdiqlash</string>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="please_input_all_fields">Iltimos hamma maydonlarni to‘ldiring.</string>
+    <string name="register_order">Yuborish</string>
+    <string name="contact_data">Mijoz ma’lumotlari</string>
+    <string name="fullname">Ismi sharifingiz</string>
+    <string name="fullname_">Ismi sharifi:</string>
+    <string name="phone">Telefon raqam</string>
+    <string name="phone_">Telefon raqam:</string>
+    <string name="comment">Izoh</string>
+    <string name="your_data">Asosiy</string>
+    <string name="edit">O‘zgartirish</string>
+    <string name="code">Kod</string>
+    <string name="success">Muvaffaqiyatli!</string>
+    <string name="your_order_accept">Sizning buyurtmangiz muvaffaqiyatli yuborildi. Buyurtmaning holatini buyurtmalar oynasidan kuzatib borishingiz mumkun.</string>
+    <string name="exit_main_page">Asosiy oynaga qaytish</string>
+    <string name="swap_language">Tilni o‘zgartirish</string>
+    <string name="notifications">Bildirishnomalar</string>
+    <string name="language">Tilni o‘zgartirish</string>
+    <string name="share">Ulashish</string>
+    <string name="about_app">Ilova haqida</string>
+    <string name="logout">Chiqish</string>
+    <string name="current_store">MUROJAAT</string>
+    <string name="catgory1">Poraxo‘rlikka duch keldim va pora berdim</string>
+    <string name="category2">Poraxo‘rlikka duch keldim, lekin pora to‘lamaganman.Men korrupsiyaga qarshiman</string>
+    <string name="category3">Poraxo‘rlik bilan bog‘liq bo‘lmagan korrupsiya turiga duch keldim</string>
+    <string name="category4">Men bir davlat agentligi halol xodimi bilan uchrashdim</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="news">Yangiliklar</string>
+    <string name="wishlist">Statistika</string>
+    <string name="title">O‘zbekiston Respublikasi Korrupsiyaga qarshi kurashish agentligi</string>
+    <string name="murojaat">Yuborgan ma\'lumotlaringiz va shaxsingiz sir saqlanishi davlat tomonidan kafolatlanadi</string>
+    <string name="dashboard">Xabar berish</string>
+    <string name="account">FAQ</string>
+    <string name="tashkilot">Tashkilot</string>
+    <string name="hudud">Hududni tanlang</string>
+    <string name="murojaat_matni">Murojaat matni</string>
+    <string name="pora_hajmi">Pora hajmi (so‘m)</string>
+    <string name="murojat_mazmuni">Murojaat mazmuni</string>
+    <string name="shahar">Shahar</string>
+    <string name="zayavka">Ariza yuborish</string>
+    <string name="murojaat1">Murojaat</string>
+    <string name="murojaat2">Ko\'p beriladigan savollar</string>
+    <string name="Обращение">Murojaat</string>
+    <string name="oneid">OneID</string>
+    <string name="agentlik">Agentlik shaxsi noma\'lum murojaatlarni ko\'rib chiqmasligi mumkin. Ro\'yxatdan o\'tishni tavsiya qilamiz</string>
+    <string name="savollar">Savollar</string>
+    <string name="your_Data">Sizning savollaringiz</string>
+    <string name="download">Yuklab olish</string>
+    <string name="please_update_app">Iltimos, ilovaning yangi versiyasini yuklab oling!</string>
+    <string name="refreshed">Yangilandi.</string>
+    <string name="call_me">Biz bilan bog‘lanish</string>
+    <string name="store_or_man_name">Дукон ёки корхона номи</string>
+    <string name="please_select_region">Iltimos tumanni tanlang.</string>
+    <string name="ditrict">Tuman</string>
+    <string name="region">Viloyat</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="not_network">Tarmoqda uzilish. Internet sozlamalarini tekshiring.</string>
+    <string name="murojaatt">Ruxsatsiz foydalanuvchilarning murojaatlari anonim holatga ega bo\'ladi</string>
+    <string name="qo_ng_iroq_markazi_1070">Qo\'ng\'iroq markazi: 1070</string>
+    <string name="vapros">Savollar</string>
+    <string name="text">Xabarni yozing</string>
+    <string name="shaxs_turi">Shaxs turini tanlang</string>
+    <string name="created_by">Created by</string>
+    <string name="russkiy">Русский</string>
+    <string name="shaxsturi">Шахс турини танланг</string>
+    <string name="todo">TODO</string>
+</resources>
