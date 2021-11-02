@@ -6,9 +6,9 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/gerbb"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/gerb"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
@@ -26,7 +26,7 @@
         <activity android:name="profitdevs.group.anticor.screen.main.faq.edit.ProfileEditActivity" />
 
         <activity
-            android:name="profitdev.group.eantikor.screen.main.MainActivity"
+            android:name=".screen.main.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name="profitdevs.group.anticor.screen.main.splash.SplashActivity">
             <intent-filter>

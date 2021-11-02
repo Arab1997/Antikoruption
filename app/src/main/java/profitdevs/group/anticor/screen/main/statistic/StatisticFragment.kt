@@ -14,10 +14,10 @@ import profitdevs.group.anticor.R
 
 class StatisticFragment : BaseFragment() {
     override fun getLayout(): Int = R.layout.fragment_statistic
+
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
@@ -44,10 +44,11 @@ class StatisticFragment : BaseFragment() {
     override fun setData() {
         initWebView()
     }
+
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebView() {
-    //    webview.loadUrl("https://eanticor.uz/ru/")
-        webview.loadUrl("https://www.google.ru/")
+        webview.loadUrl("https://eanticor.uz/ru/")
+        // webview.loadUrl("https://www.google.ru/")
         webview.settings.javaScriptEnabled = true
         webview.settings.loadWithOverviewMode = true
         webview.settings.useWideViewPort = true
@@ -59,7 +60,5 @@ class StatisticFragment : BaseFragment() {
                 handler?.proceed()
             }
         }
-
     }
-
 }

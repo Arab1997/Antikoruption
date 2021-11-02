@@ -3,7 +3,7 @@ package profitdevs.group.anticor.screen.main.splash
 import android.os.CountDownTimer
 import profitdevs.group.anticor.base.BaseActivity
 import profitdev.group.eantikor.base.startClearTopActivity
-import profitdev.group.eantikor.screen.main.MainActivity
+import profitdevs.group.anticor.screen.main.MainActivity
 import profitdevs.group.anticor.R
 
 class SplashActivity : BaseActivity() {

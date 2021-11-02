@@ -8,11 +8,8 @@ import profitdev.group.eantikor.model.RegionsModel
 import profitdev.group.eantikor.repository.UserRepository
 
 class MainViewModel : ViewModel() {
-
     val userRepository = UserRepository()
-
     val error = MutableLiveData<String>()
-
     val progressRegions = MutableLiveData<Boolean>()
     val progressAds = MutableLiveData<Boolean>()
     val progress = MutableLiveData<Boolean>()
@@ -37,7 +34,6 @@ class MainViewModel : ViewModel() {
  /*   fun getRegions(id: String){
         userRepository.getRegions(id, progressRegions, error, regions)
     }*/
-
 
    /* fun getStores(){
         userRepository.getStores(progressRegions, error, storesData)

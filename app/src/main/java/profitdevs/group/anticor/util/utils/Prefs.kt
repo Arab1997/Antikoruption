@@ -2,7 +2,7 @@ package profitdevs.group.anticor.util.utils
 
 import com.orhanobut.hawk.Hawk
 import profitdev.group.eantikor.model.MobileData
-import profitdev.group.eantikor.screen.main.MainActivity
+import profitdevs.group.anticor.screen.main.MainActivity
 import profitdevs.group.anticor.App
 
 const val PREF_TOKEN = "pref_token"

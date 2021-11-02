@@ -16,7 +16,6 @@ class SelectRegionViewModel : ViewModel(){
         repository.getStores(progress, error, regionsData)
     }
 
-
     fun getSend(){
         repository.getStores(progress, error, regionsData)
     }*/

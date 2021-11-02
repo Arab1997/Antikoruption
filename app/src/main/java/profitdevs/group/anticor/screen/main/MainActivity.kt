@@ -1,4 +1,4 @@
-package profitdev.group.eantikor.screen.main
+package profitdevs.group.anticor.screen.main
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -26,7 +26,6 @@ import profitdevs.group.anticor.screen.main.aboutapp.AboutAppActivity
 import profitdevs.group.anticor.screen.main.statistic.StatisticFragment
 import profitdev.group.eantikor.screen.main.faq.FaqFragment
 import profitdevs.group.anticor.R
-import profitdevs.group.anticor.screen.main.MainViewModel
 import profitdevs.group.anticor.screen.main.category.CategoryFragment
 import profitdevs.group.anticor.screen.main.oneId.OneActivity
 import profitdevs.group.anticor.screen.main.savollar.SavollarActivity
@@ -77,7 +76,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
                 R.id.statistic -> {
                     one_id.visibility = View.GONE
-                    toolbar.visibility = View.GONE
+                    toolbar.visibility = View.VISIBLE
+                    tvTitle.visibility = View.VISIBLE
                     if (staticFragment.isAdded && staticFragment.isVisible) {
 
                     } else {
@@ -199,7 +199,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             startActivity(Intent.createChooser(shareIntent, "Отправить своим друзьям."))
         } else if (p0.itemId == R.id.murojaat) {
-           // startActivity<ProfileEditActivity>()
+            startActivity<MainActivity>()
         } else if (p0.itemId == R.id.faq) {
             startActivity<SavollarActivity>()
         } else if (p0.itemId == R.id.main) {

@@ -5,7 +5,7 @@ import profitdevs.group.anticor.base.BaseActivity
 import profitdev.group.eantikor.base.startActivityToOpenUrlInBrowser
 import profitdev.group.eantikor.base.startClearActivity
 import profitdev.group.eantikor.base.startClearTopActivity
-import profitdev.group.eantikor.screen.main.MainActivity
+import profitdevs.group.anticor.screen.main.MainActivity
 import profitdevs.group.anticor.R
 import profitdevs.group.anticor.util.utils.Constants
 

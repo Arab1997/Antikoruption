@@ -78,9 +78,11 @@
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/spinner_shahar"
+                    style="@style/spinner_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -146,9 +148,11 @@
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/spinner_tuman"
+                    style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
