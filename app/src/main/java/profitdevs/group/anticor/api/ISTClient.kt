@@ -91,7 +91,7 @@ object ISTClient {
             var builder = original.newBuilder()
             builder.addHeader("Content-Type", "application/json")
             builder.header("Connection", "close")
-            builder.method(original.method(), original.body())
+            builder.method(original.method, original.body)
             return builder.build()
         }
     }
