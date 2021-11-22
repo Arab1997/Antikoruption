@@ -1,7 +1,10 @@
 package profitdevs.group.anticor.repository
 
 import profitdevs.group.anticor.api.send_apis.RetrofitInstance
+import profitdevs.group.anticor.model.send_models.Area
 import profitdevs.group.anticor.model.send_models.Complain
+import profitdevs.group.anticor.model.send_models.Organization
+import profitdevs.group.anticor.model.send_models.Region
 import retrofit2.Response
 
 /**
@@ -10,15 +13,23 @@ import retrofit2.Response
  */
 class SendRepository {
 
-    fun getAreas() =
-        RetrofitInstance.api.getAreas()
+    suspend fun getAreas(): Response<List<Area>> {
+        return RetrofitInstance.api.getAreas()
+    }
 
-    fun getOrganizations() =
-        RetrofitInstance.api.getOrganizations()
+    suspend fun getOrganizations(): Response<List<Organization>> {
+        return RetrofitInstance.api.getOrganizations()
+    }
 
-    fun getRegionsById(regionId: Int) =
-        RetrofitInstance.api.getRegionsById(regionId)
+    suspend fun getRegionsById(regionId: Int): Response<Region> {
+        return RetrofitInstance.api.getRegionsById(regionId)
+    }
 
-    fun postComplain(complain: Response<Complain>) =
-        RetrofitInstance.api.postComplain(complain)
+    suspend fun postComplain(complain: Complain): Response<Complain>{
+        return RetrofitInstance.api.postComplain(complain)
+    }
+
+    suspend fun getRegions(): Response<List<Region>> {
+        return RetrofitInstance.api.getRegions()
+    }
 }

@@ -18,18 +18,21 @@ import retrofit2.http.Path
 interface SendApi {
 
     @GET("areas/")
-    fun getAreas(): Response<List<Area>>
+    suspend fun getAreas(): Response<List<Area>>
 
     @GET("organizations/")
-    fun getOrganizations(): Response<List<Organization>>
+    suspend fun getOrganizations(): Response<List<Organization>>
 
     @GET("regions/{id}")
-    fun getRegionsById(
+    suspend fun getRegionsById(
         @Path("id") regionId: Int
     ): Response<Region>
 
+    @GET("regions/")
+    suspend fun getRegions(): Response<List<Region>>
+
     @POST("appeal/")
-    fun postComplain(
-        @Body complain: Response<Complain>
-    )
+    suspend fun postComplain(
+        @Body complain: Complain
+    ): Response<Complain>
 }

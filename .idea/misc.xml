@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/user/AndroidStudioProjects/Antikor_rel/app/src/main/res/layout/fragment_send.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Antikor_rel/app/src/main/res/layout/activity_splash.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Antikor_rel/app/src/main/res/layout/activity_success_order.xml" value="0.5" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Antikor_rel/app/src/main/res/layout/bottomsheet_language.xml" value="0.25" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Antikor_rel/app/src/main/res/layout/fragment_category.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Antikor_rel/app/src/main/res/layout/fragment_send.xml" value="0.25" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Antikor_rel/app/src/main/res/layout/simple_spinner_drop_down.xml" value="0.18802083333333333" />
       </map>
     </option>
   </component>

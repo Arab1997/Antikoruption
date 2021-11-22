@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/text1"
-    android:textColor="@color/black"
-    android:background="@color/white"
+    android:id="@+id/text1"
+    android:textColor="@color/white"
+    android:background="@color/colorPrimaryDark"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:ellipsize="marquee"
-    android:text="sssss"
+    android:text="@string/shaharlar"
     android:padding="10dip"
+    android:gravity="center"
     android:singleLine="true" />

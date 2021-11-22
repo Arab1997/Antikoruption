@@ -1,94 +1,47 @@
 package profitdevs.group.anticor.screen.main.send.detail
 
 import android.app.Dialog
-import android.graphics.Region
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.activity_category_details.*
 import kotlinx.android.synthetic.main.fragment_send.*
-import profitdevs.group.anticor.screen.selectregion.SelectRegionViewModel
-import profitdevs.group.anticor.screen.main.MainViewModel
+import kotlinx.android.synthetic.main.fragment_send.shaxs
+import kotlinx.android.synthetic.main.fragment_send.spinner_hudud
+import kotlinx.android.synthetic.main.fragment_send.spinner_shahar
+import kotlinx.android.synthetic.main.fragment_send.spinner_tashkilot
+import kotlinx.android.synthetic.main.fragment_send.spinner_tuman
 import profitdevs.group.anticor.R
+import profitdevs.group.anticor.model.send_models.Complain
+import profitdevs.group.anticor.repository.SendRepository
+import profitdevs.group.anticor.screen.viewmodels.SendViewModel
+import profitdevs.group.anticor.screen.viewmodels.SendViewModelProviderFactory
 
-/**
- * A simple [Fragment] subclass.
- */
-interface ProductDetailListener{
+interface ProductDetailListener {
     fun onHideDialog()
 }
 
-class SendFragment() : BottomSheetDialogFragment() {
-    lateinit var viewModel: MainViewModel
-    lateinit var viewModel11: SelectRegionViewModel
-    var id: String = ""
-    var cartCount = 1
+class SendFragment() : Fragment(R.layout.fragment_send) {
 
-
-    private lateinit var selectedRegion: Region
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val bottomSheetDialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
-        bottomSheetDialog.setOnShowListener {
-            val dialog = it as BottomSheetDialog
-            val bottomSheet = dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-            BottomSheetBehavior.from(bottomSheet!!).state = BottomSheetBehavior.STATE_EXPANDED
-        }
-        return bottomSheetDialog
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.SheetDialog)
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_send, container, false)
-    }
+    private lateinit var viewModel: SendViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //viewModel.getProductDetail(id)
 
+        viewModel = (activity as SendActivity).viewModel
 
-        validate()
-        setUpListeners()
-       // viewModel11.getRegions()
-
-        imgBack.setOnClickListener {
-
-        }
-
-        /*cardViewAdd.setOnClickListener {
-            val product = viewModel.productDetailData.value
-            if (product != null){
-                var cart = BasketModel(product.id!!, cartCount)
-                Prefs.add2Cart(cart)
-                if (cartCount > 0){
-                    activity?.showSuccess(getString(R.string.cart_updated))
-                }else{
-                    activity?.showSuccess(getString(R.string.product_removed))
-                }
-                listener.onHideDialog()
-                dismiss()
-            }
-        }*/
-
-    }
-
-
-    private fun getRegions() {
-       // viewModel11.getRegions()
     }
 
     private fun isUiEnable(isEnabled: Boolean) {
@@ -97,18 +50,7 @@ class SendFragment() : BottomSheetDialogFragment() {
     }
 
     private fun setUpListeners() {
-        btn_register.setOnClickListener {
-            if (::selectedRegion.isInitialized) {
-               /* viewModel11.send(
-                    RegisterRequest(
-                        pora_hajmi.text.toString(),
-                        murojaat_mazmuni.text.toString(),
-                        murojaat_matni.text.toString(),
-                        selectedRegion.provinceId.toLong(),
-                        selectedRegion.id
-                    )
-                )*/
-            }
+        btnSend.setOnClickListener {
         }
 
         pora_hajmi.addTextChangedListener {
@@ -133,47 +75,13 @@ class SendFragment() : BottomSheetDialogFragment() {
     }
 
     private fun disableRequest() {
-        btn_register.isEnabled = false
+        btnSend.isEnabled = true
     }
 
     private fun validate() {
-        btn_register.isEnabled =
+        btnSend.isEnabled =
             murojaat_mazmuni.text!!.length > 2 &&
                     pora_hajmi.text!!.length > 2 &&
                     murojaat_matni.text!!.length >= 6
     }
-
-    /*fun setProduct(){
-        //lyCart.visibility = View.VISIBLE
-        val product = viewModel.productDetailData.value
-
-        Prefs.getCartList().forEach {
-            if (it.id == product?.id){
-                cartCount = it.count
-            }
-        }
-
-        imgProduct.loadImage(App.imageBaseUrl + product?.image)
-        tvTitle.text = product?.name
-        tvDescription.text = product?.information
-        if (product?.information.isNullOrEmpty()){
-            tvDescription.visibility = View.VISIBLE
-        }
-        tvPrice.text = product?.price?.formattedAmount()
-        product?.favourite = Prefs.isFavourite(product?.id!!)
-
-        if (product?.favourite == true){
-            imgFavourite.setImageResource(R.drawable.ic_fill_heart)
-        }else{
-            imgFavourite.setImageResource(R.drawable.ic_heart)
-        }
-        updateCartAmounts()
-    }*/
-
-  /*  fun updateCartAmounts(){
-        val product = viewModel.productDetailData.value
-        tvTotalAmount.text = ((product?.price ?: 0.0) * cartCount).formattedAmount()
-    }*/
-
-
 }

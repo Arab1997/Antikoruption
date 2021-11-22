@@ -7,12 +7,11 @@ import java.io.File
  * @date 11/16/2021
  */
 data class Complain(
-    val region: Region,
-    val area: Area,
-    val organization: Organization,
-    val organization_category: OrganizationCategory,
-    val amount: Int,
-    val text: String,
-    val file: File? = null,
-    val email: String? = null
+    var region: String = "",
+    var area: String = "",
+    var organization: String = "",
+    val organization_category: Int = 1,
+    var amount: Int = 0,
+    var text: String = "",
+    var email: String = ""
 )

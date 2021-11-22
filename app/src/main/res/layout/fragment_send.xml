@@ -72,8 +72,10 @@
                     android:id="@+id/spinner_shahar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp" />
+                    android:spinnerMode="dropdown"
+                    android:drawSelectorOnTop="true"
+                    android:layout_marginStart="2dp"
+                    android:background="@android:color/white"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -143,64 +145,6 @@
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp" />
 
-                <!--        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/pora_hajmii"
-                            style="@style/EditTextBox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:hint="@string/enter_name"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            app:passwordToggleTint="@color/colorPrimary">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/pora_hajmi"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="textPersonName" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/murojaat_mazmuni1"
-                            style="@style/EditTextBox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:hint="@string/enter_surname"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            app:passwordToggleTint="@color/colorPrimary">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/murojaat_mazmuni"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="textPersonName" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/murojaat_matnii"
-                            style="@style/EditTextBox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:hint="@string/enter_surname"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            app:passwordToggleTint="@color/colorPrimary">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/murojaat_matni"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="textPersonName" />
-
-                        </com.google.android.material.textfield.TextInputLayout>-->
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -217,21 +161,6 @@
                         android:text="@string/pora_hajmi"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
-
-                    <!--       <com.google.android.material.textfield.TextInputLayout
-                               android:id="@+id/pora_hajmi1"
-                               style="@style/EditTextBox"
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content">
-
-                               <com.santalu.maskedittext.MaskEditText
-                                   android:id="@+id/pora_hajmi"
-                                   android:layout_width="match_parent"
-                                   android:layout_height="wrap_content"
-                                   android:inputType="phone"
-                                   app:met_mask="111111" />
-                           </com.google.android.material.textfield.TextInputLayout>-->
-
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/pora_hajmii"
@@ -320,8 +249,8 @@
                 </LinearLayout>
 
 
-                <com.dx.dxloadingbutton.lib.LoadingButton
-                    android:id="@+id/btn_register"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSend"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="20dp"
@@ -332,8 +261,7 @@
                     app:lb_btnRippleColor="@color/colorAccent"
                     app:lb_btnText="Отправить"
                     app:lb_cornerRadius="32"
-                    app:lb_resetAfterFailed="true"
-                    app:lb_rippleEnable="false" />
+                    app:lb_resetAfterFailed="true"/>
 
             </LinearLayout>
 
@@ -343,88 +271,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/light_gray" />
-        <!-- <LinearLayout
-             android:id="@+id/lyCart"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="horizontal"
-             android:gravity="center_vertical"
-             android:background="@color/white"
-             android:visibility="invisible"
-             android:padding="16dp">
-             <ImageView
-                 android:id="@+id/imgMinus"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:src="@drawable/ic_minus_icon"/>
-             <EditText
-                 android:id="@+id/tvProductCount"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:textColor="@color/black"
-                 android:layout_marginLeft="16dp"
-                 android:inputType="number"
-                 android:layout_gravity="center"
-                 android:text="1"/>
-
-             <ImageView
-                 android:id="@+id/imgPlus"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:src="@drawable/ic_plus_icon"/>
-
-             &lt;!&ndash;<androidx.cardview.widget.CardView
-                 android:id="@+id/cardViewAdd"
-                 android:layout_width="0dp"
-                 android:layout_height="wrap_content"
-                 android:layout_weight="1"
-                 android:layout_marginLeft="16dp"
-                 app:cardCornerRadius="8dp"
-                 app:cardBackgroundColor="@color/colorAccent"
-                 app:cardElevation="1dp"
-                 app:contentPadding="10dp">
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:orientation="horizontal">
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:textSize="12sp"
-                         android:textColor="@color/white"
-                         android:textStyle="bold"
-                         android:text="@string/add_button"/>
-
-                     <TextView
-                         android:id="@+id/tvTotalAmount"
-                         android:layout_width="0dp"
-                         android:layout_weight="1"
-                         android:layout_height="wrap_content"
-                         android:textSize="12sp"
-                         android:textColor="@color/white"
-                         android:gravity="right"
-                         tools:text="100 000 сум"/>
-
-                 </LinearLayout>
-             </androidx.cardview.widget.CardView>&ndash;&gt;
-         </LinearLayout>-->
     </LinearLayout>
 
-    <!-- <FrameLayout
-         android:id="@+id/flProgress"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:background="#4B000000"
-         android:visibility="gone"
-         android:clickable="true">
-         <com.airbnb.lottie.LottieAnimationView
-             android:id="@+id/progressAnimationView"
-             android:layout_width="150dp"
-             android:layout_height="150dp"
-             android:layout_gravity="center"
-             app:lottie_autoPlay="true"
-             app:lottie_fileName="loading.json"
-             app:lottie_loop="true" />
-
-     </FrameLayout>-->
 </FrameLayout>
