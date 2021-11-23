@@ -19,14 +19,14 @@ class SendViewModel(
     val sendRepository: SendRepository
 ): ViewModel() {
 
-    val regios: MutableLiveData<Response<List<Region>>> = MutableLiveData()
+    val regions: MutableLiveData<Response<List<Region>>> = MutableLiveData()
     val areas: MutableLiveData<Response<List<Area>>> = MutableLiveData()
     val organizations: MutableLiveData<Response<List<Organization>>> = MutableLiveData()
     val regionsById: MutableLiveData<Response<Region>> = MutableLiveData()
 
     fun getRegions() = viewModelScope.launch {
         val response = sendRepository.getRegions()
-        regios.postValue(response)
+        regions.value = response
     }
 
     fun getAreas() = viewModelScope.launch {

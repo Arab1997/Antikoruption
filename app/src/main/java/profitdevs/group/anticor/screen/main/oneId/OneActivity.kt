@@ -23,7 +23,7 @@ class OneActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
    // var redirect_url = "http://sso.egov.uz"
-   var redirect_url = "https://anticorruption.uz/uz"
+    var redirect_url = "https://anticorruption.uz/uz"
     var responceType = "one_code"
     var clientId = "anticorruption.uz"
     var client_secret = "0wOQhto6c0bDKLrl28i96w=="
@@ -93,8 +93,5 @@ class OneActivity : AppCompatActivity() {
         ) {
             handler.proceed() // Ignore SSL certificate errors
         }
-
-
     }
-
 }
