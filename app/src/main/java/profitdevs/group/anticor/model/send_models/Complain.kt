@@ -7,8 +7,8 @@ import java.io.File
  * @date 11/16/2021
  */
 data class Complain(
-    var region: String = "",
-    var area: String = "",
+    var region: Int = 0,
+    var area: Int = 0,
     var organization: String = "",
     val organization_category: Int = 1,
     var amount: Int = 0,

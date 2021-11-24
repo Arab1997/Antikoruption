@@ -66,7 +66,7 @@ class SendActivity : BaseActivity() {
                         ) {
                             region = regions[position]
                             viewModel.getRegionsById(region.id)
-                            complain.region = region.name
+                            complain.region = region.id
                         }
 
                         override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -103,7 +103,7 @@ class SendActivity : BaseActivity() {
                                 id: Long
                             ) {
                                 area = areas[position]
-                                complain.area = area.name
+                                complain.area = area.id
                             }
 
                             override fun onNothingSelected(p0: AdapterView<*>?) {

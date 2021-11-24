@@ -44,14 +44,6 @@ class Prefs {
         }
 
 
-
-       /* fun getStore(): StoreSimpleModel?{
-            return Hawk.get(PREF_STORE)
-        }*/
-
-
-
-
         fun setShowSale(value: Boolean){
             Hawk.put(PREF_SHOW_SALE, value)
         }
@@ -75,10 +67,6 @@ class Prefs {
         fun getFCM(): String?{
             return Hawk.get(PREF_FCM)
         }
-
-
-
-
 
         fun clearCart(){
             Hawk.put(PREF_CART, null)

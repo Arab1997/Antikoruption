@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_one.*
 import profitdevs.group.anticor.screen.main.MainActivity
 import profitdevs.group.anticor.R
 import profitdevs.group.anticor.databinding.ActivityMainBinding
+import profitdevs.group.anticor.util.utils.Prefs
 import profitdevs.group.anticor.util.utils.Status
 
 class OneActivity : AppCompatActivity() {
@@ -46,6 +47,7 @@ class OneActivity : AppCompatActivity() {
              val url = "http://sso.egov.uz:8443/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
         //prefs.toString()
        //prefs.all.getValue(url)
+        Prefs.setToken(url)
         webView.webViewClient = MyWebViewClient(binding.root.context)
         webView.loadUrl(url)
         webView.settings.javaScriptEnabled = true
