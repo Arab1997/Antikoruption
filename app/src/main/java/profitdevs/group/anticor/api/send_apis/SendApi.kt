@@ -1,15 +1,13 @@
 package profitdevs.group.anticor.api.send_apis
 
+import profitdevs.group.anticor.model.getToken.GetTokenResponse
 import profitdevs.group.anticor.model.send_models.Area
 import profitdevs.group.anticor.model.send_models.Complain
 import profitdevs.group.anticor.model.send_models.Organization
 import profitdevs.group.anticor.model.send_models.Region
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 /**
  * @author Zokirjon
@@ -35,4 +33,10 @@ interface SendApi {
     suspend fun postComplain(
         @Body complain: Complain
     ): Response<Complain>
+
+    @POST("login-one/")
+    suspend fun getToken(
+        @Query("code") code:String,
+        @Query ("state") state:String,
+    ):Response<GetTokenResponse>
 }

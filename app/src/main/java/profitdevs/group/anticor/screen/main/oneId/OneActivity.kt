@@ -13,41 +13,50 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_one.*
 import profitdevs.group.anticor.screen.main.MainActivity
 import profitdevs.group.anticor.R
 import profitdevs.group.anticor.databinding.ActivityMainBinding
+import profitdevs.group.anticor.repository.SendRepository
+import profitdevs.group.anticor.screen.viewmodels.MainViewModelProviderFactory
+import profitdevs.group.anticor.screen.viewmodels.SendViewModel
+import profitdevs.group.anticor.screen.viewmodels.SendViewModelProviderFactory
 import profitdevs.group.anticor.util.utils.Prefs
 import profitdevs.group.anticor.util.utils.Status
 
 class OneActivity : AppCompatActivity() {
-    private val mainViewModel: MainViewModel by viewModels()
+    private lateinit var mainViewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
-   // var redirect_url = "http://sso.egov.uz"
-    var redirect_url = "https://anticorruption.uz/uz"
+    var redirect_url = "https://eanticor.uz/uz/api/login-one/"
     var responceType = "one_code"
     var clientId = "anticorruption.uz"
     var client_secret = "0wOQhto6c0bDKLrl28i96w=="
     var scope = "anticorruption.uz"
     var state = "0wOQhto6c0bDKLrl28i96w=="
+
     private val TAG = "Onectivity"
-// url https://id.egov.uz/
     private lateinit var prefs: SharedPreferences
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // setContentView(R.layout.activity_one)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+//        setContentView(binding.root)
+
+
+
+        val sendRepository = SendRepository()
+
+        val viewModelProviderFactory = MainViewModelProviderFactory(sendRepository)
+        mainViewModel = ViewModelProvider(this, viewModelProviderFactory)[MainViewModel::class.java]
+
         setContentView(R.layout.activity_one)
-        //prefs = PreferenceHelper.defaultPrefs(this)
-        // val url = "http://sso.egov.uz?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
-          //  val url = "http://sso.egov.uz:8443/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
-             val url = "http://sso.egov.uz:8443/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
-        //prefs.toString()
-       //prefs.all.getValue(url)
+        Hawk.init(this).build()
+        val url = "http://sso.egov.uz:8443/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
+
         Prefs.setToken(url)
+        Prefs.getToken()
         webView.webViewClient = MyWebViewClient(binding.root.context)
         webView.loadUrl(url)
         webView.settings.javaScriptEnabled = true
@@ -74,14 +83,17 @@ class OneActivity : AppCompatActivity() {
                 val index1 = url.indexOf("code=")
                 val index2 = url.indexOf("&state")
                 val code = url.substring(index1 + 5, index2)
+                val state = url.substring(index2 + 7)
 
-                mainViewModel.getCode(code).observe(this@OneActivity, {
-                    if (it.status == Status.SUCCESS) {
-                        Log.d(TAG, "shouldOverrideUrlLoading: ${it.data}")
-                        val intent = Intent(this@OneActivity, MainActivity::class.java)
-                        startActivity(intent)
-                    }
-                })
+                mainViewModel.getToken(code, state)
+
+//                mainViewModel.getCode(code, state).observe(this@OneActivity, {
+//                    if (it.status == Status.SUCCESS) {
+//                        Log.d(TAG, "shouldOverrideUrlLoading: ${it.data}")
+//                        val intent = Intent(this@OneActivity, MainActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//                })
             } else {
                 view?.loadUrl(url)
             }
@@ -89,11 +101,15 @@ class OneActivity : AppCompatActivity() {
         }
 
         override fun onReceivedSslError(
-                view: WebView?,
-                handler: SslErrorHandler,
-                error: SslError?
+            view: WebView?,
+            handler: SslErrorHandler,
+            error: SslError?
         ) {
             handler.proceed() // Ignore SSL certificate errors
         }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        Hawk.destroy()
     }
 }

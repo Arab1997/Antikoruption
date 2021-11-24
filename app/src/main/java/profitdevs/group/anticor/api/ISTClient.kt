@@ -29,7 +29,6 @@ object ISTClient {
             .create()
 
         retrofit = Retrofit.Builder()
-          // .baseUrl("http://isti.uz/mobiles/")
            .baseUrl(BASE_URL)
             .client(getOkHttpClient(context))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

@@ -3,6 +3,7 @@ package profitdevs.group.anticor.api.send_apis
 import android.os.Build
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import profitdev.group.eantikor.api.ApiServiceForRegister
 import profitdevs.group.anticor.util.utils.Constants.Companion.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -25,14 +26,18 @@ class RetrofitInstance {
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
             Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl("https://eanticor.uz/uz/api/")
                 .addConverterFactory(GsonConverterFactory.create())
-//                .client(getOkHttpClient())
+//              .client(getOkHttpClient())
                 .build()
         }
 
         val api: SendApi by lazy {
             retrofit.create(SendApi::class.java)
+        }
+
+        val apiRegister: ApiServiceForRegister by lazy {
+            retrofit.create(ApiServiceForRegister::class.java)
         }
 
         private fun getOkHttpClient(): OkHttpClient {

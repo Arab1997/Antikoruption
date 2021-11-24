@@ -9,25 +9,27 @@ import profitdevs.group.anticor.util.utils.NetworkHelper
 import profitdevs.group.anticor.util.utils.Resource
 import profitdev.group.eantikor.api.ApiHelperForRegister
 import profitdev.group.eantikor.model.OneIdResponce
+import profitdevs.group.anticor.App
+import profitdevs.group.anticor.api.send_apis.RetrofitInstance
 import javax.inject.Inject
 
+class MainViewModel : ViewModel() {
+    private val networkHelper: NetworkHelper = NetworkHelper()
+    private val apiHelperForRegister: ApiHelperForRegister by lazy{ ApiHelperForRegister(
+        RetrofitInstance.apiRegister) }
 
-@HiltViewModel
-class MainViewModel @Inject constructor(
-    private val networkHelper: NetworkHelper,
-    private val apiHelperForRegister: ApiHelperForRegister
-) : ViewModel() {
-
-    fun getCode(code1: String): MutableLiveData<Resource<OneIdResponce>> {
+    fun getCode(code: String, state: String): MutableLiveData<Resource<OneIdResponce>> {
         val codeData = MutableLiveData<Resource<OneIdResponce>>()
         viewModelScope.launch {
             codeData.postValue(Resource.loading(null))
-            if (networkHelper.isNetworkConnected()) {
-                apiHelperForRegister.getAuthData(code1).let {
+            if (networkHelper.isNetworkConnected(App.app)) {
+                apiHelperForRegister.getAuthData(code, state).let {
                     if (it.isSuccessful) {
                         codeData.postValue(Resource.success(it.body()))
 
-                    } else codeData.postValue(Resource.error(it.errorBody().toString(), null))
+                    } else {
+                        codeData.postValue(Resource.error(it.errorBody().toString(), null))
+                    }
                 }
             } else codeData.postValue(Resource.error("No internet connection", null))
         }

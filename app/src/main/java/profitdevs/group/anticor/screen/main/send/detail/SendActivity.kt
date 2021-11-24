@@ -21,7 +21,8 @@ import profitdevs.group.anticor.repository.SendRepository
 import profitdevs.group.anticor.screen.viewmodels.SendViewModel
 import profitdevs.group.anticor.screen.viewmodels.SendViewModelProviderFactory
 
-class SendActivity : BaseActivity() {
+class
+SendActivity : BaseActivity() {
     override fun getLayout(): Int = R.layout.activity_category_details
     lateinit var viewModel: SendViewModel
 

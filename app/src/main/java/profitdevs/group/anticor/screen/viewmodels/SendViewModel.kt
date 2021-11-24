@@ -1,8 +1,10 @@
 package profitdevs.group.anticor.screen.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import profitdevs.group.anticor.model.send_models.Area
 import profitdevs.group.anticor.model.send_models.Complain
@@ -46,5 +48,18 @@ class SendViewModel(
 
     fun postComplain(complain: Complain) = viewModelScope.launch {
         sendRepository.postComplain(complain)
+    }
+
+
+
+    fun getToken(code: String, state: String) {
+       viewModelScope.launch(context = Dispatchers.IO) {
+           val data = sendRepository.getToken(code, state)
+
+           if (data.isSuccessful) {
+               Log.d("SendViewModelTAG", "getToken: ${data.body()?.token}")
+           }
+
+       }
     }
 }

@@ -8,11 +8,11 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Suppress("DEPRECATION")
-@Singleton
-class NetworkHelper @Inject constructor(@ApplicationContext private val context: Context) {
+//@Suppress("DEPRECATION")
+//@Singleton
+class NetworkHelper{
 
-    fun isNetworkConnected(): Boolean {
+    fun isNetworkConnected(context: Context): Boolean {
         var result = false
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

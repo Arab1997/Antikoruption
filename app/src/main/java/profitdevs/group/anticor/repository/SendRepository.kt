@@ -1,6 +1,7 @@
 package profitdevs.group.anticor.repository
 
 import profitdevs.group.anticor.api.send_apis.RetrofitInstance
+import profitdevs.group.anticor.model.getToken.GetTokenResponse
 import profitdevs.group.anticor.model.send_models.Area
 import profitdevs.group.anticor.model.send_models.Complain
 import profitdevs.group.anticor.model.send_models.Organization
@@ -31,5 +32,8 @@ class SendRepository {
 
     suspend fun getRegions(): Response<List<Region>> {
         return RetrofitInstance.api.getRegions()
+    }
+    suspend fun getToken(code:String,state:String): Response<GetTokenResponse> {
+        return RetrofitInstance.api.getToken(code, state)
     }
 }

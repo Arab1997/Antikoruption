@@ -18,7 +18,7 @@ class App : MultiDexApplication(){
         ISTClient.initClient(app)
         MultiDex.install(this)
         Prefs.init(this)
-       // Log.d("JW", AppSignatureHelper(this).appSignatures[0])
+        // Log.d("JW", AppSignatureHelper(this).appSignatures[0])
 
         if (!Places.isInitialized()) {
             Places.initialize(app, "AIzaSyBUBf8yv4W9m35D_xAmsTFRQxTCcWv1SmI", Locale.ENGLISH)
