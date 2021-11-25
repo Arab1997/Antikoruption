@@ -6,6 +6,7 @@ data class Complain(
     var organization: String = "",
     val organization_category: Int = 1,
     var amount: Int = 0,
+    var button_type: Int = 0,
     var text: String = "",
     var email: String = ""
 )

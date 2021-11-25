@@ -102,4 +102,19 @@
     <string name="russkiy">Русский</string>
     <string name="shaxsturi">Шахс турини танланг</string>
     <string name="todo">TODO</string>
+    <string name="fiz_litso">Физ. лицо</string>
+    <string name="sum">Валюта / Сум</string>
+    <string name="shaharlar">Shaharlar</string>
+    <string name="қутв">Yuborish</string>
+    <string name="error">Hatolik, qayta urinib ko\'ring</string>
+    <string name="savol1">Korrupsiya nima ?</string>
+    <string name="javob1">korruptsiya-bu shaxsning kariyerasini yoki xizmatidan yoki boshqa shaxslarning manfaatlaridan moddiy yoki nomoddiy foyda olish va bunday imtiyozlarni noqonuniy ravishda berish maqsadida noqonuniy foydalanishdir. Manba: O\'zbekiston Respublikasining korrupsiyaga qarshi kurashish to'g'risidagi qonuni</string>
+    <string name="korish">Ko\'rish</string>
+    <string name="savol2">Korruptsion jinoyatlar nimani o\'z ichiga oladi?</string>
+    <string name="javob2">korrupsiya alomatlariga ega bo\'lgan, sodir etilganligi uchun qonun hujjatlarida javobgarlik nazarda tutilgan qilmish korrupsiyaga oid huquqbuzarlik hisoblanadi. Manba: O\'zbekiston Respublikasining "korrupsiyaga qarshi kurashish to\'g\'risida\"gi Qonuni</string>
+    <string name="savol3">Korrupsiya bilan bog\'liq huquqbuzarliklarning bir qismi nima?</string>
+    <string name="javob3">korrupsiya belgilariga ega bo\'lgan holda, qonunchilikda uning bajarilishi uchun javobgarlikni nazarda tutuvchi harakat korruptsiya xarakterining buzilishi hisoblanadi.</string>
+    <string name="savol4">Manfaatlar to‘qnashuviga duch kelganda davlat xizmatchisi qanday yo‘l tutishi lozim?</string>
+    <string name="javob4">davlat xizmatchilari o‘z rahbarini yoxud huquqni muhofaza qiluvchi organlarini ularni huquqbuzarliklar sodir etishga og‘dirish maqsadida biror-bir shaxslarning qilgan murojaatlarining barcha holatlari to‘g‘risida, shuningdek boshqa davlat xizmatchilari tomonidan sodir etilgan huquqbuzarliklarning o‘zlariga ma’lum bo‘lgan har qanday holatlari haqida xabardor qilishi shart. Manba: Vazirlar Maxkamasining 2016-yil 2-martdagi 62-sonli Qarori</string>
+    <string name="_1_4">1....4</string>
 </resources>

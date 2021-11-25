@@ -5,10 +5,6 @@ import okhttp3.Request
 import okhttp3.Response
 import profitdevs.group.anticor.util.utils.Prefs
 
-/**
- * @author Zokirjon
- * @date 11/23/2021
- */
 class AppInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()

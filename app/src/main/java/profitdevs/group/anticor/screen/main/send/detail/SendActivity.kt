@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.blankj.utilcode.util.NetworkUtils
 import es.dmoral.toasty.Toasty
-import kotlinx.android.synthetic.main.activity_category_details.*
+import kotlinx.android.synthetic.main.send_activity.*
 import org.greenrobot.eventbus.EventBus
 import profitdevs.group.anticor.base.BaseActivity
 import profitdevs.group.anticor.R
@@ -23,7 +23,7 @@ import profitdevs.group.anticor.screen.viewmodels.SendViewModelProviderFactory
 
 class
 SendActivity : BaseActivity() {
-    override fun getLayout(): Int = R.layout.activity_category_details
+    override fun getLayout(): Int = R.layout.send_activity
     lateinit var viewModel: SendViewModel
     private var areas: MutableList<Area> = mutableListOf()
     private var regions: MutableList<Region> = mutableListOf()
@@ -40,6 +40,7 @@ SendActivity : BaseActivity() {
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(SendViewModel::class.java)
 
         viewModel.getRegions()
+
         viewModel.regions.observe(this, { response ->
             if (response.isSuccessful) {
                 regions.addAll(response.body()!!)
@@ -147,6 +148,7 @@ SendActivity : BaseActivity() {
         send.setOnClickListener {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
+                complain.button_type = button_type.text.toString().toInt()
                 complain.text = edComment.text.toString()
                 viewModel.postComplain(complain)
                 Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
@@ -157,15 +159,12 @@ SendActivity : BaseActivity() {
 
     }
 
-    private fun fetchData() {
-
-    }
-
     private fun validate(): Boolean {
         if (
             amount.text.isNullOrEmpty() ||
             currency.text.isNullOrEmpty() ||
             edComment.text.isNullOrEmpty() ||
+            button_type.text.isNullOrEmpty() ||
             is_individual.text.isNullOrEmpty()
         ) {
             return false

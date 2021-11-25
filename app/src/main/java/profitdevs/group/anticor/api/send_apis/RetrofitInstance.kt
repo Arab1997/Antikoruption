@@ -14,10 +14,6 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509TrustManager
 
-/**
- * @author Zokirjon
- * @date 11/17/2021
- */
 class RetrofitInstance {
 
     companion object {
