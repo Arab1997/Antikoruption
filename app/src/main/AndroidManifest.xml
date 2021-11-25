@@ -20,7 +20,6 @@
         <activity android:name="profitdevs.group.anticor.screen.main.asosiy.AsosiyActivity" />
         <activity android:name="profitdevs.group.anticor.screen.main.oneId.OneActivity" />
         <activity android:name="profitdevs.group.anticor.screen.main.aboutapp.AboutAppActivity" />
-        <activity android:name="profitdevs.group.anticor.screen.main.faq.edit.ProfileEditActivity" />
 
         <activity
             android:name=".screen.main.MainActivity"

@@ -17,7 +17,6 @@ class AppInterceptor : Interceptor {
         builder.header("Connection", "close")
         builder.header("X-MobileLang", Prefs.getLang())
         builder.header("X-Mobile-Type", "android")
-//        builder.addHeader("Authorization", Credentials.basic(Client.username, Client.password))
         if (!Prefs.getToken().isEmpty()) {
             builder.addHeader("token", Prefs.getToken())
         }

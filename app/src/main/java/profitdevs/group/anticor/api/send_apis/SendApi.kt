@@ -1,10 +1,12 @@
 package profitdevs.group.anticor.api.send_apis
 
+import io.reactivex.Observable
 import profitdevs.group.anticor.model.getToken.GetTokenResponse
 import profitdevs.group.anticor.model.send_models.Area
 import profitdevs.group.anticor.model.send_models.Complain
 import profitdevs.group.anticor.model.send_models.Organization
 import profitdevs.group.anticor.model.send_models.Region
+import profitdevs.group.anticor.util.utils.Prefs
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -29,7 +31,7 @@ interface SendApi {
     //https://eanticor.uz/uz/api/login-one/
     @POST("ref/appeal/")
     suspend fun postComplain(
-        @Body complain: Complain
+        @Body complain: Complain, @Query("token") token: String = Prefs.getToken()
     ): Response<Complain>
 
    //https://eanticor.uz/ru/api/login-one/

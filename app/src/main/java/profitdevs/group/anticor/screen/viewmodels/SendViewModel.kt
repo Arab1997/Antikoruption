@@ -11,6 +11,7 @@ import profitdevs.group.anticor.model.send_models.Complain
 import profitdevs.group.anticor.model.send_models.Organization
 import profitdevs.group.anticor.model.send_models.Region
 import profitdevs.group.anticor.repository.SendRepository
+import profitdevs.group.anticor.util.utils.Prefs
 import retrofit2.Response
 
 /**
@@ -50,7 +51,6 @@ class SendViewModel(
         sendRepository.postComplain(complain)
     }
 
-
 //getToken: bbb55f1973b3619d4843d21a41822f3588b6d58c
     fun getToken(code: String, state: String) {
        viewModelScope.launch(context = Dispatchers.IO) {
@@ -58,6 +58,8 @@ class SendViewModel(
 
            if (data.isSuccessful) {
                Log.d("SendViewModelTAG", "getToken: ${data.body()?.token}")
+               Prefs.getToken()
+               Log.d("savetoken",  Prefs.getToken())
            }
 
        }

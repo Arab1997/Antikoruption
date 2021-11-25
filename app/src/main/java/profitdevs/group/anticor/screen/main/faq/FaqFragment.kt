@@ -1,4 +1,4 @@
-package profitdev.group.eantikor.screen.main.faq
+package profitdevs.group.anticor.screen.main.faq
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog

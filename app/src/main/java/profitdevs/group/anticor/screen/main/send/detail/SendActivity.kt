@@ -156,9 +156,7 @@ SendActivity : BaseActivity() {
                 Toasty.error(this, "Error", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
-
     private fun validate(): Boolean {
         if (
             amount.text.isNullOrEmpty() ||

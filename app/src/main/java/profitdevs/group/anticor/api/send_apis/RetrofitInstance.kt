@@ -1,8 +1,10 @@
 package profitdevs.group.anticor.api.send_apis
 
 import android.os.Build
+import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import profitdevs.group.anticor.BuildConfig
 import profitdevs.group.anticor.api.ApiServiceForRegister
 import profitdevs.group.anticor.util.utils.Constants.Companion.BASE_URL
 import retrofit2.Retrofit
@@ -25,7 +27,7 @@ class RetrofitInstance {
                 //.baseUrl("https://eanticor.uz/ru/api/")
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
-//              .client(getOkHttpClient())
+                .client(getOkHttpClient())
                 .build()
         }
 
@@ -43,9 +45,9 @@ class RetrofitInstance {
             builder.connectTimeout(60, TimeUnit.SECONDS)
             builder.writeTimeout(60, TimeUnit.SECONDS)
             builder.readTimeout(60, TimeUnit.SECONDS)
-            /* if (BuildConfig.DEBUG) {
-                 builder.addInterceptor(ChuckInterceptor(context))
-             }*/
+//             if (BuildConfig.DEBUG) {
+//                 builder.addInterceptor(ChuckInterceptor(context))
+//             }
             builder.addInterceptor(AppInterceptor())
             builder = enableTls12OnPreLollipop(builder)
 

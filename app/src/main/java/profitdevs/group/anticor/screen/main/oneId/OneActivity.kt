@@ -39,7 +39,6 @@ class OneActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         val sendRepository = SendRepository()
-
         val viewModelProviderFactory = SendViewModelProviderFactory(sendRepository)
         sendViewModel = ViewModelProvider(this, viewModelProviderFactory)[SendViewModel::class.java]
 
@@ -81,6 +80,19 @@ class OneActivity : AppCompatActivity() {
                 val state = url.substring(index2 + 7)
 
                 sendViewModel.getToken(code, state)
+                Prefs.getToken()
+                Log.d("savetoken",  Prefs.getToken())
+
+//                sendViewModel.getToken(code, state).observe(this, Observer {
+//                    if (it != null){
+//                        Prefs.setToken(it.token)
+//                        startClearActivity<MainActivity>()
+//                        finish()
+//                    }
+//                })
+
+
+
 
 //                mainViewModel.getCode(code, state).observe(this@OneActivity, {
 //                    if (it.status == Status.SUCCESS) {

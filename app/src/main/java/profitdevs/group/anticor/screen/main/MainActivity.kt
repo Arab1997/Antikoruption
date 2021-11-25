@@ -21,7 +21,7 @@ import profitdevs.group.anticor.base.startClearActivity
 import profitdevs.group.anticor.screen.main.asosiy.AsosiyActivity
 import profitdevs.group.anticor.screen.main.aboutapp.AboutAppActivity
 import profitdevs.group.anticor.screen.main.statistic.StatisticFragment
-import profitdev.group.eantikor.screen.main.faq.FaqFragment
+import profitdevs.group.anticor.screen.main.faq.FaqFragment
 import profitdevs.group.anticor.R
 import profitdevs.group.anticor.screen.main.category.CategoryFragment
 import profitdevs.group.anticor.screen.main.oneId.OneActivity
