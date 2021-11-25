@@ -26,6 +26,7 @@ class SendViewModel(
     val areas: MutableLiveData<Response<List<Area>>> = MutableLiveData()
     val organizations: MutableLiveData<Response<List<Organization>>> = MutableLiveData()
     val regionsById: MutableLiveData<Response<Region>> = MutableLiveData()
+    val complains: MutableLiveData<Response<Complain>> = MutableLiveData()
 
     fun getRegions() = viewModelScope.launch {
         val response = sendRepository.getRegions()
@@ -48,7 +49,8 @@ class SendViewModel(
     }
 
     fun postComplain(complain: Complain) = viewModelScope.launch {
-        sendRepository.postComplain(complain)
+        val response = sendRepository.postComplain(complain)
+        complains.postValue(response)
     }
 
 //getToken: bbb55f1973b3619d4843d21a41822f3588b6d58c

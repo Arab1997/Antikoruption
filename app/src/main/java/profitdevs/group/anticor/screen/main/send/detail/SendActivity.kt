@@ -135,7 +135,7 @@ SendActivity : BaseActivity() {
                         id: Long
                     ) {
                         org = orgs[position]
-                        complain.organization = org.name
+                        complain.organization = position
                     }
 
                     override fun onNothingSelected(parent: AdapterView<*>) {}
@@ -145,13 +145,20 @@ SendActivity : BaseActivity() {
             }
         })
 
+        viewModel.complains.observe(this, { response ->
+            if (response.isSuccessful) {
+                Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
+            } else {
+                Toasty.warning(this, response.code().toString(), Toast.LENGTH_SHORT).show()
+            }
+        })
+
         send.setOnClickListener {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
                 complain.button_type = button_type.text.toString().toInt()
                 complain.text = edComment.text.toString()
                 viewModel.postComplain(complain)
-                Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
             } else {
                 Toasty.error(this, "Error", Toast.LENGTH_SHORT).show()
             }

@@ -29,7 +29,7 @@ interface SendApi {
     suspend fun getRegions(): Response<List<Region>>
 
     //https://eanticor.uz/uz/api/login-one/
-    @POST("ref/appeal/")
+    @POST("appeal/")
     suspend fun postComplain(
         @Body complain: Complain, @Query("token") token: String = Prefs.getToken()
     ): Response<Complain>

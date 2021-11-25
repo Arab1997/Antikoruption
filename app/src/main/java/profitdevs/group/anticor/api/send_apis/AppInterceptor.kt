@@ -17,7 +17,7 @@ class AppInterceptor : Interceptor {
         builder.header("Connection", "close")
         builder.header("X-MobileLang", Prefs.getLang())
         builder.header("X-Mobile-Type", "android")
-        if (!Prefs.getToken().isEmpty()) {
+        if (Prefs.getToken().isNotEmpty()) {
             builder.addHeader("token", Prefs.getToken())
         }
         builder.method(original.method, original.body)
