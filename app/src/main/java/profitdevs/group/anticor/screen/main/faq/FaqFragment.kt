@@ -1,14 +1,14 @@
 package profitdev.group.eantikor.screen.main.faq
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.bottomsheet_language.view.*
 import kotlinx.android.synthetic.main.fragment_profile.*
-import profitdev.group.eantikor.base.BaseFragment
-import profitdev.group.eantikor.base.startActivity
-import profitdev.group.eantikor.base.startClearTopActivity
-import profitdevs.group.anticor.screen.main.MainViewModel
+import profitdevs.group.anticor.base.BaseFragment
+import profitdevs.group.anticor.base.startActivity
+import profitdevs.group.anticor.base.startClearTopActivity
 import profitdevs.group.anticor.screen.main.savollar.SavollarActivity
 import profitdevs.group.anticor.screen.main.splash.SplashActivity
 import profitdevs.group.anticor.R
@@ -21,24 +21,14 @@ import profitdevs.group.anticor.util.utils.Prefs
 @Suppress("DEPRECATION")
 class FaqFragment : BaseFragment() {
     override fun getLayout(): Int = R.layout.fragment_profile
-    lateinit var viewModel: MainViewModel
 
+    @SuppressLint("InflateParams")
     override fun setupViews() {
-       /* viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        val user = Prefs.getClientInfo()*/
-
-        /*tvPersonName.text = user?.name
-        tvPhone.text = user?.phone*/
-
         lyProfile.setOnClickListener {
             getBaseActivity {
-               // it.startActivity<ProfileEditActivity>()
                 it.startActivity<SavollarActivity>()
-
-
             }
         }
-
 
         lyLanguage.setOnClickListener {
             getBaseActivity {base ->
@@ -55,11 +45,9 @@ class FaqFragment : BaseFragment() {
                     setNewLocale(base,"en")
                     bottomSheetDialog.dismiss()
                 }
-
                 bottomSheetDialog.show()
             }
         }
-
 
         lyLogout.setOnClickListener {
             val builder = AlertDialog.Builder(activity)
@@ -72,18 +60,13 @@ class FaqFragment : BaseFragment() {
                 }
             }
             builder.setNegativeButton(android.R.string.no) { _, _ ->
-                //
+
             }
             builder.show()
         }
     }
-
     override fun loadData() {
-
     }
-
     override fun setData() {
-
     }
-
 }

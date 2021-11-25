@@ -1,10 +1,10 @@
-package profitdev.group.eantikor.api
+package profitdevs.group.anticor.api
 
 
 import retrofit2.Response
 import retrofit2.http.POST
 import retrofit2.http.Query
-import profitdev.group.eantikor.model.OneIdResponce
+import profitdevs.group.anticor.model.OneIdResponce
 
 interface ApiServiceForRegister {
 

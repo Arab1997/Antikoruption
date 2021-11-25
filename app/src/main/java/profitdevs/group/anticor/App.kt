@@ -3,14 +3,13 @@ package profitdevs.group.anticor
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
 import com.google.android.libraries.places.api.Places
-import profitdev.group.eantikor.api.ISTClient
+import profitdevs.group.anticor.api.ISTClient
 import profitdevs.group.anticor.util.utils.Prefs
 import java.util.*
 
 class App : MultiDexApplication(){
     companion object{
         lateinit var app: App
-        var imageBaseUrl = ""
     }
     override fun onCreate() {
         super.onCreate()

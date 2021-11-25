@@ -6,7 +6,6 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
-import profitdev.group.eantikor.base.BaseFragment
 import profitdevs.group.anticor.util.utils.Prefs
 import profitdevs.group.anticor.R
 import profitdevs.group.anticor.view.custom.NotConnectionFragment

@@ -1,8 +1,7 @@
-package profitdev.group.eantikor.api
+package profitdevs.group.anticor.api
 
 import retrofit2.Response
-import profitdev.group.eantikor.model.OneIdResponce
-import javax.inject.Inject
+import profitdevs.group.anticor.model.OneIdResponce
 
 class ApiHelperForRegister constructor(private val apiServiceForRegister: ApiServiceForRegister) {
 

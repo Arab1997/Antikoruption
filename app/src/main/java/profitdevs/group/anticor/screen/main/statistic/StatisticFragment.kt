@@ -9,7 +9,7 @@ import android.webkit.SslErrorHandler
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.fragment_statistic.*
-import profitdev.group.eantikor.base.BaseFragment
+import profitdevs.group.anticor.base.BaseFragment
 import profitdevs.group.anticor.R
 
 class StatisticFragment : BaseFragment() {

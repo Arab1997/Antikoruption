@@ -1,4 +1,4 @@
-package profitdev.group.eantikor.api
+package profitdevs.group.anticor.api
 
 import android.content.Context
 import android.os.Build
@@ -87,7 +87,7 @@ object ISTClient {
         }
 
         fun getRequest(original: Request): Request {
-            var builder = original.newBuilder()
+            val builder = original.newBuilder()
             builder.addHeader("Content-Type", "application/json")
             builder.header("Connection", "close")
             builder.method(original.method, original.body)

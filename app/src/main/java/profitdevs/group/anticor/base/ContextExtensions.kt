@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package profitdev.group.eantikor.base
+package profitdevs.group.anticor.base
 
 import android.app.Activity
 import android.content.Context
@@ -61,7 +61,7 @@ inline fun <reified T : Activity> Context.startActivity() =
         this.startActivity(newIntent<T>())
 
 inline fun <reified T : Activity> Context.startActivity(key: String, value: String) {
-    var intent = newIntent<T>(key, value)
+    val intent = newIntent<T>(key, value)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     this.startActivity(intent)
 }
@@ -112,19 +112,19 @@ fun Context.startActivityToShareText(sharedText: String) {
 }
 
 inline fun <reified T : Activity> Context.startActivityNewTask() {
-    var intent = newIntent<T>()
+    val intent = newIntent<T>()
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     this.startActivity(intent)
 }
 
 inline fun <reified T : Activity> Context.startActivityNewTask(key: String, value: Serializable) {
-    var intent = newIntent<T>(key, value)
+    val intent = newIntent<T>(key, value)
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     this.startActivity(intent)
 }
 
 inline fun <reified T : Activity> Context.startClearActivity() {
-    var intent = newIntent<T>()
+    val intent = newIntent<T>()
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
     this.startActivity(intent)
 }

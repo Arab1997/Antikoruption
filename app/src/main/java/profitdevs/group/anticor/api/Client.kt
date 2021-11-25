@@ -1,4 +1,4 @@
-package profitdev.group.eantikor.api
+package profitdevs.group.anticor.api
 
 import android.os.Build
 import com.google.gson.GsonBuilder
@@ -98,7 +98,7 @@ object Client {
         }
 
         fun getRequest(original: Request): Request {
-            var builder = original.newBuilder()
+            val builder = original.newBuilder()
             builder.addHeader("Content-Type", "application/json")
             builder.header("Connection", "close")
             builder.header("X-MobileLang", Prefs.getLang())

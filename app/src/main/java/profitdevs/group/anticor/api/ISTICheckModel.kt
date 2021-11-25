@@ -1,4 +1,4 @@
-package profitdev.group.eantikor.api
+package profitdevs.group.anticor.api
 
 data class ISTICheckModel(
     val ipaddress: String,

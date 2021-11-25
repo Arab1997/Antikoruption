@@ -25,7 +25,6 @@ class
 SendActivity : BaseActivity() {
     override fun getLayout(): Int = R.layout.activity_category_details
     lateinit var viewModel: SendViewModel
-
     private var areas: MutableList<Area> = mutableListOf()
     private var regions: MutableList<Region> = mutableListOf()
     private lateinit var region: Region
@@ -35,9 +34,7 @@ SendActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val complain = Complain()
-
         val sendRepository = SendRepository()
         val viewModelProviderFactory = SendViewModelProviderFactory(sendRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(SendViewModel::class.java)
@@ -178,7 +175,9 @@ SendActivity : BaseActivity() {
     }
 
     override fun initViews() {
-
+        imgBackk.setOnClickListener {
+            finish()
+        }
         NetworkUtils.registerNetworkStatusChangedListener(object :
             NetworkUtils.OnNetworkStatusChangedListener {
             override fun onConnected(networkType: NetworkUtils.NetworkType?) {
@@ -190,9 +189,7 @@ SendActivity : BaseActivity() {
                 showConnection(notConnection = true)
             }
         })
-
     }
-
     override fun loadData() {
 
     }

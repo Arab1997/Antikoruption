@@ -1,4 +1,4 @@
-package profitdev.group.eantikor.api
+package profitdevs.group.anticor.api
 
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.stream.MalformedJsonException
@@ -14,7 +14,6 @@ abstract class CallbackWrapper<T>(private val error: MutableLiveData<String>): D
     override fun onComplete() {
 
     }
-
     protected abstract fun onSuccess(t: T)
 
     override fun onNext(t: T) {
@@ -42,7 +41,7 @@ abstract class CallbackWrapper<T>(private val error: MutableLiveData<String>): D
             is KotlinNullPointerException -> error.value = "KotlinNullPointerException"
             is CompositeException -> {
                 if (e.exceptions.size > 0) {
-                    var innerException = e.exceptions[0]
+                    val innerException = e.exceptions[0]
                     onError(innerException)
                 }
             }

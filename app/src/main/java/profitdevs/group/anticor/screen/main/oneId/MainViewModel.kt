@@ -4,17 +4,15 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import profitdevs.group.anticor.util.utils.NetworkHelper
 import profitdevs.group.anticor.util.utils.Resource
-import profitdev.group.eantikor.api.ApiHelperForRegister
-import profitdev.group.eantikor.model.OneIdResponce
+import profitdevs.group.anticor.api.ApiHelperForRegister
+import profitdevs.group.anticor.model.OneIdResponce
 import profitdevs.group.anticor.App
 import profitdevs.group.anticor.api.send_apis.RetrofitInstance
 import profitdevs.group.anticor.repository.SendRepository
-import javax.inject.Inject
 
 class MainViewModel(   val sendRepository: SendRepository) : ViewModel() {
     private val networkHelper: NetworkHelper = NetworkHelper()
@@ -38,6 +36,7 @@ class MainViewModel(   val sendRepository: SendRepository) : ViewModel() {
         return codeData
     }
 
+//https://eanticor.uz/uz/api/login-one/?code=65ae7161-adae-4374-b2e1-c92adae9a37e&state=0wOQhto6c0bDKLrl28i96w==
 
     fun getToken(code: String, state: String) {
         viewModelScope.launch(context = Dispatchers.IO) {

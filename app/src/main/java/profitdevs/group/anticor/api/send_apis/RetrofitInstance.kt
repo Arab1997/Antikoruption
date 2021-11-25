@@ -3,7 +3,7 @@ package profitdevs.group.anticor.api.send_apis
 import android.os.Build
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import profitdev.group.eantikor.api.ApiServiceForRegister
+import profitdevs.group.anticor.api.ApiServiceForRegister
 import profitdevs.group.anticor.util.utils.Constants.Companion.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,7 +26,8 @@ class RetrofitInstance {
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
             Retrofit.Builder()
-                .baseUrl("https://eanticor.uz/uz/api/")
+                //.baseUrl("https://eanticor.uz/ru/api/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
 //              .client(getOkHttpClient())
                 .build()

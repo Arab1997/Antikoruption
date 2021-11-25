@@ -1,10 +1,8 @@
 package profitdevs.group.anticor.api.send_apis
 
-import okhttp3.Credentials
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
-import profitdev.group.eantikor.api.Client
 import profitdevs.group.anticor.util.utils.Prefs
 
 /**

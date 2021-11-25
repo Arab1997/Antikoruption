@@ -8,10 +8,6 @@ import profitdevs.group.anticor.model.send_models.Organization
 import profitdevs.group.anticor.model.send_models.Region
 import retrofit2.Response
 
-/**
- * @author Zokirjon
- * @date 11/17/2021
- */
 class SendRepository {
 
     suspend fun getAreas(): Response<List<Area>> {

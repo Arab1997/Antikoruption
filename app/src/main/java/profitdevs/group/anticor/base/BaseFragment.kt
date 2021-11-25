@@ -1,11 +1,10 @@
-package profitdev.group.eantikor.base
+package profitdevs.group.anticor.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import profitdevs.group.anticor.base.BaseActivity
 import profitdevs.group.anticor.util.utils.Prefs
 
 abstract class BaseFragment : Fragment() {
@@ -19,7 +18,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     fun checkUser(): Boolean{
-        return !Prefs.getToken().isNullOrEmpty()
+        return !Prefs.getToken().isEmpty()
     }
 
 

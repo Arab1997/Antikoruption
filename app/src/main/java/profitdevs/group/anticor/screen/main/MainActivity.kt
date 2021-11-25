@@ -6,10 +6,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.view.MenuItem
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.blankj.utilcode.util.NetworkUtils
@@ -19,8 +16,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottomsheet_language.view.*
 import org.greenrobot.eventbus.EventBus
 import profitdevs.group.anticor.base.BaseActivity
-import profitdev.group.eantikor.base.startActivity
-import profitdev.group.eantikor.base.startClearActivity
+import profitdevs.group.anticor.base.startActivity
+import profitdevs.group.anticor.base.startClearActivity
 import profitdevs.group.anticor.screen.main.asosiy.AsosiyActivity
 import profitdevs.group.anticor.screen.main.aboutapp.AboutAppActivity
 import profitdevs.group.anticor.screen.main.statistic.StatisticFragment
@@ -37,8 +34,6 @@ import profitdevs.group.anticor.util.utils.Prefs
 @Suppress("DEPRECATION")
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun getLayout(): Int = R.layout.activity_main
-   // lateinit var viewModel: MainViewModel
-    private val mainViewModel: MainViewModel by viewModels()
     val home = CategoryFragment()
     val staticFragment = StatisticFragment()
     val faqFragment = FaqFragment()
@@ -129,19 +124,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         imgMore.setOnClickListener {
             drawer.openDrawer(GravityCompat.START)
         }
-
-        //tvTitle.text = getString(R.string.title)
         one_id.setOnClickListener {
             startActivity<OneActivity>()
         }
 
         call.setOnClickListener {
-          /*  startActivity<OneActivity>()*/
             callPhone()
         }
-        /*imgSearch.setOnClickListener {
-            startActivity<SearchProductActivity>()
-        }*/
 
         if (intent.hasExtra(Constants.EXTRA_DATA_START_FRAGMENT)) {
             nav_bottom.selectedItemId =
@@ -150,9 +139,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         if (nav_bottom.selectedItemId == R.id.category) {
             pushFragment(R.id.container, home)
         }
-
-        // setClientDataNav()
-
         NetworkUtils.registerNetworkStatusChangedListener(object :
             NetworkUtils.OnNetworkStatusChangedListener {
             override fun onConnected(networkType: NetworkUtils.NetworkType?) {
@@ -167,13 +153,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     override fun loadData() {
-
     }
 
     override fun onBackPressed() {
         finish()
     }
-
 
     override fun initData() {
 
@@ -183,10 +167,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     }
 
+    @SuppressLint("InflateParams")
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-       /* if (p0.itemId == R.id.actionNews) {
-          //  startActivity<NewsActivity>()
-        } else*/
             if (p0.itemId == R.id.actionShareApp) {
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
@@ -226,7 +208,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 startClearActivity<SplashActivity>()
                 finish()
             }
-
             bottomSheetDialog.show()
         } else {
             startActivity<AboutAppActivity>()
@@ -241,64 +222,22 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             EventBus.getDefault().unregister(this)
         }
     }
-
-    fun checkPermission() {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.CALL_PHONE
-            )
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-
-            // Permission is not granted
-            // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    this,
-                    android.Manifest.permission.CALL_PHONE
-                )
-            ) {
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-            } else {
-                // No explanation needed, we can request the permission.
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(android.Manifest.permission.CALL_PHONE),
-                    42
-                )
-            }
-        } else {
-            // Permission has already been granted
-            callPhone()
-        }
-    }
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 42) {
-            // If request is cancelled, the result arrays are empty.
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                // permission was granted, yay!
                 callPhone()
             } else {
-                // permission denied, boo! Disable the
-                // functionality
             }
             return
         }
     }
-
     @SuppressLint("MissingPermission")
     fun callPhone() {
         val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "1007 "))
         startActivity(intent)
     }
-
-
-
-
 }

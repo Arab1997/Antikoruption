@@ -51,7 +51,7 @@ class SendViewModel(
     }
 
 
-
+//getToken: bbb55f1973b3619d4843d21a41822f3588b6d58c
     fun getToken(code: String, state: String) {
        viewModelScope.launch(context = Dispatchers.IO) {
            val data = sendRepository.getToken(code, state)

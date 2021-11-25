@@ -1,4 +1,4 @@
-package profitdev.group.eantikor.model
+package profitdevs.group.anticor.model
 
 data class LoginConfirmResponse(
     val token: String,

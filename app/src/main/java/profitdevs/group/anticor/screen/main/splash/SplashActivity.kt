@@ -2,13 +2,12 @@ package profitdevs.group.anticor.screen.main.splash
 
 import android.os.CountDownTimer
 import profitdevs.group.anticor.base.BaseActivity
-import profitdev.group.eantikor.base.startClearTopActivity
+import profitdevs.group.anticor.base.startClearTopActivity
 import profitdevs.group.anticor.screen.main.MainActivity
 import profitdevs.group.anticor.R
 
 class SplashActivity : BaseActivity() {
     override fun getLayout(): Int = R.layout.activity_splash
-    private lateinit var listener: () -> Unit
 
     override fun initViews() {
         object : CountDownTimer(2000, 1000) {

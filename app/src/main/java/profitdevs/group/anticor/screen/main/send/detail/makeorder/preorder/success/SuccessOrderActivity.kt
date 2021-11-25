@@ -2,9 +2,9 @@ package profitdevs.group.anticor.screen.main.send.detail.makeorder.preorder.succ
 
 import kotlinx.android.synthetic.main.activity_success_order.*
 import profitdevs.group.anticor.base.BaseActivity
-import profitdev.group.eantikor.base.startActivityToOpenUrlInBrowser
-import profitdev.group.eantikor.base.startClearActivity
-import profitdev.group.eantikor.base.startClearTopActivity
+import profitdevs.group.anticor.base.startActivityToOpenUrlInBrowser
+import profitdevs.group.anticor.base.startClearActivity
+import profitdevs.group.anticor.base.startClearTopActivity
 import profitdevs.group.anticor.screen.main.MainActivity
 import profitdevs.group.anticor.R
 import profitdevs.group.anticor.util.utils.Constants

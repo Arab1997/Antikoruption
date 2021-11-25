@@ -1,7 +1,7 @@
 package profitdevs.group.anticor.util.utils
 
 import com.orhanobut.hawk.Hawk
-import profitdev.group.eantikor.model.MobileData
+import profitdevs.group.anticor.model.MobileData
 import profitdevs.group.anticor.screen.main.MainActivity
 import profitdevs.group.anticor.App
 

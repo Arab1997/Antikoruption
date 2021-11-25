@@ -9,31 +9,30 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
-/**
- * @author Zokirjon
- * @date 11/16/2021
- */
 interface SendApi {
-
-    @GET("areas/")
+//https://eanticor.uz/ru/api/ref/areas/
+    @GET("ref/areas/")
     suspend fun getAreas(): Response<List<Area>>
-
-    @GET("organizations/")
+//https://eanticor.uz/ru/api/ref/organizations/
+    @GET("ref/organizations/")
     suspend fun getOrganizations(): Response<List<Organization>>
 
-    @GET("regions/{id}")
+    @GET("ref/regions/{id}")
     suspend fun getRegionsById(
         @Path("id") regionId: Int
     ): Response<Region>
 
-    @GET("regions/")
+    //https://eanticor.uz/ru/api/ref/regions/
+    @GET("ref/regions/")
     suspend fun getRegions(): Response<List<Region>>
 
-    @POST("appeal/")
+    //https://eanticor.uz/uz/api/login-one/
+    @POST("ref/appeal/")
     suspend fun postComplain(
         @Body complain: Complain
     ): Response<Complain>
 
+   //https://eanticor.uz/ru/api/login-one/
     @POST("login-one/")
     suspend fun getToken(
         @Query("code") code:String,

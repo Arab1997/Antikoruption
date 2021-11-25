@@ -19,10 +19,6 @@
         <activity android:name="profitdevs.group.anticor.screen.main.savollar.SavollarActivity" />
         <activity android:name="profitdevs.group.anticor.screen.main.asosiy.AsosiyActivity" />
         <activity android:name="profitdevs.group.anticor.screen.main.oneId.OneActivity" />
-        <activity
-            android:name="profitdevs.group.anticor.screen.main.news.NewsActivity"
-            android:label="@string/title_activity_news"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="profitdevs.group.anticor.screen.main.aboutapp.AboutAppActivity" />
         <activity android:name="profitdevs.group.anticor.screen.main.faq.edit.ProfileEditActivity" />
 
