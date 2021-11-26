@@ -11,7 +11,7 @@ class AppInterceptor : Interceptor {
         return chain.proceed(getRequest(original))
     }
 
-    fun getRequest(original: Request): Request {
+    private fun getRequest(original: Request): Request {
         val builder = original.newBuilder()
         builder.addHeader("Content-Type", "application/json")
         builder.header("Connection", "close")

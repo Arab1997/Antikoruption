@@ -13,16 +13,13 @@ import kotlinx.android.synthetic.main.send_activity.*
 import org.greenrobot.eventbus.EventBus
 import profitdevs.group.anticor.base.BaseActivity
 import profitdevs.group.anticor.R
-import profitdevs.group.anticor.model.send_models.Area
-import profitdevs.group.anticor.model.send_models.Complain
-import profitdevs.group.anticor.model.send_models.Organization
-import profitdevs.group.anticor.model.send_models.Region
+import profitdevs.group.anticor.model.send_models.*
 import profitdevs.group.anticor.repository.SendRepository
 import profitdevs.group.anticor.screen.viewmodels.SendViewModel
 import profitdevs.group.anticor.screen.viewmodels.SendViewModelProviderFactory
 
-class
-SendActivity : BaseActivity() {
+class SendActivity : BaseActivity() {
+
     override fun getLayout(): Int = R.layout.send_activity
     lateinit var viewModel: SendViewModel
     private var areas: MutableList<Area> = mutableListOf()
@@ -40,7 +37,6 @@ SendActivity : BaseActivity() {
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(SendViewModel::class.java)
 
         viewModel.getRegions()
-
         viewModel.regions.observe(this, { response ->
             if (response.isSuccessful) {
                 regions.addAll(response.body()!!)
@@ -135,29 +131,38 @@ SendActivity : BaseActivity() {
                         id: Long
                     ) {
                         org = orgs[position]
-                        complain.organization = position
+                        complain.organization = org.id
                     }
 
                     override fun onNothingSelected(parent: AdapterView<*>) {}
                 }
-            } else {
-                Log.d("SendActivity", response.message())
             }
         })
 
         viewModel.complains.observe(this, { response ->
-            if (response.isSuccessful) {
+            if (response.isSuccessful && response.code() == 201) {
                 Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
             } else {
-                Toasty.warning(this, response.code().toString(), Toast.LENGTH_SHORT).show()
+//                Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
+                Toasty.warning(this, response.code(), Toast.LENGTH_LONG).show()
             }
         })
+
+        button_type.setOnCheckedChangeListener { radioGroup, i ->
+            complain.button_type = i
+        }
+
+        currency.setOnCheckedChangeListener { radioGroup, i ->
+            complain.currency = i
+        }
 
         send.setOnClickListener {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
-                complain.button_type = button_type.text.toString().toInt()
+                complain.amount = button_type.checkedRadioButtonId
                 complain.text = edComment.text.toString()
+                complain.currency = 1
+
                 viewModel.postComplain(complain)
             } else {
                 Toasty.error(this, "Error", Toast.LENGTH_SHORT).show()
@@ -167,10 +172,7 @@ SendActivity : BaseActivity() {
     private fun validate(): Boolean {
         if (
             amount.text.isNullOrEmpty() ||
-            currency.text.isNullOrEmpty() ||
-            edComment.text.isNullOrEmpty() ||
-            button_type.text.isNullOrEmpty() ||
-            is_individual.text.isNullOrEmpty()
+            edComment.text.isNullOrEmpty()
         ) {
             return false
         }

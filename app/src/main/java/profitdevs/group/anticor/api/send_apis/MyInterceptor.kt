@@ -12,7 +12,7 @@ class MyInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request: Request = chain.request()
             .newBuilder()
-            .addHeader("token", "bbb55f1973b3619d4843d21a41822f3588b6d58c")
+            .addHeader("token", "aab55f1973b3619d4843d21a41822f3588b6d58c")
             .build()
 
         return chain.proceed(request)

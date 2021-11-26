@@ -116,4 +116,14 @@
     <string name="savol4">Manfaatlar to‘qnashuviga duch kelganda davlat xizmatchisi qanday yo‘l tutishi lozim?</string>
     <string name="javob4">davlat xizmatchilari o‘z rahbarini yoxud huquqni muhofaza qiluvchi organlarini ularni huquqbuzarliklar sodir etishga og‘dirish maqsadida biror-bir shaxslarning qilgan murojaatlarining barcha holatlari to‘g‘risida, shuningdek boshqa davlat xizmatchilari tomonidan sodir etilgan huquqbuzarliklarning o‘zlariga ma’lum bo‘lgan har qanday holatlari haqida xabardor qilishi shart. Manba: Vazirlar Maxkamasining 2016-yil 2-martdagi 62-sonli Qarori</string>
     <string name="_1_4">1....4</string>
+    <string name="fizLitso">Jismoniy shaxs</string>
+    <string name="yurLitso">Yuridik shaxs</string>
+    <string name="dollar">Dollar</string>
+    <string name="summ">Sum</string>
+    <string name="button1">Poraxo\'rlikka duch keldim va pora berishga majbur bo\'ldim</string>
+    <string name="button2">Poraxo\'rlikka duch keldim va pora bermadim</string>
+    <string name="button3">Pora berishga bog\'liq bo\'lmagan korrupsiyaga duch keldim</string>
+    <string name="button4">Halol ishlaydigan davlat xizmatchisini uchratdim</string>
+
+
 </resources>

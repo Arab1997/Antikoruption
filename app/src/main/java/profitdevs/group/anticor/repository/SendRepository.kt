@@ -2,10 +2,7 @@ package profitdevs.group.anticor.repository
 
 import profitdevs.group.anticor.api.send_apis.RetrofitInstance
 import profitdevs.group.anticor.model.getToken.GetTokenResponse
-import profitdevs.group.anticor.model.send_models.Area
-import profitdevs.group.anticor.model.send_models.Complain
-import profitdevs.group.anticor.model.send_models.Organization
-import profitdevs.group.anticor.model.send_models.Region
+import profitdevs.group.anticor.model.send_models.*
 import retrofit2.Response
 
 class SendRepository {

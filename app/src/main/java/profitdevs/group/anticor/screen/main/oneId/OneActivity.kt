@@ -49,7 +49,7 @@ class OneActivity : AppCompatActivity() {
         Hawk.init(this).build()
         val url = "http://sso.egov.uz:8443/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
 
-        Prefs.setToken(url)
+        Prefs.setToken(state)
         Prefs.getToken()
         webView.webViewClient = MyWebViewClient(binding.root.context)
         webView.loadUrl(url)

@@ -1,10 +1,8 @@
 package profitdevs.group.anticor.api.send_apis
 
 import android.os.Build
-import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import profitdevs.group.anticor.BuildConfig
 import profitdevs.group.anticor.api.ApiServiceForRegister
 import profitdevs.group.anticor.util.utils.Constants.Companion.BASE_URL
 import retrofit2.Retrofit
@@ -32,7 +30,7 @@ class RetrofitInstance {
                 //.baseUrl("https://eanticor.uz/ru/api/")
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
+                .client(getOkHttpClient())
                 .build()
         }
 
@@ -83,9 +81,7 @@ class RetrofitInstance {
                 }
             } else {
                 return client
-
             }
-
         }
     }
 }

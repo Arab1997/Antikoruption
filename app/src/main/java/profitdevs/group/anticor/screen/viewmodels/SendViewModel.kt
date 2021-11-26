@@ -6,10 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import profitdevs.group.anticor.model.send_models.Area
-import profitdevs.group.anticor.model.send_models.Complain
-import profitdevs.group.anticor.model.send_models.Organization
-import profitdevs.group.anticor.model.send_models.Region
+import profitdevs.group.anticor.model.send_models.*
 import profitdevs.group.anticor.repository.SendRepository
 import profitdevs.group.anticor.util.utils.Prefs
 import retrofit2.Response
@@ -59,6 +56,7 @@ class SendViewModel(
            val data = sendRepository.getToken(code, state)
 
            if (data.isSuccessful) {
+               data.body()?.token?.let { Prefs.setToken(it) }
                Log.d("SendViewModelTAG", "getToken: ${data.body()?.token}")
                Prefs.getToken()
                Log.d("savetoken",  Prefs.getToken())
