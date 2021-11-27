@@ -140,11 +140,11 @@ class SendActivity : BaseActivity() {
         })
 
         viewModel.complains.observe(this, { response ->
-            if (response.isSuccessful && response.code() == 201) {
+            if (response.isSuccessful) {
                 Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
             } else {
-//                Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
-                Toasty.warning(this, response.code(), Toast.LENGTH_LONG).show()
+                Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
+//                Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
             }
         })
 
