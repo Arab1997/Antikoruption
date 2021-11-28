@@ -125,4 +125,5 @@
     <string name="button2">Я столкнулся с взяточничеством, но не дал взятку. Я против коррупции</string>
     <string name="button3">Я столкнулся с видом коррупции не связенной с взяточничеством</string>
     <string name="button4">Я встретил честного сотрудника государственного органа</string>
+    <string name="profit_devs_group">PROFIT.DEVS.GROUP</string>
 </resources>

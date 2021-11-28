@@ -125,6 +125,7 @@
     <string name="button3">Pora berishga bog\'liq bo\'lmagan korrupsiyaga duch keldim</string>
     <string name="button4">Halol ishlaydigan davlat xizmatchisini uchratdim</string>
     <string name="javob1">korruptsiya - bu shaxsdan o\'z martabasi yoki xizmatidan moddiy yoki nomoddiy manfaatlar yoki boshqalarning manfaatlarini ko\'zlab g\'ayriqonuniy ravishda foydalanishi, shuningdek, bunday ne\'matlarni qonunga xilof ravishda taqdim etishi. Manba: O‘zbekiston Respublikasining “Korrupsiyaga qarshi kurashish to‘g‘risida”gi qonuni</string>
+    <string name="profit_devs_group">PROFIT.DEVS.GROUP</string>
 
 
 </resources>
