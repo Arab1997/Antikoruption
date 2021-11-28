@@ -15,14 +15,15 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottomsheet_language.view.*
 import org.greenrobot.eventbus.EventBus
+import profitdevs.group.anticor.BuildConfig
 import profitdevs.group.anticor.base.BaseActivity
 import profitdevs.group.anticor.base.startActivity
 import profitdevs.group.anticor.base.startClearActivity
-import profitdevs.group.anticor.screen.main.asosiy.AsosiyActivity
 import profitdevs.group.anticor.screen.main.aboutapp.AboutAppActivity
 import profitdevs.group.anticor.screen.main.statistic.StatisticFragment
 import profitdevs.group.anticor.screen.main.faq.FaqFragment
 import profitdevs.group.anticor.R
+import profitdevs.group.anticor.base.showWarning
 import profitdevs.group.anticor.screen.main.category.CategoryFragment
 import profitdevs.group.anticor.screen.main.oneId.OneActivity
 import profitdevs.group.anticor.screen.main.savollar.SavollarActivity
@@ -40,10 +41,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     override fun initViews() {
         nav_bottom.setOnNavigationItemSelectedListener { item: MenuItem ->
-             /* if (Prefs.getStore() == null){
-                  showWarning(getString(R.string.agentlik))
-                  return@setOnNavigationItemSelectedListener false
-              }*/
             return@setOnNavigationItemSelectedListener when (item.itemId) {
                 R.id.category -> {
                     one_id.visibility = View.VISIBLE
@@ -52,9 +49,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         startActivity<OneActivity>()
                     }
                     tvTitle.visibility = View.VISIBLE
-                    if (home.isAdded && home.isVisible) {
-
-                    } else {
                         hideFragments()
                         if (!home.isAdded) {
                             supportFragmentManager.beginTransaction()
@@ -65,7 +59,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                                 .show(home)
                                 .commitAllowingStateLoss()
                         }
-                    }
+
                     true
                 }
 
@@ -73,9 +67,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     one_id.visibility = View.GONE
                     toolbar.visibility = View.VISIBLE
                     tvTitle.visibility = View.VISIBLE
-                    if (staticFragment.isAdded && staticFragment.isVisible) {
-
-                    } else {
                         hideFragments()
                         if (!staticFragment.isAdded) {
                             supportFragmentManager.beginTransaction()
@@ -86,7 +77,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                                 .show(staticFragment)
                                 .commitAllowingStateLoss()
                         }
-                    }
+
                     true
                 }
                 R.id.faq -> {
@@ -96,9 +87,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         startActivity<OneActivity>()
                     }
                     tvTitle.visibility = View.VISIBLE
-                    if (faqFragment.isAdded && faqFragment.isVisible) {
-
-                    } else {
                         hideFragments()
                         if (!faqFragment.isAdded) {
                             supportFragmentManager.beginTransaction()
@@ -109,7 +97,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                                 .show(faqFragment)
                                 .commitAllowingStateLoss()
                         }
-                    }
+
                     true
                 }
                 else -> true
@@ -173,19 +161,17 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.type = "text/plain"
-           /* shareIntent.putExtra(
+           shareIntent.putExtra(
                 Intent.EXTRA_TEXT, "Друзья, я предлагаю вам это приложение: "
                         + getString(R.string.app_name)
                         + "\n https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
-            )*/
+            )
 
             startActivity(Intent.createChooser(shareIntent, "Отправить своим друзьям."))
         } else if (p0.itemId == R.id.murojaat) {
             startActivity<MainActivity>()
         } else if (p0.itemId == R.id.faq) {
             startActivity<SavollarActivity>()
-        } else if (p0.itemId == R.id.main) {
-            startActivity<AsosiyActivity>()
         } else if (p0.itemId == R.id.actionLogout) {
             Prefs.clearAll()
             startClearActivity<SplashActivity>()
@@ -230,7 +216,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         if (requestCode == 42) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 callPhone()
-            } else {
             }
             return
         }

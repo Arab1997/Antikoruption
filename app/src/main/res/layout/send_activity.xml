@@ -182,18 +182,7 @@
                             </info.hoang8f.android.segmented.SegmentedGroup>
 
                         </RelativeLayout>
-
-
                     </LinearLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:minHeight="10dp">
-
-                    </RelativeLayout>
-
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -275,7 +264,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edComment"
                             android:layout_width="match_parent"
                             android:layout_height="116dp"

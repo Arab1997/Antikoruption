@@ -12,12 +12,10 @@ import profitdevs.group.anticor.base.startClearTopActivity
 import profitdevs.group.anticor.screen.main.savollar.SavollarActivity
 import profitdevs.group.anticor.screen.main.splash.SplashActivity
 import profitdevs.group.anticor.R
+import profitdevs.group.anticor.base.startClearActivity
 import profitdevs.group.anticor.util.utils.LocaleManager.setNewLocale
 import profitdevs.group.anticor.util.utils.Prefs
 
-/**
- * A simple [Fragment] subclass.
- */
 @Suppress("DEPRECATION")
 class FaqFragment : BaseFragment() {
     override fun getLayout(): Int = R.layout.fragment_profile

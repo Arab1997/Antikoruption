@@ -1,20 +1,17 @@
 package profitdevs.group.anticor.screen.viewmodels
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import es.dmoral.toasty.Toasty
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import profitdevs.group.anticor.model.send_models.*
 import profitdevs.group.anticor.repository.SendRepository
 import profitdevs.group.anticor.util.utils.Prefs
 import retrofit2.Response
-
-/**
- * @author Zokirjon
- * @date 11/16/2021
- */
 class SendViewModel(
     val sendRepository: SendRepository
 ): ViewModel() {
@@ -60,6 +57,7 @@ class SendViewModel(
                Log.d("SendViewModelTAG", "getToken: ${data.body()?.token}")
                Prefs.getToken()
                Log.d("savetoken",  Prefs.getToken())
+
            }
 
        }

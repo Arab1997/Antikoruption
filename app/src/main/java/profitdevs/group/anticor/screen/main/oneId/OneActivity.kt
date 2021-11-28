@@ -8,10 +8,12 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.webkit.*
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.orhanobut.hawk.Hawk
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_one.*
 import profitdevs.group.anticor.R
 import profitdevs.group.anticor.databinding.ActivityMainBinding
@@ -41,9 +43,6 @@ class OneActivity : AppCompatActivity() {
         val sendRepository = SendRepository()
         val viewModelProviderFactory = SendViewModelProviderFactory(sendRepository)
         sendViewModel = ViewModelProvider(this, viewModelProviderFactory)[SendViewModel::class.java]
-
-//        val viewModelProviderFactory = MainViewModelProviderFactory(sendRepository)
-//        mainViewModel = ViewModelProvider(this, viewModelProviderFactory)[MainViewModel::class.java]
 
         setContentView(R.layout.activity_one)
         Hawk.init(this).build()
@@ -81,18 +80,7 @@ class OneActivity : AppCompatActivity() {
 
                 sendViewModel.getToken(code, state)
                 Prefs.getToken()
-                Log.d("savetoken",  Prefs.getToken())
-
-//                sendViewModel.getToken(code, state).observe(this, Observer {
-//                    if (it != null){
-//                        Prefs.setToken(it.token)
-//                        startClearActivity<MainActivity>()
-//                        finish()
-//                    }
-//                })
-
-
-
+                Toast.makeText(applicationContext,"Ваши данные загружены, вы можете вернуться",Toast.LENGTH_SHORT).show()
 
 //                mainViewModel.getCode(code, state).observe(this@OneActivity, {
 //                    if (it.status == Status.SUCCESS) {
