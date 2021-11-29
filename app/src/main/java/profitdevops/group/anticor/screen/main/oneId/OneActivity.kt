@@ -81,13 +81,6 @@ class OneActivity : AppCompatActivity() {
                 Prefs.getToken()
                 Toast.makeText(applicationContext,"Ваши данные загружены, вы можете вернуться",Toast.LENGTH_SHORT).show()
 
-//                mainViewModel.getCode(code, state).observe(this@OneActivity, {
-//                    if (it.status == Status.SUCCESS) {
-//                        Log.d(TAG, "shouldOverrideUrlLoading: ${it.data}")
-//                        val intent = Intent(this@OneActivity, MainActivity::class.java)
-//                        startActivity(intent)
-//                    }
-//                })
             } else {
                 view?.loadUrl(url)
             }

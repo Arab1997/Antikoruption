@@ -19,8 +19,8 @@ android {
         applicationId "profitdevops.group.anticor"
         minSdkVersion 20
         targetSdkVersion 31
-        versionCode 3
-        versionName "1.0.3"
+        versionCode 6
+        versionName "1.0.6"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
