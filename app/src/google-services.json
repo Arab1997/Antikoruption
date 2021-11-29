@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "890754161755",
+    "project_id": "eanticor",
+    "storage_bucket": "eanticor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890754161755:android:8e6b9d08a902ec6664f37e",
+        "android_client_info": {
+          "package_name": "profitdevops.group.anticor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890754161755-oql5ia9e5esh1hef82u95ku6h69vm9st.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "profitdevops.group.anticor",
+            "certificate_hash": "502b6e5a7faaae88e7ac58abb103726c520e852e"
+          }
+        },
+        {
+          "client_id": "890754161755-tfmsqjr6ei308nuk5tst2a6abigl1j19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3avcnTEh-60YocFI1fLxgooMz_838NJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890754161755-tfmsqjr6ei308nuk5tst2a6abigl1j19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

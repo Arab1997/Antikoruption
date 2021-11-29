@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="profitdevs.group.anticor">
+    package="profitdevops.group.anticor">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
-        android:name=".App"
+        android:name="profitdevops.group.anticor.App"
         android:icon="@drawable/gerbb"
         android:allowBackup="true"
         android:label="@string/app_name"
@@ -15,15 +15,15 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name="profitdevs.group.anticor.screen.main.send.detail.SendActivity" />
-        <activity android:name="profitdevs.group.anticor.screen.main.savollar.SavollarActivity" />
-        <activity android:name="profitdevs.group.anticor.screen.main.oneId.OneActivity" />
-        <activity android:name="profitdevs.group.anticor.screen.main.aboutapp.AboutAppActivity" />
+        <activity android:name="profitdevops.group.anticor.screen.main.send.detail.SendActivity" />
+        <activity android:name="profitdevops.group.anticor.screen.main.savollar.SavollarActivity" />
+        <activity android:name="profitdevops.group.anticor.screen.main.oneId.OneActivity" />
+        <activity android:name="profitdevops.group.anticor.screen.main.aboutapp.AboutAppActivity" />
 
         <activity
-            android:name=".screen.main.MainActivity"
+            android:name="profitdevops.group.anticor.screen.main.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name="profitdevs.group.anticor.screen.main.splash.SplashActivity"
+        <activity android:name="profitdevops.group.anticor.screen.main.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
