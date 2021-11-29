@@ -59,7 +59,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                                 .show(home)
                                 .commitAllowingStateLoss()
                         }
-
                     true
                 }
 

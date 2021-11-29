@@ -6,16 +6,15 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:name=".App"
-        android:allowBackup="true"
         android:icon="@drawable/gerbb"
+        android:allowBackup="true"
         android:label="@string/app_name"
         android:roundIcon="@drawable/gerb"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:targetApi="m"
-        android:fullBackupContent="">
+        tools:targetApi="m">
         <activity android:name="profitdevs.group.anticor.screen.main.send.detail.SendActivity" />
         <activity android:name="profitdevs.group.anticor.screen.main.savollar.SavollarActivity" />
         <activity android:name="profitdevs.group.anticor.screen.main.oneId.OneActivity" />
