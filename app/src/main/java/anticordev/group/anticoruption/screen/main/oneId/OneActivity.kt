@@ -45,10 +45,9 @@ class OneActivity : AppCompatActivity() {
         setContentView(R.layout.activity_one)
         Hawk.init(this).build()
         val url = "http://sso.egov.uz:8443/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
-
         Prefs.setToken(state)
         Prefs.getToken()
-        webView.webViewClient = MyWebViewClient(binding.root.context)
+        webView.webViewClient = MyWebViewClient(this)
         webView.loadUrl(url)
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
@@ -75,23 +74,21 @@ class OneActivity : AppCompatActivity() {
                 val index2 = url.indexOf("&state")
                 val code = url.substring(index1 + 5, index2)
                 val state = url.substring(index2 + 7)
-                Toast.makeText(applicationContext,"Ваши данные загружены, вы можете вернуться",Toast.LENGTH_SHORT).show()
+
                 sendViewModel.getToken(code, state)
                 Prefs.getToken()
-                Toast.makeText(applicationContext,"Ваши данные загружены, вы можете вернуться",Toast.LENGTH_SHORT).show()
-
             } else {
                 view?.loadUrl(url)
+                Toast.makeText(applicationContext,"Ваши данные загружены, вы можете вернуться",Toast.LENGTH_SHORT).show()
             }
             return true
         }
-
         override fun onReceivedSslError(
             view: WebView?,
             handler: SslErrorHandler,
             error: SslError?
         ) {
-           handler.proceed() // Ignore SSL certificate errors
+           //handler.proceed() // Ignore SSL certificate errors
         // super.onReceivedSslError(view, handler, error)
         }
     }

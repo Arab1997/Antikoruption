@@ -52,7 +52,7 @@
                         app:lb_btnColor="@color/status_sent"
                         app:lb_btnDisabledColor="@android:color/darker_gray"
                         app:lb_btnRippleColor="@color/colorAccent"
-                        app:lb_btnText="Авторизация"
+                        app:lb_btnText="@string/auth"
                         app:lb_cornerRadius="32"
                         app:lb_resetAfterFailed="true"
                         app:lb_rippleEnable="false" />

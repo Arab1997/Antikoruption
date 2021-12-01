@@ -20,9 +20,7 @@ import javax.net.ssl.X509TrustManager
 
 
 object ISTClient {
-
     internal lateinit var retrofit: Retrofit
-
     fun initClient(context: Context) {
         val gson = GsonBuilder()
             .setLenient()
@@ -35,7 +33,6 @@ object ISTClient {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
-
     fun getOkHttpClient(context: Context): OkHttpClient {
         var builder = OkHttpClient().newBuilder()
         builder.retryOnConnectionFailure(false)
@@ -47,7 +44,6 @@ object ISTClient {
         }
         builder.addInterceptor(AppInterceptor())
         builder = enableTls12OnPreLollipop(builder)
-
         return builder.build()
     }
 
@@ -75,17 +71,13 @@ object ISTClient {
             }
         } else {
             return client
-
         }
-
     }
-
     class AppInterceptor : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {
             val original = chain.request()
             return chain.proceed(getRequest(original))
         }
-
         fun getRequest(original: Request): Request {
             val builder = original.newBuilder()
             builder.addHeader("Content-Type", "application/json")

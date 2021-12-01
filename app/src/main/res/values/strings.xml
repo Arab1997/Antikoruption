@@ -126,4 +126,5 @@
     <string name="button3">Я столкнулся с видом коррупции не связенной с взяточничеством</string>
     <string name="button4">Я встретил честного сотрудника государственного органа</string>
     <string name="profit_devs_group">PROFIT.DEVS.GROUP</string>
+    <string name="auth">Авторизация</string>
 </resources>
