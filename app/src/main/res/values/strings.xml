@@ -42,7 +42,7 @@
     <string name="your_data">Главная</string>
     <string name="edit">Изменить</string>
     <string name="code">Код</string>
-    <string name="success">Успешно!</string>
+    <string name="success">Ваша заявка успешно отправлена!</string>
     <string name="your_order_accept">Ваш заказ был успешно отправлен. Вы можете отслеживать статус заказа из окна заказов.</string>
     <string name="exit_main_page">Вернуться в главное окно</string>
     <string name="swap_language">Выбрать язык</string>
@@ -105,7 +105,7 @@
     <string name="shaharlar">Shaharlar</string>
     <string name="fiz_litso">Физ. лицо</string>
     <string name="sum">Валюта / Сум</string>
-    <string name="қутв">Отпрвить</string>
+    <string name="қутв">Отправить</string>
     <string name="error">Вы где-то ошиблись или проверьте подключение к интернету</string>
     <string name="savol1">Что такое Коррупция?</string>
     <string name="javob1">коррупция - это незаконное использование лица с целью получения материальных или нематериальных выгод от его карьеры или службы или интересов других лиц, а также незаконное предоставление таких выгод. Источник: закон Республики Узбекистан О борьбе с коррупцией</string>

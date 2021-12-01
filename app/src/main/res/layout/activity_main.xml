@@ -54,7 +54,7 @@
                 <ImageView
                     android:id="@+id/one_id"
                     android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_marginStart="-2dp"
                     android:contentDescription="@string/todo"
                     android:src="@drawable/one_idd"
@@ -112,7 +112,7 @@
         <TextView
             android:id="@+id/call"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:layout_marginStart="30dp"
             android:text="@string/qo_ng_iroq_markazi_1070"
             android:textColor="@color/black"

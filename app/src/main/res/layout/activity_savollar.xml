@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/imgBackk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
                 android:contentDescription="@string/todo"
                 android:src="@drawable/ic_arrow_back_black_24dp"
                 app:tint="@color/black" />
@@ -37,7 +37,7 @@
                 android:gravity="center"
                 android:text="@string/savollar"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
 <androidx.core.widget.NestedScrollView
@@ -90,7 +90,7 @@
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:layout_marginStart="18dp"
                             android:layout_marginEnd="18dp"
-                            android:textColor="@color/secondaryTextColor"/>
+                            android:textColor="@color/edit_text_title_color"/>
 
                     </LinearLayout>
 
@@ -103,7 +103,7 @@
                     <Button
                         android:id="@+id/expandBtn1"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="48dp"
                         android:text="@string/korish"
                         android:textColor="@color/colorAccent"
                         android:background="@drawable/ripple_effect"
@@ -152,7 +152,7 @@
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:layout_marginStart="18dp"
                             android:layout_marginEnd="18dp"
-                            android:textColor="@color/secondaryTextColor"/>
+                            android:textColor="@color/edit_text_title_color"/>
 
                     </LinearLayout>
 
@@ -165,7 +165,7 @@
                     <Button
                         android:id="@+id/expandBtn2"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="48dp"
                         android:text="@string/korish"
                         android:textColor="@color/colorAccent"
                         android:background="@drawable/ripple_effect"
@@ -214,7 +214,7 @@
                             android:layout_marginStart="18dp"
                             android:textSize="16sp"
                             android:layout_marginEnd="18dp"
-                            android:textColor="@color/secondaryTextColor"/>
+                            android:textColor="@color/edit_text_title_color"/>
                     </LinearLayout>
 
                     <View
@@ -226,7 +226,7 @@
                     <Button
                         android:id="@+id/expandBtn3"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="48dp"
                         android:text="@string/korish"
                         android:textColor="@color/colorAccent"
                         android:background="@drawable/ripple_effect"
@@ -275,7 +275,7 @@
                             android:layout_marginStart="18dp"
                             android:textSize="16sp"
                             android:layout_marginEnd="18dp"
-                            android:textColor="@color/secondaryTextColor"/>
+                            android:textColor="@color/edit_text_title_color"/>
                     </LinearLayout>
 
                     <View
@@ -287,7 +287,7 @@
                     <Button
                         android:id="@+id/expandBtn4"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="48dp"
                         android:text="@string/korish"
                         android:textColor="@color/colorAccent"
                         android:background="@drawable/ripple_effect"

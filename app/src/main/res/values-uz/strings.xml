@@ -41,8 +41,8 @@
     <string name="comment">Izoh</string>
     <string name="your_data">Asosiy</string>
     <string name="edit">O‘zgartirish</string>
+    <string name="success">Sizning arizangiz yuborildi</string>
     <string name="code">Kod</string>
-    <string name="success">Muvaffaqiyatli!</string>
     <string name="your_order_accept">Sizning buyurtmangiz muvaffaqiyatli yuborildi. Buyurtmaning holatini buyurtmalar oynasidan kuzatib borishingiz mumkun.</string>
     <string name="exit_main_page">Asosiy oynaga qaytish</string>
     <string name="swap_language">Tilni o‘zgartirish</string>

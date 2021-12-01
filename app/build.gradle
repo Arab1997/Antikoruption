@@ -14,9 +14,9 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.0"
-
+//qoydim
     defaultConfig {
-        applicationId "profitdevops.group.anticor"
+        applicationId "anticordev.group.anticoruption"
         minSdkVersion 20
         targetSdkVersion 31
         versionCode 6
@@ -122,9 +122,6 @@ dependencies {
 
     //Toasty
     implementation 'com.github.GrenderG:Toasty:1.4.2'
-
-    //Lottie
-    implementation 'com.airbnb.android:lottie:3.4.0'
 
     //RedMadRobot
     implementation 'com.redmadrobot:input-mask-android:5.0.0'

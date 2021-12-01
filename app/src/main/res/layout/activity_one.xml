@@ -18,14 +18,14 @@
             android:orientation="horizontal"
             android:padding="10dp"
             tools:ignore="UseCompoundDrawables">
+
             <ImageView
                 android:id="@+id/imgBack_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/todo"
                 android:src="@drawable/ic_arrow_back_black_24dp"
-                app:tint="@color/colorAccent"
-                android:contentDescription="@string/todo" />
+                app:tint="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/tvTitle"
@@ -35,9 +35,10 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/google_sans_regular"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:text="@string/oneid"
                 android:textColor="@color/colorAccent"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
         <WebView
