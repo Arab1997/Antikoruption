@@ -3,18 +3,18 @@ package anticordev.group.anticoruption.api
 import android.content.Context
 import android.os.Build
 import androidx.multidex.BuildConfig
+import anticordev.group.anticoruption.util.utils.Constants.Companion.BASE_URL
+import anticordev.group.anticoruption.util.utils.Prefs
 import com.google.gson.GsonBuilder
 import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.*
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
-import javax.net.ssl.SSLContext
-import okhttp3.OkHttpClient
-import anticordev.group.anticoruption.util.utils.Constants.Companion.BASE_URL
 import java.security.KeyStore
 import java.util.*
+import java.util.concurrent.TimeUnit
+import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509TrustManager
 
@@ -33,6 +33,8 @@ object ISTClient {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
+
+
     fun getOkHttpClient(context: Context): OkHttpClient {
         var builder = OkHttpClient().newBuilder()
         builder.retryOnConnectionFailure(false)
@@ -80,10 +82,15 @@ object ISTClient {
         }
         fun getRequest(original: Request): Request {
             val builder = original.newBuilder()
+            builder.addHeader("Authorization", "Bearer " + Prefs.getToken())
             builder.addHeader("Content-Type", "application/json")
             builder.header("Connection", "close")
             builder.method(original.method, original.body)
             return builder.build()
         }
     }
+
+
+
+
 }
