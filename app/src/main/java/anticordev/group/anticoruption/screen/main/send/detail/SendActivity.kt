@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.blankj.utilcode.util.NetworkUtils
 import es.dmoral.toasty.Toasty
@@ -18,7 +17,7 @@ import anticordev.group.anticoruption.model.send_models.*
 import anticordev.group.anticoruption.repository.SendRepository
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModel
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModelProviderFactory
-import anticordev.group.anticoruption.util.utils.Prefs
+
 
 class SendActivity : BaseActivity() {
 
@@ -142,10 +141,11 @@ class SendActivity : BaseActivity() {
         })
 
         viewModel.complains.observe(this, { response ->
-            if (response.isSuccessful) {
+            if (response.isSuccessful && (response.code() == 200 || response.code() == 201)) {
                 Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
             } else {
                 Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
+//                Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
             }
         })
 
@@ -158,17 +158,15 @@ class SendActivity : BaseActivity() {
         }
 
         send.setOnClickListener {
-            if (!Prefs.getToken().isEmpty() && (validate())) {
-
+            if (validate()) {
                 complain.amount = amount.text.toString().toInt()
-                complain.amount = button_type.checkedRadioButtonId
+                complain.button_type = button_type.checkedRadioButtonId
                 complain.text = edComment.text.toString()
                 complain.currency = 1
 
                 viewModel.postComplain(complain)
-            }else {
-                Toasty.error(this, "Вы должны авторизоваться через One ID", Toast.LENGTH_SHORT).show()
-              //  Toasty.error(this, "Ваша заявка не отправлена пожалуйста, попробуйте еще раз", Toast.LENGTH_SHORT).show()
+            } else {
+                Toasty.error(this, "Error", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -217,4 +215,3 @@ class SendActivity : BaseActivity() {
         }
     }
 }
-

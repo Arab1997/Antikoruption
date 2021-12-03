@@ -9,7 +9,13 @@ import kotlinx.coroutines.launch
 import anticordev.group.anticoruption.model.send_models.*
 import anticordev.group.anticoruption.repository.SendRepository
 import anticordev.group.anticoruption.util.utils.Prefs
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Response
+import java.lang.Exception
+
+
 class SendViewModel(
     val sendRepository: SendRepository
 ): ViewModel() {
@@ -18,7 +24,7 @@ class SendViewModel(
     val areas: MutableLiveData<Response<List<Area>>> = MutableLiveData()
     val organizations: MutableLiveData<Response<List<Organization>>> = MutableLiveData()
     val regionsById: MutableLiveData<Response<Region>> = MutableLiveData()
-    val complains: MutableLiveData<Response<Complain>> = MutableLiveData()
+    val complains: MutableLiveData<Response<Appeal>> = MutableLiveData()
 
     fun getRegions() = viewModelScope.launch {
         val response = sendRepository.getRegions()
@@ -41,23 +47,37 @@ class SendViewModel(
     }
 
     fun postComplain(complain: Complain) = viewModelScope.launch {
-        val response = sendRepository.postComplain(complain)
-        complains.postValue(response)
+        try{
+            var map = HashMap<String, Any>()
+            map["area"] = complain.area
+            map["region"] = complain.region
+            map["organization"] = complain.organization
+            map["amount"] = complain.amount
+            map["currency"] = complain.currency
+            map["button_type"] = complain.button_type
+            map["text"] = complain.text
+            val request = sendRepository.postComplain(map)
+
+            Log.d("SendViewModelTAG", request.toString())
+            complains.postValue(request)
+        } catch (e:Exception){
+            e.printStackTrace()
+        }
     }
 
-//getToken: bbb55f1973b3619d4843d21a41822f3588b6d58c
+    //getToken: bbb55f1973b3619d4843d21a41822f3588b6d58c
     fun getToken(code: String, state: String) {
-       viewModelScope.launch(context = Dispatchers.IO) {
-           val data = sendRepository.getToken(code, state)
+        viewModelScope.launch(context = Dispatchers.IO) {
+            val data = sendRepository.getToken(code, state)
 
-           if (data.isSuccessful) {
-               data.body()?.token?.let { Prefs.setToken(it) }
-               Log.d("SendViewModelTAG", "getToken: ${data.body()?.token}")
-               Prefs.getToken()
-               Log.d("savetoken",  Prefs.getToken())
+            if (data.isSuccessful) {
+                data.body()?.token?.let { Prefs.setToken(it) }
+                Log.d("SendViewModelTAG", "getToken: ${data.body()?.token}")
+                Prefs.getToken()
+                Log.d("savetoken",  Prefs.getToken())
 
-           }
+            }
 
-       }
+        }
     }
 }

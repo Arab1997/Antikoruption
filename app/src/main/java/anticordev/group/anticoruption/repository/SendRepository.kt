@@ -1,5 +1,6 @@
 package anticordev.group.anticoruption.repository
 
+
 import anticordev.group.anticoruption.api.send_apis.RetrofitInstance
 import anticordev.group.anticoruption.model.getToken.GetTokenResponse
 import anticordev.group.anticoruption.model.send_models.*
@@ -19,8 +20,8 @@ class SendRepository {
         return RetrofitInstance.api.getRegionsById(regionId)
     }
 
-    suspend fun postComplain(complain: Complain): Response<Complain>{
-        return RetrofitInstance.api.postComplain(complain)
+    suspend fun postComplain(map: Map<String, Any>): Response<Appeal>{
+        return RetrofitInstance.api.postComplain(map)
     }
 
     suspend fun getRegions(): Response<List<Region>> {

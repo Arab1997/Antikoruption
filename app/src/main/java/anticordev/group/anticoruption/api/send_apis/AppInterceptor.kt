@@ -13,13 +13,10 @@ class AppInterceptor : Interceptor {
 
     private fun getRequest(original: Request): Request {
         val builder = original.newBuilder()
-        builder.addHeader("Authorization", "Bearer " + Prefs.getToken())
-        builder.addHeader("Content-Type", "application/json")
-        builder.header("Connection", "close")
         builder.header("X-MobileLang", Prefs.getLang())
         builder.header("X-Mobile-Type", "android")
         if (Prefs.getToken().isNotEmpty()) {
-            builder.addHeader("token", Prefs.getToken())
+            builder.addHeader("Authorization","Bearer ${Prefs.getToken()}")
         }
         builder.method(original.method, original.body)
         return builder.build()

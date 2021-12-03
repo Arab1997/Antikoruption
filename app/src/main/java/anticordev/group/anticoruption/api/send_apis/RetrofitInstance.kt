@@ -13,6 +13,7 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509TrustManager
 
+
 class RetrofitInstance {
 
     companion object {

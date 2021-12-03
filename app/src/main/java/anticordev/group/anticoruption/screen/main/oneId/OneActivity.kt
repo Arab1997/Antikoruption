@@ -23,6 +23,7 @@ import anticordev.group.anticoruption.util.utils.Prefs
 
 class OneActivity : AppCompatActivity() {
     private lateinit var sendViewModel: SendViewModel
+    // private lateinit var mainViewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
     var redirect_url = "https://eanticor.uz/uz/api/login-one/"
     var responceType = "one_code"
@@ -45,9 +46,10 @@ class OneActivity : AppCompatActivity() {
         setContentView(R.layout.activity_one)
         Hawk.init(this).build()
         val url = "http://sso.egov.uz:8443/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
+
         Prefs.setToken(state)
         Prefs.getToken()
-        webView.webViewClient = MyWebViewClient(this)
+        webView.webViewClient = MyWebViewClient(binding.root.context)
         webView.loadUrl(url)
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
@@ -77,19 +79,20 @@ class OneActivity : AppCompatActivity() {
 
                 sendViewModel.getToken(code, state)
                 Prefs.getToken()
+                Toast.makeText(applicationContext,"Ваши данные загружены, вы можете вернуться",Toast.LENGTH_SHORT).show()
+
             } else {
                 view?.loadUrl(url)
-                Toast.makeText(applicationContext,"Ваши данные загружены, вы можете вернуться",Toast.LENGTH_SHORT).show()
             }
             return true
         }
+
         override fun onReceivedSslError(
             view: WebView?,
             handler: SslErrorHandler,
             error: SslError?
         ) {
-           //handler.proceed() // Ignore SSL certificate errors
-        // super.onReceivedSslError(view, handler, error)
+            handler.proceed() // Ignore SSL certificate errors
         }
     }
     override fun onDestroy() {

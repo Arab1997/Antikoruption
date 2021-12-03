@@ -3,11 +3,14 @@ package anticordev.group.anticoruption.api
 import android.content.Context
 import android.os.Build
 import androidx.multidex.BuildConfig
+import anticordev.group.anticoruption.api.send_apis.RetrofitInstance
+import anticordev.group.anticoruption.api.send_apis.SendApi
 import anticordev.group.anticoruption.util.utils.Constants.Companion.BASE_URL
 import anticordev.group.anticoruption.util.utils.Prefs
 import com.google.gson.GsonBuilder
 import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.*
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -21,7 +24,10 @@ import javax.net.ssl.X509TrustManager
 
 object ISTClient {
     internal lateinit var retrofit: Retrofit
+
     fun initClient(context: Context) {
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
         val gson = GsonBuilder()
             .setLenient()
             .create()
@@ -34,6 +40,9 @@ object ISTClient {
             .build()
     }
 
+    val api: SendApi by lazy {
+        retrofit.create(SendApi::class.java)
+    }
 
     fun getOkHttpClient(context: Context): OkHttpClient {
         var builder = OkHttpClient().newBuilder()

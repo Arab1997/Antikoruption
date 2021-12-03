@@ -1,5 +1,7 @@
 package anticordev.group.anticoruption.model.send_models
 
+import com.google.gson.annotations.SerializedName
+
 data class Complain(
     var amount: Int = 1,
     var area: Int = 1,

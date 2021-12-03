@@ -5,11 +5,12 @@ import anticordev.group.anticoruption.model.send_models.*
 import retrofit2.Response
 import retrofit2.http.*
 
+@JvmSuppressWildcards
 interface SendApi {
-//https://eanticor.uz/ru/api/ref/areas/
+    //https://eanticor.uz/ru/api/ref/areas/
     @GET("ref/areas/")
     suspend fun getAreas(): Response<List<Area>>
-//https://eanticor.uz/ru/api/ref/organizations/
+    //https://eanticor.uz/ru/api/ref/organizations/
     @GET("ref/organizations/")
     suspend fun getOrganizations(): Response<List<Organization>>
 
@@ -23,13 +24,13 @@ interface SendApi {
     suspend fun getRegions(): Response<List<Region>>
 
     //https://eanticor.uz/uz/api/login-one/
+    @Multipart
     @POST("appeal/")
     suspend fun postComplain(
-        @Body complain: Complain,
-//        @Query("token") token: String = Prefs.getToken()
-    ): Response<Complain>
+        @PartMap complain: Map<String, Any>,
+    ): Response<Appeal>
 
-   //https://eanticor.uz/ru/api/login-one/
+    //https://eanticor.uz/ru/api/login-one/
     @POST("login-one/")
     suspend fun getToken(
         @Query("code") code:String,
