@@ -17,8 +17,9 @@ import anticordev.group.anticoruption.model.send_models.*
 import anticordev.group.anticoruption.repository.SendRepository
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModel
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModelProviderFactory
+import android.widget.RadioButton
 
-
+import android.widget.RadioGroup
 class SendActivity : BaseActivity() {
 
     override fun getLayout(): Int = R.layout.send_activity
@@ -141,28 +142,41 @@ class SendActivity : BaseActivity() {
         })
 
         viewModel.complains.observe(this, { response ->
-            if (response.isSuccessful && (response.code() == 200 || response.code() == 201)) {
-                Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
+            if (response.isSuccessful && (response.code() in 200..299)) {
+               Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
+ //               Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
             } else {
                 Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
-           //     Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
+//                Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
             }
         })
 
         button_type.setOnCheckedChangeListener { radioGroup, i ->
-            complain.button_type = i
+            //2131361930
+            //2131361931
+            //2131361932
+            //2131361933
+            when(i) {
+                2131361930 -> complain.button_type = 0
+                2131361931 -> complain.button_type = 1
+                2131361932 -> complain.button_type = 2
+                2131361933 -> complain.button_type = 3
+                else -> complain.button_type = 0
+            }
         }
 
         currency.setOnCheckedChangeListener { radioGroup, i ->
-            complain.currency = i
+            when(i) {
+                2131362020 -> complain.currency = 0
+                2131362448 -> complain.currency = 1
+                else -> complain.currency = 0
+            }
         }
 
         send.setOnClickListener {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
-                complain.button_type = button_type.checkedRadioButtonId
                 complain.text = edComment.text.toString()
-                complain.currency = 1
 
                 viewModel.postComplain(complain)
             } else {
@@ -170,6 +184,28 @@ class SendActivity : BaseActivity() {
             }
         }
     }
+
+    private fun getCurrencyPosition(view: View): Int {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+            // Check which radio button was clicked
+            when (view.getId()) {
+                R.id.dollar ->
+                    if (checked) {
+                        return 1
+                    }
+                R.id.sum ->
+                    if (checked) {
+                        return 0
+                    }
+            }
+        }
+
+        return 0
+    }
+
     private fun validate(): Boolean {
         if (
             amount.text.isNullOrEmpty() ||
@@ -215,3 +251,4 @@ class SendActivity : BaseActivity() {
         }
     }
 }
+
