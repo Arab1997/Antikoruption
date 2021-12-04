@@ -14,8 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:targetApi="m"
-        android:fullBackupContent="@xml/backup_descriptor">
+        tools:targetApi="m">
         <activity android:name="anticordev.group.anticoruption.screen.main.send.detail.SendActivity" />
         <activity android:name="anticordev.group.anticoruption.screen.main.savollar.SavollarActivity" />
         <activity android:name="anticordev.group.anticoruption.screen.main.oneId.OneActivity" />

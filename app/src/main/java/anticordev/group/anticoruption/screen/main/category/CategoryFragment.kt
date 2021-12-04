@@ -8,16 +8,22 @@ import anticordev.group.anticoruption.screen.main.oneId.OneActivity
 import anticordev.group.anticoruption.util.utils.Constants
 import anticordev.group.anticoruption.screen.main.send.detail.SendActivity
 import anticordev.group.anticoruption.R
+import anticordev.group.anticoruption.util.utils.Prefs
 
 class CategoryFragment : BaseFragment(), View.OnClickListener {
     override fun getLayout(): Int = R.layout.fragment_category
 
     override fun setupViews() {
-        btn_register.setOnClickListener {
-            getBaseActivity {
-                it.startActivity<OneActivity>(Constants.EXTRA_DATA,  Constants.EXTRA_DATA_2)
+        if (Prefs.getToken().isEmpty()){
+            btn_register.visibility = View.VISIBLE
+            btn_register.setOnClickListener {
+                getBaseActivity {
+                    it.startActivity<OneActivity>(Constants.EXTRA_DATA,  Constants.EXTRA_DATA_2)
+                }
             }
-
+        }
+        else{
+            btn_register.visibility = View.GONE
         }
         category_card1.setOnClickListener {
             getBaseActivity {
