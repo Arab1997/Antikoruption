@@ -1,6 +1,7 @@
 package anticordev.group.anticoruption.api.send_apis
 
 import android.os.Build
+import anticordev.group.anticoruption.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import anticordev.group.anticoruption.util.utils.Constants.Companion.BASE_URL
@@ -40,6 +41,11 @@ class RetrofitInstance {
             builder.readTimeout(60, TimeUnit.SECONDS)
             builder.addInterceptor(AppInterceptor())
             builder = enableTls12OnPreLollipop(builder)
+            if (BuildConfig.DEBUG) {
+                builder.addInterceptor(HttpLoggingInterceptor().apply {
+                    level = HttpLoggingInterceptor.Level.BODY
+                })
+            }
             return builder.build()
         }
 

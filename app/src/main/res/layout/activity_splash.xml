@@ -17,16 +17,37 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:weightSum="2">
-        <ImageView
-            android:layout_width="0dp"
+
+        <LinearLayout
+            android:layout_width="77dp"
             android:layout_height="200dp"
             android:layout_weight="1"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/gerb" />
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/gerb" />
+
+            <TextView
+                android:id="@+id/titlee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:text="@string/title"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_width="2dp"
+            android:layout_height="171dp"
             android:layout_weight="1"
             android:contentDescription="@string/todo"
             android:src="@drawable/undppp" />

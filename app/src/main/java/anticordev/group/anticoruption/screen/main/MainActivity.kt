@@ -159,7 +159,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.type = "text/plain"
-           shareIntent.putExtra(
+            shareIntent.putExtra(
                 Intent.EXTRA_TEXT, "Друзья, я предлагаю вам это приложение: "
                         + getString(R.string.app_name)
                         + "\n https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
@@ -220,7 +220,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
     @SuppressLint("MissingPermission")
     fun callPhone() {
-        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "1007 "))
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "1253 "))
         startActivity(intent)
     }
 }

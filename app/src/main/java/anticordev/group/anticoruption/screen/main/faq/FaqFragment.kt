@@ -11,6 +11,7 @@ import anticordev.group.anticoruption.base.startClearTopActivity
 import anticordev.group.anticoruption.screen.main.savollar.SavollarActivity
 import anticordev.group.anticoruption.screen.main.splash.SplashActivity
 import anticordev.group.anticoruption.R
+import anticordev.group.anticoruption.base.startClearActivity
 import anticordev.group.anticoruption.util.utils.LocaleManager.setNewLocale
 import anticordev.group.anticoruption.util.utils.Prefs
 
@@ -26,24 +27,24 @@ class FaqFragment : BaseFragment() {
             }
         }
 
-        lyLanguage.setOnClickListener {
-            getBaseActivity {base ->
-                val bottomSheetDialog = BottomSheetDialog(base)
-                val viewLang = layoutInflater.inflate(R.layout.bottomsheet_language, null)
-                bottomSheetDialog.setContentView(viewLang)
-                viewLang.tvUzbCr.setOnClickListener {
-                    Prefs.setLang("uz")
-                    setNewLocale(base,"uz")
-                    bottomSheetDialog.dismiss()
-                }
-                viewLang.tvRu.setOnClickListener {
-                    Prefs.setLang("en")
-                    setNewLocale(base,"en")
-                    bottomSheetDialog.dismiss()
-                }
-                bottomSheetDialog.show()
-            }
-        }
+//        lyLanguage.setOnClickListener {
+//            getBaseActivity {base ->
+//                val bottomSheetDialog = BottomSheetDialog(base)
+//                val viewLang = layoutInflater.inflate(R.layout.bottomsheet_language, null)
+//                bottomSheetDialog.setContentView(viewLang)
+//                viewLang.tvUzbCr.setOnClickListener {
+//                    Prefs.setLang("uz")
+//                    setNewLocale(base,"uz")
+//                    bottomSheetDialog.dismiss()
+//                }
+//                viewLang.tvRu.setOnClickListener {
+//                    Prefs.setLang("ru")
+//                    setNewLocale(base,"ru")
+//                    bottomSheetDialog.dismiss()
+//                }
+//                bottomSheetDialog.show()
+//            }
+//        }
 
         lyLogout.setOnClickListener {
             val builder = AlertDialog.Builder(activity)

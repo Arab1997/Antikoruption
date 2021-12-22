@@ -17,7 +17,7 @@
     </string-array>
     <string name="prompt">Select Mode</string>
 
-    <string name="app_name">Anticor</string>
+    <string name="app_name">eAnticor</string>
     <string name="input_mobile_number">Telefon raqamini kiriting…</string>
     <string name="continue_button">DAVOM ETISH</string>
     <string name="number_phone">Telefon raqam:</string>
@@ -69,12 +69,12 @@
     <string name="murojaat">Yuborgan ma\'lumotlaringiz va shaxsingiz sir saqlanishi davlat tomonidan kafolatlanadi</string>
     <string name="dashboard">Xabar berish</string>
     <string name="account">FAQ</string>
-    <string name="tashkilot">Tashkilot</string>
+    <string name="tashkilot">Korrupsiya holati qayd etilgan tashkilot nomi:</string>
     <string name="hudud">Hududni tanlang</string>
     <string name="murojaat_matni">Murojaat matni</string>
-    <string name="pora_hajmi">Pora hajmi (so‘m)</string>
+    <string name="pora_hajmi">Pora qiymati (majburiy emas)</string>
     <string name="murojat_mazmuni">Murojaat mazmuni</string>
-    <string name="shahar">Shahar</string>
+    <string name="shahar">Korrupsiya holati sodir bo`lgan hudud nomi:</string>
     <string name="zayavka">Ariza yuborish</string>
     <string name="murojaat1">Murojaat</string>
     <string name="murojaat2">Ko\'p beriladigan savollar</string>
@@ -91,11 +91,11 @@
     <string name="store_or_man_name">Дукон ёки корхона номи</string>
     <string name="please_select_region">Iltimos tumanni tanlang.</string>
     <string name="ditrict">Tuman</string>
-    <string name="region">Viloyat</string>
+    <string name="region">Tuman nomi</string>
     <string name="title_activity_news">NewsActivity</string>
     <string name="not_network">Tarmoqda uzilish. Internet sozlamalarini tekshiring.</string>
     <string name="murojaatt">Ruxsatsiz foydalanuvchilarning murojaatlari anonim holatga ega bo\'ladi</string>
-    <string name="qo_ng_iroq_markazi_1070">Qo\'ng\'iroq markazi: 1070</string>
+    <string name="qo_ng_iroq_markazi_1070">Qo\'ng\'iroq markazi: 1253</string>
     <string name="vapros">Savollar</string>
     <string name="text">Xabarni yozing</string>
     <string name="shaxs_turi">Shaxs turini tanlang</string>
@@ -121,12 +121,16 @@
     <string name="yurLitso">Yuridik shaxs</string>
     <string name="dollar">Dollar</string>
     <string name="summ">Sum</string>
+    <string name="rubl">Rubl</string>
+    <string name="tenge">Tenge</string>
     <string name="button1">Poraxo\'rlikka duch keldim va pora berishga majbur bo\'ldim</string>
     <string name="button2">Poraxo\'rlikka duch keldim va pora bermadim</string>
     <string name="button3">Pora berishga bog\'liq bo\'lmagan korrupsiyaga duch keldim</string>
     <string name="button4">Halol ishlaydigan davlat xizmatchisini uchratdim</string>
     <string name="javob1">korruptsiya - bu shaxsdan o\'z martabasi yoki xizmatidan moddiy yoki nomoddiy manfaatlar yoki boshqalarning manfaatlarini ko\'zlab g\'ayriqonuniy ravishda foydalanishi, shuningdek, bunday ne\'matlarni qonunga xilof ravishda taqdim etishi. Manba: O‘zbekiston Respublikasining “Korrupsiyaga qarshi kurashish to‘g‘risida”gi qonuni</string>
-    <string name="profit_devs_group">PROFIT.DEVS.GROUP</string>
+    <string name="profit_devs_group">INNOVATIVE WEB IDEA</string>
+    <string name="valyuta">Valyuta</string>
+    <string name="yevro">Yevro</string>
 
 
 </resources>

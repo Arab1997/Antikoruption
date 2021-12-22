@@ -87,14 +87,24 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/drawer_title"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="171dp"
-            android:background="@drawable/prokratura"
-            android:padding="50dp"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/todo"
+            android:paddingTop="20dp"
+            android:src="@drawable/gerb" />
+
+        <TextView
+            android:id="@+id/titlee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="26dp"
+            android:gravity="center"
+            android:text="@string/title"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp" />
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigation"

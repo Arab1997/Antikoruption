@@ -64,29 +64,29 @@
                         android:layout_margin="8dp"
                         android:background="@color/gray_text" />
 
-                    <LinearLayout
-                        android:id="@+id/lyLanguage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        tools:ignore="UseCompoundDrawables">
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/lyLanguage"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        tools:ignore="UseCompoundDrawables">-->
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:text="@string/language"
-                            android:textColor="@color/black"
-                            android:textSize="19sp" />
+<!--                        <TextView-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:text="@string/language"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="19sp" />-->
 
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="25dp"
-                            android:contentDescription="@string/todo"
-                            android:src="@drawable/ic_chevron_right_black_24dp"
-                            app:tint="@color/gray_text" />
-                    </LinearLayout>
+<!--                        <ImageView-->
+<!--                            android:layout_width="50dp"-->
+<!--                            android:layout_height="25dp"-->
+<!--                            android:contentDescription="@string/todo"-->
+<!--                            android:src="@drawable/ic_chevron_right_black_24dp"-->
+<!--                            app:tint="@color/gray_text" />-->
+<!--                    </LinearLayout>-->
 
                     <View
                         android:layout_width="match_parent"
