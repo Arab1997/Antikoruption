@@ -32,7 +32,7 @@ public class LocaleManager {
      */
     public static String getLanguagePref() {
 //        PrefsUtil prefsUtil = new PrefsUtil(mContext);
-        return Hawk.get("pref_lang", "en");
+        return Hawk.get("pref_lang", "uz");
     }
     /**
      * set pref key

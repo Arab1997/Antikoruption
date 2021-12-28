@@ -186,8 +186,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 finish()
             }
             viewLang.tvRu.setOnClickListener {
-                Prefs.setLang("en")
-                setNewLocale(this, "en")
+                Prefs.setLang("ru")
+                setNewLocale(this, "ru")
                 bottomSheetDialog.dismiss()
                 startClearActivity<SplashActivity>()
                 finish()

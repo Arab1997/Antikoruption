@@ -30,7 +30,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:gravity="center_vertical"
-        android:text="O'zbek"/>
+        android:text="@string/russkiy"/>
 
     <View
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:gravity="center_vertical"
-        android:text="@string/russkiy"/>
+        android:text="O'zbek"/>
 
     <View
         android:layout_width="match_parent"

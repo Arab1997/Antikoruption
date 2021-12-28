@@ -42,6 +42,21 @@
                         android:textSize="14sp"
                         android:visibility="gone" />
 
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/border_waring"
+                        android:fontFamily="@font/google_sans_medium"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/ilova_test_rejimida_ishlamoqda"
+                        android:textColor="@color/red"
+                        android:textSize="14sp"
+                        android:visibility="visible" />
+
                     <com.dx.dxloadingbutton.lib.LoadingButton
                         android:id="@+id/btn_register"
                         android:visibility="gone"

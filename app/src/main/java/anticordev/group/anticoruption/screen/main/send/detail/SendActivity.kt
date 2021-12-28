@@ -145,8 +145,8 @@ class SendActivity : BaseActivity() {
 
         viewModel.complains.observe(this, { response ->
             if (response.isSuccessful && (response.code() in 200..299)) {
-//                Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
-                Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
+                Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
+              //  Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
             } else {
                 Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
 //                Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
@@ -186,7 +186,7 @@ class SendActivity : BaseActivity() {
 
                 viewModel.postComplain(complain)
             } else {
-                Toasty.error(this, "", Toast.LENGTH_SHORT).show()
+                //Toasty.error(this, "", Toast.LENGTH_SHORT).show()
             }
         }
     }

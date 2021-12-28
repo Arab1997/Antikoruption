@@ -5,51 +5,35 @@
     android:layout_height="match_parent"
     android:background="@color/status_sent"
     tools:context=".screen.main.splash.SplashActivity">
-
     <LinearLayout
         android:id="@+id/test"
         android:layout_width="match_parent"
-        android:layout_height="332dp"
-        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:layout_marginRight="20dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:weightSum="2">
-
-        <LinearLayout
-            android:layout_width="77dp"
-            android:layout_height="200dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/todo"
-                android:src="@drawable/gerb" />
-
-            <TextView
-                android:id="@+id/titlee"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="2dp"
-                android:gravity="center"
-                android:text="@string/title"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-
+        android:orientation="vertical">
         <ImageView
-            android:layout_width="2dp"
-            android:layout_height="171dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
             android:contentDescription="@string/todo"
-            android:src="@drawable/undppp" />
+            android:src="@drawable/gerb" />
+        <TextView
+            android:id="@+id/titlee"
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"
+            android:text="@string/title"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+
+
     </LinearLayout>
 </RelativeLayout>
