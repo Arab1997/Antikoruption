@@ -15,11 +15,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_one.*
 import anticordev.group.anticoruption.R
+import anticordev.group.anticoruption.base.startActivity
 import anticordev.group.anticoruption.databinding.ActivityMainBinding
 import anticordev.group.anticoruption.repository.SendRepository
+import anticordev.group.anticoruption.screen.main.MainActivity
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModel
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModelProviderFactory
 import anticordev.group.anticoruption.util.utils.Prefs
+import es.dmoral.toasty.Toasty
 
 class OneActivity : AppCompatActivity() {
     private lateinit var sendViewModel: SendViewModel
@@ -79,8 +82,8 @@ class OneActivity : AppCompatActivity() {
 
                 sendViewModel.getToken(code, state)
                 Prefs.getToken()
-                Toast.makeText(applicationContext,"Ваши данные загружены, вы можете вернуться",Toast.LENGTH_SHORT).show()
-
+                //Toast.makeText(applicationContext,getString(R.string.show_massage),Toast.LENGTH_SHORT).show()
+                Toasty.success(applicationContext, getString(R.string.show_massage), Toast.LENGTH_SHORT).show()
             } else {
                 view?.loadUrl(url)
             }

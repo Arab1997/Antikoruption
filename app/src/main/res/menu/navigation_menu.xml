@@ -17,6 +17,6 @@
         android:id="@+id/actionAboutUs"
         android:title="@string/about_app" />
 
-    <item android:id="@+id/actionLogout"
-        android:title="@string/logout"/>
+<!--    <item android:id="@+id/actionLogout"-->
+<!--        android:title="@string/logout"/>-->
 </menu>

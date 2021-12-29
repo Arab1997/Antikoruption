@@ -170,10 +170,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             startActivity<MainActivity>()
         } else if (p0.itemId == R.id.faq) {
             startActivity<SavollarActivity>()
-        } else if (p0.itemId == R.id.actionLogout) {
-            Prefs.clearAll()
-            startClearActivity<SplashActivity>()
-            finish()
+//        } else if (p0.itemId == R.id.actionLogout) {
+//            Prefs.clearAll()
+//            startClearActivity<SplashActivity>()
+//            finish()
         } else if (p0.itemId == R.id.actionLanguage) {
             val bottomSheetDialog = BottomSheetDialog(this)
             val viewLang = layoutInflater.inflate(R.layout.bottomsheet_language, null)

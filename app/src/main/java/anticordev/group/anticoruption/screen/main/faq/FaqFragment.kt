@@ -46,21 +46,21 @@ class FaqFragment : BaseFragment() {
 //            }
 //        }
 
-        lyLogout.setOnClickListener {
-            val builder = AlertDialog.Builder(activity)
-            builder.setTitle("Выйти")
-            builder.setMessage("Вы действительно хотите выйти?")
-            builder.setPositiveButton(android.R.string.yes) { _, _ ->
-                Prefs.clearAll()
-                getBaseActivity {
-                    it.startClearTopActivity<SplashActivity>()
-                }
-            }
-            builder.setNegativeButton(android.R.string.no) { _, _ ->
-
-            }
-            builder.show()
-        }
+//        lyLogout.setOnClickListener {
+//            val builder = AlertDialog.Builder(activity)
+//            builder.setTitle("Выйти")
+//            builder.setMessage("Вы действительно хотите выйти?")
+//            builder.setPositiveButton(android.R.string.yes) { _, _ ->
+//                Prefs.clearAll()
+//                getBaseActivity {
+//                    it.startClearTopActivity<SplashActivity>()
+//                }
+//            }
+//            builder.setNegativeButton(android.R.string.no) { _, _ ->
+//
+//            }
+//            builder.show()
+//        }
     }
     override fun loadData() {
     }

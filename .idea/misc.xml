@@ -17,21 +17,22 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/Antikor_rel/app/src/main/res/layout/simple_spinner_item.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/drawable/ic_arrow_back_black_24dp.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/drawable/ripple_effect.xml" value="0.175" />
-        <entry key="app/src/main/res/layout/activity_about_app.xml" value="0.3171875" />
+        <entry key="app/src/main/res/layout/activity_about_app.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_asosiy.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_one.xml" value="0.31875" />
         <entry key="app/src/main/res/layout/activity_savollar.xml" value="0.25445231950852504" />
         <entry key="app/src/main/res/layout/activity_success_order.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/bottomsheet_language.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/fragment_category.xml" value="0.31875" />
+        <entry key="app/src/main/res/layout/fragment_category.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3171875" />
         <entry key="app/src/main/res/layout/send_activity.xml" value="0.22962383292408678" />
+        <entry key="app/src/main/res/menu/nav_menu.xml" value="0.31875" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.17239583333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
