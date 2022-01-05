@@ -1,13 +1,17 @@
 package anticordev.group.anticoruption.screen.viewmodels
 
 import android.util.Log
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import anticordev.group.anticoruption.base.startActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import anticordev.group.anticoruption.model.send_models.*
 import anticordev.group.anticoruption.repository.SendRepository
+import anticordev.group.anticoruption.screen.main.MainActivity
+import anticordev.group.anticoruption.screen.main.aboutapp.AboutAppActivity
 import anticordev.group.anticoruption.util.utils.Prefs
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull

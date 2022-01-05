@@ -17,11 +17,11 @@ class SavollarActivity : BaseActivity() {
             if (expandableLayout1.visibility == View.GONE) {
                 TransitionManager.beginDelayedTransition(cardView1, AutoTransition())
                 expandableLayout1.visibility = View.VISIBLE
-                expandBtn1.text = "Закрить"
+                expandBtn1.text = getString(R.string.Yopish)
             } else {
                 TransitionManager.beginDelayedTransition(cardView1, AutoTransition())
                 expandableLayout1.visibility = View.GONE
-                expandBtn1.text = "Просмотреть"
+                expandBtn1.text = getString(R.string.kurish)
             }
         }
 
@@ -30,11 +30,11 @@ class SavollarActivity : BaseActivity() {
             if (expandableLayout2.visibility == View.GONE) {
                 TransitionManager.beginDelayedTransition(cardView2, AutoTransition())
                 expandableLayout2.visibility = View.VISIBLE
-                expandBtn1.text = "Закрить"
+                expandBtn2.text = getString(R.string.Yopish)
             } else {
                 TransitionManager.beginDelayedTransition(cardView2, AutoTransition())
                 expandableLayout2.visibility = View.GONE
-                expandBtn2.text = "Просмотреть"
+                expandBtn2.text = getString(R.string.kurish)
             }
         }
 
@@ -42,11 +42,11 @@ class SavollarActivity : BaseActivity() {
             if (expandableLayout3.visibility == View.GONE) {
                 TransitionManager.beginDelayedTransition(cardView3, AutoTransition())
                 expandableLayout3.visibility = View.VISIBLE
-                expandBtn3.text = "Просмотреть"
+                expandBtn3.text = getString(R.string.Yopish)
             } else {
                 TransitionManager.beginDelayedTransition(cardView3, AutoTransition())
                 expandableLayout3.visibility = View.GONE
-                expandBtn3.text = "Закрить"
+                expandBtn3.text = getString(R.string.kurish)
             }
         }
 
@@ -54,11 +54,11 @@ class SavollarActivity : BaseActivity() {
             if (expandableLayout4.visibility == View.GONE) {
                 TransitionManager.beginDelayedTransition(cardView4, AutoTransition())
                 expandableLayout4.visibility = View.VISIBLE
-                expandBtn4.text = "Просмотреть"
+                expandBtn4.text = getString(R.string.Yopish)
             } else {
                 TransitionManager.beginDelayedTransition(cardView4, AutoTransition())
                 expandableLayout4.visibility = View.GONE
-                expandBtn4.text = "Закрить"
+                expandBtn4.text = getString(R.string.kurish)
             }
         }
     }

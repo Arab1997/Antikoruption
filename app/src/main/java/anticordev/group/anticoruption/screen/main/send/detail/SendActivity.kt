@@ -19,6 +19,13 @@ import anticordev.group.anticoruption.screen.viewmodels.SendViewModel
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModelProviderFactory
 import android.widget.RadioButton
 
+import android.widget.RadioGroup
+import anticordev.group.anticoruption.base.startActivity
+import anticordev.group.anticoruption.base.startClearTopActivity
+import anticordev.group.anticoruption.screen.main.MainActivity
+import anticordev.group.anticoruption.screen.main.oneId.OneActivity
+import anticordev.group.anticoruption.util.utils.Prefs
+
 class SendActivity : BaseActivity() {
 
     override fun getLayout(): Int = R.layout.send_activity
@@ -142,11 +149,11 @@ class SendActivity : BaseActivity() {
 
         viewModel.complains.observe(this, { response ->
             if (response.isSuccessful && (response.code() in 200..299)) {
-                // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
-                Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
+               // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
+                  Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
             } else {
-                // Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
-                Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
+               // Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
+                  Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
             }
         })
 
@@ -164,8 +171,8 @@ class SendActivity : BaseActivity() {
             when(i) {
                 2131362020 -> complain.currency = 0
                 2131362448 -> complain.currency = 1
-                // 2131362448 -> complain.currency = 2
-                //  2131362448 -> complain.currency = 3
+               // 2131362448 -> complain.currency = 2
+              //  2131362448 -> complain.currency = 3
                 else -> complain.currency = 0
             }
         }

@@ -42,7 +42,7 @@ class RetrofitInstance {
             builder.connectTimeout(60, TimeUnit.SECONDS)
             builder.writeTimeout(60, TimeUnit.SECONDS)
             builder.readTimeout(60, TimeUnit.SECONDS)
-            // builder.addInterceptor(AppInterceptor())
+           // builder.addInterceptor(AppInterceptor())
             builder.addInterceptor(MyInterceptor())
             builder.addInterceptor(logging)
             builder = enableTls12OnPreLollipop(builder)

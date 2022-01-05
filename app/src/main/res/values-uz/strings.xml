@@ -1,133 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="mode">
-        <item>Andijon viloyati</item>
-        <item>Buxoro viloyati</item>
-        <item>Jizzax viloyati</item>
-        <item>Qashqadaryo viloyati</item>
-        <item>Navoiy viloyati</item>
-        <item>Namangan viloyati</item>
-        <item>Samarqand viloyati</item>
-        <item>Surxondaryo viloyati</item>
-        <item>Sirdaryo viloyati</item>
-        <item>Farg‘ona viloyati</item>
-        <item>Xorazm viloyati</item>
-        <item>Qoraqalpog‘iston Respublikasi</item>
-        <item>Toshkent shahar</item>
-    </string-array>
-    <string name="prompt">Select Mode</string>
+<string-array name="mode">
+    <item>Andijon viloyati</item>
+    <item>Buxoro viloyati</item>
+    <item>Jizzax viloyati</item>
+    <item>Qashqadaryo viloyati</item>
+    <item>Navoiy viloyati</item>
+    <item>Namangan viloyati</item>
+    <item>Samarqand viloyati</item>
+    <item>Surxondaryo viloyati</item>
+    <item>Sirdaryo viloyati</item>
+    <item>Farg‘ona viloyati</item>
+    <item>Xorazm viloyati</item>
+    <item>Qoraqalpog‘iston Respublikasi</item>
+    <item>Toshkent shahar</item>
+</string-array>
+<string name="prompt">Select Mode</string>
 
-    <string name="app_name">eAnticor</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="input_phone_number">Введите номер телефона, что бы войти или зарегистрироваться</string>
-    <string name="please_input_code">На ваш номер был отправлен код подтверждения. Пожалуйста введите код</string>
-    <string name="sign">Вход</string>
-    <string name="confirm">Подтверждение</string>
-    <string name="open">open</string>
-    <string name="close">close</string>
-    <string name="please_input_all_fields">Пожалуйста, заполните все поля.</string>
-    <string name="register_order">Отправить</string>
-    <string name="contact_data">Клиент данные</string>
-    <string name="fullname">Имя Фамилия</string>
-    <string name="fullname_">Имя Фамилия:</string>
-    <string name="phone">Номер телефона</string>
-    <string name="phone_">Номер телефона:</string>
-    <string name="comment">Комментарий</string>
-    <!-- <string name="your_data">Личные данные</string>-->
-    <string name="your_data">Главная</string>
-    <string name="edit">Изменить</string>
-    <string name="code">Код</string>
-    <string name="success">Ваша заявка успешно отправлена!</string>
-    <string name="your_order_accept">Ваш заказ был успешно отправлен. Вы можете отслеживать статус заказа из окна заказов.</string>
-    <string name="exit_main_page">Вернуться в главное окно</string>
-    <string name="swap_language">Выбрать язык</string>
-    <string name="notifications">Уведомления</string>
-    <string name="language">Сменить язык</string>
-    <string name="share">Поделиться</string>
-    <string name="about_app">О приложении</string>
-    <string name="logout">Выйти</string>
-    <string name="current_store">ОБРАЩЕНИЕ</string>
-    <string name="catgory1">Я столкнулся с взяточничеством и дал взятку</string>
-    <string name="category2">Я столкнулся с взяточничеством, но не дал взятку. Я против коррупции</string>
-    <string name="category3">Я столкнулся с видом коррупции не связенной с взяточничеством</string>
-    <string name="category4">Я встретил честного сотрудника государственного органа</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="news">Новости</string>
-    <string name="dashboard">Сообщить</string>
-    <string name="wishlist">Статистика</string>
-    <string name="account">FAQ</string>
-    <string name="download">Скачать</string>
-    <string name="please_update_app">Пожалуйста, загрузите новую версию приложения!</string>
-    <string name="refreshed">Обновлено.</string>
-    <string name="call_me">Связаться с нами</string>
-    <string name="store_or_man_name">Название компании</string>
-    <string name="please_select_region">Пожалуйста, выберите регион.</string>
-    <string name="ditrict">Район</string>
-    <string name="region">Район</string>
-    <string name="murojaat">Государство гарантирует конфиденциальность ваших личных и отправляемых данных</string>
-    <string name="title">Агентство по противодействию коррупции Республики Узбекистан</string>
-    <string name="shahar">Регион совершенный коррупционной правонарушений</string>
-    <string name="murojaat1">Обращение</string>
-    <string name="murojaat2">Часто задаваемые вопросы</string>
-    <string name="zayavka">Подать заявку</string>
-    <string name="tashkilot">Организации</string>
-    <string name="hudud">Выберите регион</string>
-    <string name="murojaat_matni">Текст</string>
-    <string name="pora_hajmi">Сумма взятки</string>
-    <string name="murojat_mazmuni">Содержание обращения</string>
-    <string name="Обращение">Обращение</string>
-    <string name="oneid">OneID</string>
-    <string name="agentlik">Обращения не авторизованных пользователей будут иметь статус анонимный. Агентство имеет право не рассматривать анонимные обращения Рекомендуем зарегистрироваться</string>
-    <string name="savollar">Вопросы</string>
-    <string name="your_Data">Ваши вопросы</string>
-    <string name="title_activity_news">NewsActivity</string>
-    <string name="not_network">Отключение сети. Пожалуйста, проверьте настройки сети.</string>
-    <string name="murojaatt">Обращения не авторизованных пользователей будут иметь статус анонимный</string>
-    <string name="qo_ng_iroq_markazi_1070">Колл-центр: 1253</string>
-    <string name="vapros">Вопрос</string>
-    <string name="text">Введите сообщение</string>
-    <string name="shaxs_turi">Выберите тип личности</string>
-    <string name="created_by">Created by</string>
-    <string name="russkiy">Русский</string>
-    <string name="shaxsturi">Шахс турини танланг</string>
-    <string name="todo">TODO</string>
-    <string name="shaharlar">Shaharlar</string>
-    <string name="fiz_litso">Физ. лицо</string>
-    <string name="sum">Валюта / Сум</string>
-    <string name="қутв">Отправить</string>
-    <string name="error">Вы где-то ошиблись или проверьте подключение к интернету</string>
-    <string name="savol1">Что такое Коррупция?</string>
-    <string name="javob1">коррупция - это незаконное использование лица с целью получения материальных или нематериальных выгод от его карьеры или службы или интересов других лиц, а также незаконное предоставление таких выгод. Источник: закон Республики Узбекистан О борьбе с коррупцией</string>
-    <string name="korish">Просмотреть</string>
-    <string name="savol2">Что будет предметом взятки?</string>
-    <string name="javob2">Предметом взятки могут быть деньги, ценные бумаги, материальные ценности, а также услуги, которые не подлежат возврату взяточнику, но носят имущественный характер (например, выполнение ремонтных, строительных, реставрационных работ и др.).
+<string name="app_name">eAnticor</string>
+<string name="hello_blank_fragment">Hello blank fragment</string>
+<string name="input_phone_number">Введите номер телефона, что бы войти или зарегистрироваться</string>
+<string name="please_input_code">На ваш номер был отправлен код подтверждения. Пожалуйста введите код</string>
+<string name="sign">Вход</string>
+<string name="confirm">Подтверждение</string>
+<string name="open">open</string>
+<string name="close">close</string>
+<string name="please_input_all_fields">Пожалуйста, заполните все поля.</string>
+<string name="register_order">Отправить</string>
+<string name="contact_data">Клиент данные</string>
+<string name="fullname">Имя Фамилия</string>
+<string name="fullname_">Имя Фамилия:</string>
+<string name="phone">Номер телефона</string>
+<string name="phone_">Номер телефона:</string>
+<string name="comment">Комментарий</string>
+<!-- <string name="your_data">Личные данные</string>-->
+<string name="your_data">Главная</string>
+<string name="edit">Изменить</string>
+<string name="code">Код</string>
+<string name="success">Ваша заявка успешно отправлена!</string>
+<string name="your_order_accept">Ваш заказ был успешно отправлен. Вы можете отслеживать статус заказа из окна заказов.</string>
+<string name="exit_main_page">Вернуться в главное окно</string>
+<string name="swap_language">Выбрать язык</string>
+<string name="notifications">Уведомления</string>
+<string name="language">Сменить язык</string>
+<string name="share">Поделиться</string>
+<string name="about_app">О приложении</string>
+<string name="logout">Выйти</string>
+<string name="current_store">ОБРАЩЕНИЕ</string>
+<string name="catgory1">Я столкнулся с взяточничеством и дал взятку</string>
+<string name="category2">Я столкнулся с взяточничеством, но не дал взятку. Я против коррупции</string>
+<string name="category3">Я столкнулся с видом коррупции не связенной с взяточничеством</string>
+<string name="category4">Я встретил честного сотрудника государственного органа</string>
+<!-- Strings used for fragments for navigation -->
+<string name="first_fragment_label">First Fragment</string>
+<string name="second_fragment_label">Second Fragment</string>
+<string name="next">Next</string>
+<string name="previous">Previous</string>
+<string name="hello_first_fragment">Hello first fragment</string>
+<string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+<string name="news">Новости</string>
+<string name="dashboard">Сообщить</string>
+<string name="wishlist">Статистика</string>
+<string name="account">FAQ</string>
+<string name="download">Скачать</string>
+<string name="please_update_app">Пожалуйста, загрузите новую версию приложения!</string>
+<string name="refreshed">Обновлено.</string>
+<string name="call_me">Связаться с нами</string>
+<string name="store_or_man_name">Название компании</string>
+<string name="please_select_region">Пожалуйста, выберите регион.</string>
+<string name="ditrict">Район</string>
+<string name="region">Район</string>
+<string name="murojaat">Государство гарантирует конфиденциальность ваших личных и отправляемых данных</string>
+<string name="title">Агентство по противодействию коррупции Республики Узбекистан</string>
+<string name="shahar">Регион совершенный коррупционной правонарушений</string>
+<string name="murojaat1">Обращение</string>
+<string name="murojaat2">Часто задаваемые вопросы</string>
+<string name="zayavka">Подать заявку</string>
+<string name="tashkilot">Организации</string>
+<string name="hudud">Выберите регион</string>
+<string name="murojaat_matni">Текст</string>
+<string name="pora_hajmi">Сумма взятки</string>
+<string name="murojat_mazmuni">Содержание обращения</string>
+<string name="Обращение">Обращение</string>
+<string name="oneid">OneID</string>
+<string name="agentlik">Обращения не авторизованных пользователей будут иметь статус анонимный. Агентство имеет право не рассматривать анонимные обращения Рекомендуем зарегистрироваться</string>
+<string name="savollar">Вопросы</string>
+<string name="your_Data">Ваши вопросы</string>
+<string name="title_activity_news">NewsActivity</string>
+<string name="not_network">Отключение сети. Пожалуйста, проверьте настройки сети.</string>
+<string name="murojaatt">Обращения не авторизованных пользователей будут иметь статус анонимный</string>
+<string name="qo_ng_iroq_markazi_1070">Колл-центр: 1253</string>
+<string name="vapros">Вопрос</string>
+<string name="text">Введите сообщение</string>
+<string name="shaxs_turi">Выберите тип личности</string>
+<string name="created_by">Created by</string>
+<string name="russkiy">Русский</string>
+<string name="shaxsturi">Шахс турини танланг</string>
+<string name="todo">TODO</string>
+<string name="shaharlar">Shaharlar</string>
+<string name="fiz_litso">Физ. лицо</string>
+<string name="sum">Валюта / Сум</string>
+<string name="қутв">Отправить</string>
+<string name="error">Вы где-то ошиблись или проверьте подключение к интернету</string>
+<string name="savol1">Что такое Коррупция?</string>
+<string name="javob1">коррупция - это незаконное использование лица с целью получения материальных или нематериальных выгод от его карьеры или службы или интересов других лиц, а также незаконное предоставление таких выгод. Источник: закон Республики Узбекистан О борьбе с коррупцией</string>
+<string name="korish">Просмотреть</string>
+<string name="savol2">Что будет предметом взятки?</string>
+<string name="javob2">Предметом взятки могут быть деньги, ценные бумаги, материальные ценности, а также услуги, которые не подлежат возврату взяточнику, но носят имущественный характер (например, выполнение ремонтных, строительных, реставрационных работ и др.).
 Источник: Постановление Пленума Верховного суда № 19</string>
-    <string name="savol3">Что входит в состав правонарушений, связанных с коррупцией?</string>
-    <string name="javob3">имея признаки коррупции, Деяние, предусматривающее ответственность в законодательстве за его совершение, считается нарушением коррупционного характера.</string>
-    <string name="savol4">Как должен вести себя государственный служащий при возникновении конфликта интересов?</string>
-    <string name="javob4">государственные служащие обязаны информировать своего руководителя либо правоохранительные органы обо всех случаях обращений каких-либо лиц с целью склонения их к совершению правонарушений, а также о любых известных им случаях правонарушений, совершенных другими государственными служащими. Источник: постановление Кабинета Министров от 2 марта 2016 г. № 62</string>
-    <string name="_1_4">1....4</string>
-    <string name="fizLitso">Физический лицо</string>
-    <string name="yurLitso">Юридический лицо</string>
-    <string name="dollar">Доллар</string>
-    <string name="summ">Сум</string>
-    <string name="button1">Я столкнулся с взяточничеством и дал взятку</string>
-    <string name="button2">Я столкнулся с взяточничеством, но не дал взятку. Я против коррупции</string>
-    <string name="button3">Я столкнулся с видом коррупции не связенной с взяточничеством</string>
-    <string name="button4">Я встретил честного сотрудника государственного органа</string>
-    <string name="profit_devs_group">INNOVATIVE WEB IDEA</string>
-    <string name="auth">Авторизация</string>
-    <string name="rubl">Рубль</string>
-    <string name="tenge">Tенге</string>
-    <string name="valyuta">Валюта</string>
-    <string name="yevro">Евро</string>
-    <string name="o_zbek">O\'zbek</string>
+<string name="savol3">Что входит в состав правонарушений, связанных с коррупцией?</string>
+<string name="javob3">имея признаки коррупции, Деяние, предусматривающее ответственность в законодательстве за его совершение, считается нарушением коррупционного характера.</string>
+<string name="savol4">Как должен вести себя государственный служащий при возникновении конфликта интересов?</string>
+<string name="javob4">государственные служащие обязаны информировать своего руководителя либо правоохранительные органы обо всех случаях обращений каких-либо лиц с целью склонения их к совершению правонарушений, а также о любых известных им случаях правонарушений, совершенных другими государственными служащими. Источник: постановление Кабинета Министров от 2 марта 2016 г. № 62</string>
+<string name="_1_4">1....4</string>
+<string name="fizLitso">Физический лицо</string>
+<string name="yurLitso">Юридический лицо</string>
+<string name="dollar">Доллар</string>
+<string name="summ">Сум</string>
+<string name="button1">Я столкнулся с взяточничеством и дал взятку</string>
+<string name="button2">Я столкнулся с взяточничеством, но не дал взятку. Я против коррупции</string>
+<string name="button3">Я столкнулся с видом коррупции не связенной с взяточничеством</string>
+<string name="button4">Я встретил честного сотрудника государственного органа</string>
+<string name="profit_devs_group">INNOVATIVE WEB IDEA</string>
+<string name="auth">Авторизация</string>
+<string name="rubl">Рубль</string>
+<string name="tenge">Tенге</string>
+<string name="valyuta">Валюта</string>
+<string name="yevro">Евро</string>
+<string name="o_zbek">O\'zbek</string>
     <string name="ilova_test_rejimida_ishlamoqda">Приложение работает в тестовом режиме</string>
     <string name="Yopish">Закрить</string>
     <string name="kurish">Просмотреть</string>
