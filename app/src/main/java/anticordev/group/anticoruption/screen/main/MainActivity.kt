@@ -48,16 +48,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         startActivity<OneActivity>()
                     }
                     tvTitle.visibility = View.VISIBLE
-                        hideFragments()
-                        if (!home.isAdded) {
-                            supportFragmentManager.beginTransaction()
-                                .add(R.id.container, home)
-                                .commitAllowingStateLoss()
-                        } else {
-                            supportFragmentManager.beginTransaction()
-                                .show(home)
-                                .commitAllowingStateLoss()
-                        }
+                    hideFragments()
+                    if (!home.isAdded) {
+                        supportFragmentManager.beginTransaction()
+                            .add(R.id.container, home)
+                            .commitAllowingStateLoss()
+                    } else {
+                        supportFragmentManager.beginTransaction()
+                            .show(home)
+                            .commitAllowingStateLoss()
+                    }
                     true
                 }
 
@@ -65,16 +65,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     one_id.visibility = View.GONE
                     toolbar.visibility = View.VISIBLE
                     tvTitle.visibility = View.VISIBLE
-                        hideFragments()
-                        if (!staticFragment.isAdded) {
-                            supportFragmentManager.beginTransaction()
-                                .add(R.id.container, staticFragment)
-                                .commitAllowingStateLoss()
-                        } else {
-                            supportFragmentManager.beginTransaction()
-                                .show(staticFragment)
-                                .commitAllowingStateLoss()
-                        }
+                    hideFragments()
+                    if (!staticFragment.isAdded) {
+                        supportFragmentManager.beginTransaction()
+                            .add(R.id.container, staticFragment)
+                            .commitAllowingStateLoss()
+                    } else {
+                        supportFragmentManager.beginTransaction()
+                            .show(staticFragment)
+                            .commitAllowingStateLoss()
+                    }
 
                     true
                 }
@@ -85,16 +85,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         startActivity<OneActivity>()
                     }
                     tvTitle.visibility = View.VISIBLE
-                        hideFragments()
-                        if (!faqFragment.isAdded) {
-                            supportFragmentManager.beginTransaction()
-                                .add(R.id.container, faqFragment)
-                                .commitAllowingStateLoss()
-                        } else {
-                            supportFragmentManager.beginTransaction()
-                                .show(faqFragment)
-                                .commitAllowingStateLoss()
-                        }
+                    hideFragments()
+                    if (!faqFragment.isAdded) {
+                        supportFragmentManager.beginTransaction()
+                            .add(R.id.container, faqFragment)
+                            .commitAllowingStateLoss()
+                    } else {
+                        supportFragmentManager.beginTransaction()
+                            .show(faqFragment)
+                            .commitAllowingStateLoss()
+                    }
 
                     true
                 }
@@ -155,7 +155,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     @SuppressLint("InflateParams")
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-            if (p0.itemId == R.id.actionShareApp) {
+        if (p0.itemId == R.id.actionShareApp) {
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.type = "text/plain"
@@ -170,10 +170,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             startActivity<MainActivity>()
         } else if (p0.itemId == R.id.faq) {
             startActivity<SavollarActivity>()
-        } else if (p0.itemId == R.id.actionLogout) {
-            Prefs.clearAll()
-            startClearActivity<SplashActivity>()
-            finish()
+//        } else if (p0.itemId == R.id.actionLogout) {
+//            Prefs.clearAll()
+//            startClearActivity<SplashActivity>()
+//            finish()
         } else if (p0.itemId == R.id.actionLanguage) {
             val bottomSheetDialog = BottomSheetDialog(this)
             val viewLang = layoutInflater.inflate(R.layout.bottomsheet_language, null)

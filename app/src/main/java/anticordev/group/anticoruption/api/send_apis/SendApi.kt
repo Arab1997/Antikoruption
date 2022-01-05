@@ -23,10 +23,11 @@ interface SendApi {
     @GET("ref/regions/")
     suspend fun getRegions(): Response<List<Region>>
 
-    //https://eanticor.uz/ru/api/appeal/
+    //https://eanticor.uz/uz/api/login-one/
+    @Multipart
     @POST("appeal/")
     suspend fun postComplain(
-        @Body complain: Map<String, Any>,
+        @PartMap complain: Map<String, Any>,
     ): Response<Appeal>
 
     //https://eanticor.uz/ru/api/login-one/

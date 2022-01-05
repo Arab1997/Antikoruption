@@ -19,9 +19,6 @@ import anticordev.group.anticoruption.screen.viewmodels.SendViewModel
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModelProviderFactory
 import android.widget.RadioButton
 
-import android.widget.RadioGroup
-import anticordev.group.anticoruption.util.utils.Prefs
-
 class SendActivity : BaseActivity() {
 
     override fun getLayout(): Int = R.layout.send_activity
@@ -145,19 +142,15 @@ class SendActivity : BaseActivity() {
 
         viewModel.complains.observe(this, { response ->
             if (response.isSuccessful && (response.code() in 200..299)) {
-                Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
-              //  Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
+                // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
+                Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
             } else {
-                Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
-//                Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
+                // Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
+                Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
             }
         })
 
         button_type.setOnCheckedChangeListener { radioGroup, i ->
-            //2131361930
-            //2131361931
-            //2131361932
-            //2131361933
             when(i) {
                 2131361930 -> complain.button_type = 0
                 2131361931 -> complain.button_type = 1
@@ -171,22 +164,38 @@ class SendActivity : BaseActivity() {
             when(i) {
                 2131362020 -> complain.currency = 0
                 2131362448 -> complain.currency = 1
-               // 2131362448 -> complain.currency = 2
-              //  2131362448 -> complain.currency = 3
+                // 2131362448 -> complain.currency = 2
+                //  2131362448 -> complain.currency = 3
                 else -> complain.currency = 0
             }
         }
 
+//        send.setOnClickListener {
+//           // if (validate() && Prefs.getToken().isNotEmpty() ){
+//
+//
+//            if (Prefs.getToken().isNullOrEmpty() ) {
+//                startClearTopActivity<OneActivity>()
+//            }
+//            else if (validate() && Prefs.getToken().isNotEmpty()){
+//
+//                complain.amount = amount.text.toString().toInt()
+//                complain.text = edComment.text.toString()
+//
+//                viewModel.postComplain(complain)
+//
+//            } else {
+//                //Toasty.error(this, "", Toast.LENGTH_SHORT).show()
+//            }
+//        }
         send.setOnClickListener {
-            if (validate() && Prefs.getToken().isNotEmpty() ){
-
+            if (validate()) {
                 complain.amount = amount.text.toString().toInt()
                 complain.text = edComment.text.toString()
 
-
                 viewModel.postComplain(complain)
             } else {
-                //Toasty.error(this, "", Toast.LENGTH_SHORT).show()
+                Toasty.error(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
             }
         }
     }

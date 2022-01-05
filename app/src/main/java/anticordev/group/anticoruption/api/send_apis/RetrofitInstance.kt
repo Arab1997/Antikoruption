@@ -34,12 +34,17 @@ class RetrofitInstance {
         }
 
         private fun getOkHttpClient(): OkHttpClient {
+            val logging = HttpLoggingInterceptor()
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
             var builder = OkHttpClient().newBuilder()
             builder.retryOnConnectionFailure(false)
             builder.connectTimeout(60, TimeUnit.SECONDS)
             builder.writeTimeout(60, TimeUnit.SECONDS)
             builder.readTimeout(60, TimeUnit.SECONDS)
-            builder.addInterceptor(AppInterceptor())
+            // builder.addInterceptor(AppInterceptor())
+            builder.addInterceptor(MyInterceptor())
+            builder.addInterceptor(logging)
             builder = enableTls12OnPreLollipop(builder)
             if (BuildConfig.DEBUG) {
                 builder.addInterceptor(HttpLoggingInterceptor().apply {
