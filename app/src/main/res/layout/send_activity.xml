@@ -67,7 +67,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
-                <androidx.appcompat.widget.AppCompatSpinner
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/spinner_region"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -84,7 +84,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
-                <androidx.appcompat.widget.AppCompatSpinner
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/spinner_area"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -101,7 +101,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
-                <androidx.appcompat.widget.AppCompatSpinner
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/spinner_org"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"

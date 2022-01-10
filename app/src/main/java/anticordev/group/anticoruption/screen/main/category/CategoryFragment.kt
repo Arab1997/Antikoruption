@@ -14,49 +14,51 @@ class CategoryFragment : BaseFragment(), View.OnClickListener {
     override fun getLayout(): Int = R.layout.fragment_category
 
     override fun setupViews() {
-        if (Prefs.getToken().isEmpty()){
+        if (Prefs.getToken().isEmpty()) {
             btn_register.visibility = View.VISIBLE
             btn_register.setOnClickListener {
                 getBaseActivity {
-                    it.startActivity<OneActivity>(Constants.EXTRA_DATA,  Constants.EXTRA_DATA_2)
+                    it.startActivity<OneActivity>(Constants.EXTRA_DATA, Constants.EXTRA_DATA_2)
                 }
             }
-        }
-        else{
+        } else {
             btn_register.visibility = View.GONE
         }
         category_card1.setOnClickListener {
             getBaseActivity {
-                it.startActivity<SendActivity>(Constants.EXTRA_DATA,  Constants.EXTRA_DATA_2)
+                it.startActivity<SendActivity>(Constants.EXTRA_DATA, Constants.BTN_TYPE_0)
             }
 
         }
         category_card2.setOnClickListener {
             getBaseActivity {
-                it.startActivity<SendActivity>(Constants.EXTRA_DATA,  Constants.EXTRA_DATA_2)
+                it.startActivity<SendActivity>(Constants.EXTRA_DATA, Constants.BTN_TYPE_1)
             }
 
         }
         category_card3.setOnClickListener {
             getBaseActivity {
-                it.startActivity<SendActivity>(Constants.EXTRA_DATA,  Constants.EXTRA_DATA_2)
+                it.startActivity<SendActivity>(Constants.EXTRA_DATA, Constants.BTN_TYPE_2)
             }
 
         }
         category_card4.setOnClickListener {
             getBaseActivity {
-                it.startActivity<SendActivity>(Constants.EXTRA_DATA,  Constants.EXTRA_DATA_2)
+                it.startActivity<SendActivity>(Constants.EXTRA_DATA, Constants.BTN_TYPE_3)
             }
 
         }
-        }
+    }
+
     override fun loadData() {
     }
+
     override fun setData() {
     }
+
     override fun onClick(v: View?) {
     }
-    }
+}
 
 
 

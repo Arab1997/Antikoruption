@@ -24,6 +24,7 @@ import anticordev.group.anticoruption.base.startActivity
 import anticordev.group.anticoruption.base.startClearTopActivity
 import anticordev.group.anticoruption.screen.main.MainActivity
 import anticordev.group.anticoruption.screen.main.oneId.OneActivity
+import anticordev.group.anticoruption.util.utils.Constants
 import anticordev.group.anticoruption.util.utils.Prefs
 
 class SendActivity : BaseActivity() {
@@ -41,6 +42,7 @@ class SendActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         val complain = Complain()
         val sendRepository = SendRepository()
+
         val viewModelProviderFactory = SendViewModelProviderFactory(sendRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(SendViewModel::class.java)
 
@@ -199,6 +201,7 @@ class SendActivity : BaseActivity() {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
                 complain.text = edComment.text.toString()
+//                complain.button_type = intent.getStringExtra(Constants.EXTRA_DATA)!!.toInt()
 
                 viewModel.postComplain(complain)
             } else {
