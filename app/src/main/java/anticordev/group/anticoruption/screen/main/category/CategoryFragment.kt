@@ -1,5 +1,6 @@
 package anticordev.group.anticoruption.screen.main.category
 
+import android.content.Intent
 import android.view.View
 import kotlinx.android.synthetic.main.fragment_category.*
 import anticordev.group.anticoruption.base.BaseFragment
@@ -9,11 +10,15 @@ import anticordev.group.anticoruption.util.utils.Constants
 import anticordev.group.anticoruption.screen.main.send.detail.SendActivity
 import anticordev.group.anticoruption.R
 import anticordev.group.anticoruption.util.utils.Prefs
+import es.dmoral.toasty.Toasty
 
 class CategoryFragment : BaseFragment(), View.OnClickListener {
     override fun getLayout(): Int = R.layout.fragment_category
 
     override fun setupViews() {
+
+        val intent = Intent(requireContext(), SendActivity::class.java)
+
         if (Prefs.getToken().isEmpty()) {
             btn_register.visibility = View.VISIBLE
             btn_register.setOnClickListener {
@@ -25,28 +30,20 @@ class CategoryFragment : BaseFragment(), View.OnClickListener {
             btn_register.visibility = View.GONE
         }
         category_card1.setOnClickListener {
-            getBaseActivity {
-                it.startActivity<SendActivity>(Constants.EXTRA_DATA, Constants.BTN_TYPE_0)
-            }
-
+            intent.putExtra(Constants.EXTRA_DATA, Constants.BTN_TYPE_0.toString())
+            startActivity(intent)
         }
         category_card2.setOnClickListener {
-            getBaseActivity {
-                it.startActivity<SendActivity>(Constants.EXTRA_DATA, Constants.BTN_TYPE_1)
-            }
-
+            intent.putExtra(Constants.EXTRA_DATA, Constants.BTN_TYPE_1.toString())
+            startActivity(intent)
         }
         category_card3.setOnClickListener {
-            getBaseActivity {
-                it.startActivity<SendActivity>(Constants.EXTRA_DATA, Constants.BTN_TYPE_2)
-            }
-
+            intent.putExtra(Constants.EXTRA_DATA, Constants.BTN_TYPE_2.toString())
+            startActivity(intent)
         }
         category_card4.setOnClickListener {
-            getBaseActivity {
-                it.startActivity<SendActivity>(Constants.EXTRA_DATA, Constants.BTN_TYPE_3)
-            }
-
+            intent.putExtra(Constants.EXTRA_DATA, Constants.BTN_TYPE_3.toString())
+            startActivity(intent)
         }
     }
 

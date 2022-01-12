@@ -151,11 +151,11 @@ class SendActivity : BaseActivity() {
 
         viewModel.complains.observe(this, { response ->
             if (response.isSuccessful && (response.code() in 200..299)) {
-               // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
-                  Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
+                Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
+//                  Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
             } else {
-               // Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
-                  Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
+                Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
+//                  Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
             }
         })
 
@@ -201,7 +201,7 @@ class SendActivity : BaseActivity() {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
                 complain.text = edComment.text.toString()
-//                complain.button_type = intent.getStringExtra(Constants.EXTRA_DATA)!!.toInt()
+                complain.button_type = intent.getStringExtra(Constants.EXTRA_DATA)?.toInt() ?: 0
 
                 viewModel.postComplain(complain)
             } else {
