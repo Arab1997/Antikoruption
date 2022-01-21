@@ -70,7 +70,7 @@
                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/spinner_region"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp" />
 
@@ -87,7 +87,7 @@
                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/spinner_area"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp" />
 
@@ -104,7 +104,7 @@
                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/spinner_org"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp" />
 
@@ -116,75 +116,75 @@
                     android:paddingTop="10dp"
                     tools:context="info.hoang8f.android.segmented.SampleActivity$PlaceholderFragment">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="start"
-                            android:minWidth="80dp">
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:gravity="start"-->
+<!--                            android:minWidth="80dp">-->
 
-                            <info.hoang8f.android.segmented.SegmentedGroup
-                                android:id="@+id/button_type"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_margin="10dp"
-                                android:orientation="vertical"
-                                app:sc_checked_text_color="@color/white"
-                                segmentedgroup:sc_border_width="1dp"
-                                segmentedgroup:sc_corner_radius="4dp"
-                                segmentedgroup:sc_tint_color="@color/colorAccent">
+<!--                            <info.hoang8f.android.segmented.SegmentedGroup-->
+<!--                                android:id="@+id/button_type"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_alignParentStart="true"-->
+<!--                                android:layout_margin="10dp"-->
+<!--                                android:orientation="vertical"-->
+<!--                                app:sc_checked_text_color="@color/white"-->
+<!--                                segmentedgroup:sc_border_width="1dp"-->
+<!--                                segmentedgroup:sc_corner_radius="4dp"-->
+<!--                                segmentedgroup:sc_tint_color="@color/colorAccent">-->
 
-                                <RadioButton
-                                    android:id="@+id/button_type_1"
-                                    style="@style/RadioButton"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7dp"
-                                    android:text="@string/button1"
-                                    android:textAlignment="textStart"
-                                    android:textSize="14sp"
-                                    android:checked="true"/>
+<!--                                <RadioButton-->
+<!--                                    android:id="@+id/button_type_1"-->
+<!--                                    style="@style/RadioButton"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:padding="7dp"-->
+<!--                                    android:text="@string/button1"-->
+<!--                                    android:textAlignment="textStart"-->
+<!--                                    android:textSize="14sp"-->
+<!--                                    android:checked="true"/>-->
 
-                                <RadioButton
-                                    android:id="@+id/button_type_2"
-                                    style="@style/RadioButton"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7dp"
-                                    android:text="@string/button2"
-                                    android:textAlignment="textStart"
-                                    android:textSize="14sp"/>
+<!--                                <RadioButton-->
+<!--                                    android:id="@+id/button_type_2"-->
+<!--                                    style="@style/RadioButton"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:padding="7dp"-->
+<!--                                    android:text="@string/button2"-->
+<!--                                    android:textAlignment="textStart"-->
+<!--                                    android:textSize="14sp"/>-->
 
-                                <RadioButton
-                                    android:id="@+id/button_type_3"
-                                    style="@style/RadioButton"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7dp"
-                                    android:text="@string/button3"
-                                    android:textAlignment="textStart"
-                                    android:textSize="14sp" />
+<!--                                <RadioButton-->
+<!--                                    android:id="@+id/button_type_3"-->
+<!--                                    style="@style/RadioButton"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:padding="7dp"-->
+<!--                                    android:text="@string/button3"-->
+<!--                                    android:textAlignment="textStart"-->
+<!--                                    android:textSize="14sp" />-->
 
-                                <RadioButton
-                                    android:id="@+id/button_type_4"
-                                    style="@style/RadioButton"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7dp"
-                                    android:text="@string/button4"
-                                    android:textAlignment="textStart"
-                                    android:textSize="14sp" />
+<!--                                <RadioButton-->
+<!--                                    android:id="@+id/button_type_4"-->
+<!--                                    style="@style/RadioButton"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:padding="7dp"-->
+<!--                                    android:text="@string/button4"-->
+<!--                                    android:textAlignment="textStart"-->
+<!--                                    android:textSize="14sp" />-->
 
 
-                            </info.hoang8f.android.segmented.SegmentedGroup>
+<!--                            </info.hoang8f.android.segmented.SegmentedGroup>-->
 
-                        </RelativeLayout>
-                    </LinearLayout>
+<!--                        </RelativeLayout>-->
+<!--                    </LinearLayout>-->
 
 
                     <TextView

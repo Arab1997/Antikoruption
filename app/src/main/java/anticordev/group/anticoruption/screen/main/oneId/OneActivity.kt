@@ -84,6 +84,8 @@ class OneActivity : AppCompatActivity() {
                 Prefs.getToken()
                 //Toast.makeText(applicationContext,getString(R.string.show_massage),Toast.LENGTH_SHORT).show()
                 Toasty.success(applicationContext, getString(R.string.show_massage), Toast.LENGTH_SHORT).show()
+
+                startActivity<MainActivity>()
             } else {
                 view?.loadUrl(url)
             }

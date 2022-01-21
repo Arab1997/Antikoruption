@@ -24,7 +24,6 @@ import anticordev.group.anticoruption.base.startActivity
 import anticordev.group.anticoruption.base.startClearTopActivity
 import anticordev.group.anticoruption.screen.main.MainActivity
 import anticordev.group.anticoruption.screen.main.oneId.OneActivity
-import anticordev.group.anticoruption.util.utils.Constants
 import anticordev.group.anticoruption.util.utils.Prefs
 
 class SendActivity : BaseActivity() {
@@ -42,7 +41,6 @@ class SendActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         val complain = Complain()
         val sendRepository = SendRepository()
-
         val viewModelProviderFactory = SendViewModelProviderFactory(sendRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(SendViewModel::class.java)
 
@@ -151,30 +149,24 @@ class SendActivity : BaseActivity() {
 
         viewModel.complains.observe(this, { response ->
             if (response.isSuccessful && (response.code() in 200..299)) {
-                Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
-//                  Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
+               // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
+                Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
+
+                startActivity<MainActivity>()
             } else {
                 Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
-//                  Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
+              //  Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
             }
         })
 
-        button_type.setOnCheckedChangeListener { radioGroup, i ->
-            when(i) {
-                2131361930 -> complain.button_type = 0
-                2131361931 -> complain.button_type = 1
-                2131361932 -> complain.button_type = 2
-                2131361933 -> complain.button_type = 3
-                else -> complain.button_type = 0
-            }
-        }
+
 
         currency.setOnCheckedChangeListener { radioGroup, i ->
             when(i) {
                 2131362020 -> complain.currency = 0
                 2131362448 -> complain.currency = 1
-               // 2131362448 -> complain.currency = 2
-              //  2131362448 -> complain.currency = 3
+                // 2131362448 -> complain.currency = 2
+                //  2131362448 -> complain.currency = 3
                 else -> complain.currency = 0
             }
         }
@@ -201,9 +193,10 @@ class SendActivity : BaseActivity() {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
                 complain.text = edComment.text.toString()
-                complain.button_type = intent.getStringExtra(Constants.EXTRA_DATA)?.toInt() ?: 0
 
                 viewModel.postComplain(complain)
+
+
             } else {
                 Toasty.error(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
             }
@@ -284,4 +277,3 @@ class SendActivity : BaseActivity() {
         }
     }
 }
-

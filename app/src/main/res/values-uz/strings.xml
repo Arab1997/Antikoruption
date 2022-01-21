@@ -133,5 +133,7 @@
     <string name="kurish">Просмотреть</string>
     <string name="errorrrr">Error</string>
     <string name="show_massage">Вы успешно прошли One ID</string>
+    <string name="Chiqish">Выйти</string>
+    <string name="chiqmoqchimisiz">Вы действительно хотите выйти?</string>
 </resources>
 

@@ -131,4 +131,6 @@ Manba: Oliy sudi Plenumining 19-son qarori</string>
     <string name="kurish">Ko\'rish</string>
     <string name="errorrrr">Error</string>
     <string name="show_massage">Siz One ID dan muvaffaqiyatli o\'tdingiz</string>
+    <string name="Chiqish">Chiqish</string>
+    <string name="chiqmoqchimisiz">Siz platformadan chiqmoqchimisiz?</string>
 </resources>

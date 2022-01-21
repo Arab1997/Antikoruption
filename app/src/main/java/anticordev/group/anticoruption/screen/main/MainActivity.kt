@@ -7,6 +7,7 @@ import android.net.Uri
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.blankj.utilcode.util.NetworkUtils
@@ -27,9 +28,11 @@ import anticordev.group.anticoruption.screen.main.category.CategoryFragment
 import anticordev.group.anticoruption.screen.main.oneId.OneActivity
 import anticordev.group.anticoruption.screen.main.savollar.SavollarActivity
 import anticordev.group.anticoruption.screen.main.splash.SplashActivity
+import anticordev.group.anticoruption.screen.main.statistic.WebActivity
 import anticordev.group.anticoruption.util.utils.Constants
 import anticordev.group.anticoruption.util.utils.LocaleManager.setNewLocale
 import anticordev.group.anticoruption.util.utils.Prefs
+import kotlinx.android.synthetic.main.fragment_category.*
 
 @Suppress("DEPRECATION")
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -42,7 +45,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         nav_bottom.setOnNavigationItemSelectedListener { item: MenuItem ->
             return@setOnNavigationItemSelectedListener when (item.itemId) {
                 R.id.category -> {
+                    if (Prefs.getToken().isEmpty()) {
+                        one_id.visibility = View.GONE
+                        logout.visibility = View.VISIBLE
+
+                    }
                     one_id.visibility = View.VISIBLE
+                    logout.visibility = View.GONE
 
                     one_id.setOnClickListener {
                         startActivity<OneActivity>()
@@ -62,7 +71,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 }
 
                 R.id.statistic -> {
-                    one_id.visibility = View.GONE
+                        if (Prefs.getToken().isEmpty()) {
+                            one_id.visibility = View.VISIBLE
+                            logout.visibility = View.GONE
+
+                        }
+                        one_id.visibility = View.GONE
+                        logout.visibility = View.VISIBLE
                     toolbar.visibility = View.VISIBLE
                     tvTitle.visibility = View.VISIBLE
                     hideFragments()
@@ -79,7 +94,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     true
                 }
                 R.id.faq -> {
-                    one_id.visibility = View.VISIBLE
+                    if (Prefs.getToken().isEmpty()) {
+                        one_id.visibility = View.VISIBLE
+                        logout.visibility = View.GONE
+
+                    }
+                    one_id.visibility = View.GONE
+                    logout.visibility = View.VISIBLE
 
                     one_id.setOnClickListener {
                         startActivity<OneActivity>()
@@ -101,6 +122,22 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 else -> true
             }
         }
+
+        logout.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle(getString(R.string.Chiqish))
+            builder.setMessage(getString(R.string.chiqmoqchimisiz))
+            builder.setPositiveButton(android.R.string.yes) { _, _ ->
+                Prefs.clearAll()
+
+                    startActivity<SplashActivity>()
+            }
+            builder.setNegativeButton(android.R.string.no) { _, _ ->
+
+            }
+            builder.show()
+        }
+
         val drawer: DrawerLayout = findViewById(R.id.drawer)
         val toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
         drawer.addDrawerListener(toggle)

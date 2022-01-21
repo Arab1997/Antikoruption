@@ -11,6 +11,7 @@ import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.fragment_statistic.*
 import anticordev.group.anticoruption.base.BaseFragment
 import anticordev.group.anticoruption.R
+import kotlinx.android.synthetic.main.activity_web.*
 
 class StatisticFragment : BaseFragment() {
     override fun getLayout(): Int = R.layout.fragment_statistic
@@ -47,7 +48,9 @@ class StatisticFragment : BaseFragment() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebView() {
-        webview.loadUrl("https://eanticor.uz/ru/")
+        webview.settings.javaScriptEnabled = true
+        webview.loadUrl("file:///android_asset/index.html")
+       // webview.loadUrl("https://eanticor.uz/ru/")
         // webview.loadUrl("https://www.google.ru/")
         webview.settings.javaScriptEnabled = true
         webview.settings.loadWithOverviewMode = true
