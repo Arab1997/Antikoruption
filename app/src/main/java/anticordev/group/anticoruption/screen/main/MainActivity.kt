@@ -46,12 +46,12 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             return@setOnNavigationItemSelectedListener when (item.itemId) {
                 R.id.category -> {
                     if (Prefs.getToken().isEmpty()) {
-                        one_id.visibility = View.GONE
-                        logout.visibility = View.VISIBLE
+                        one_id.visibility = View.VISIBLE
+                        logout.visibility = View.GONE
 
                     }
-                    one_id.visibility = View.VISIBLE
-                    logout.visibility = View.GONE
+                    one_id.visibility = View.GONE
+                    logout.visibility = View.VISIBLE
 
                     one_id.setOnClickListener {
                         startActivity<OneActivity>()

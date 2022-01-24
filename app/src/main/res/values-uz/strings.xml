@@ -135,5 +135,6 @@
     <string name="show_massage">Вы успешно прошли One ID</string>
     <string name="Chiqish">Выйти</string>
     <string name="chiqmoqchimisiz">Вы действительно хотите выйти?</string>
+    <string name="one_id">Сначала вы должны зарегистрироваться с One ID</string>
 </resources>
 
