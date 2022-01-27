@@ -20,7 +20,7 @@ class SplashActivity : BaseActivity() {
     override fun initViews() {
         object : CountDownTimer(2000, 1000) {
             override fun onFinish() {
-              if (Prefs.getToken().isNullOrEmpty()){
+              if (Prefs.getToken().isEmpty()){
                     showLanguageDialog()
                 }else{
                     startClearTopActivity<MainActivity>()
@@ -33,6 +33,7 @@ class SplashActivity : BaseActivity() {
 
         }.start()
     }
+    @SuppressLint("InflateParams")
     fun showLanguageDialog(){
         val bottomSheetDialog = BottomSheetDialog(this)
         val viewLang = layoutInflater.inflate(R.layout.bottomsheet_language, null)
@@ -41,16 +42,16 @@ class SplashActivity : BaseActivity() {
         viewLang.tvUzbCr.setOnClickListener {
             Prefs.setLang("uz")
             LocaleManager.setNewLocale(this, "uz")
-            bottomSheetDialog?.dismiss()
+            bottomSheetDialog.dismiss()
 
             startClearTopActivity<MainActivity>()
            // startClearActivity<SplashActivity>()
             finish()
         }
         viewLang.tvRu.setOnClickListener {
-            Prefs.setLang("en")
-            LocaleManager.setNewLocale(this, "en")
-            bottomSheetDialog?.dismiss()
+            Prefs.setLang("ru")
+            LocaleManager.setNewLocale(this, "ru")
+            bottomSheetDialog.dismiss()
 
             startClearTopActivity<MainActivity>()
             finish()
