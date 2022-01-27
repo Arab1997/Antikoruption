@@ -58,7 +58,7 @@
                     android:layout_marginStart="-2dp"
                     android:contentDescription="@string/todo"
                     android:src="@drawable/one_idd"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
                 <ImageView
                     android:id="@+id/logout"
                     android:layout_width="40dp"

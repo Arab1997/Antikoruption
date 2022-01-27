@@ -49,9 +49,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         one_id.visibility = View.VISIBLE
                         logout.visibility = View.GONE
 
+                    }else{
+                        one_id.visibility = View.GONE
+                        logout.visibility = View.VISIBLE
                     }
-                    one_id.visibility = View.GONE
-                    logout.visibility = View.VISIBLE
+
 
                     one_id.setOnClickListener {
                         startActivity<OneActivity>()
@@ -71,13 +73,15 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 }
 
                 R.id.statistic -> {
-                        if (Prefs.getToken().isEmpty()) {
-                            one_id.visibility = View.VISIBLE
-                            logout.visibility = View.GONE
+                    if (Prefs.getToken().isEmpty()) {
+                        one_id.visibility = View.VISIBLE
+                        logout.visibility = View.GONE
 
-                        }
+                    }else{
                         one_id.visibility = View.GONE
                         logout.visibility = View.VISIBLE
+                    }
+
                     toolbar.visibility = View.VISIBLE
                     tvTitle.visibility = View.VISIBLE
                     hideFragments()
@@ -98,10 +102,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         one_id.visibility = View.VISIBLE
                         logout.visibility = View.GONE
 
+                    }else{
+                        one_id.visibility = View.GONE
+                        logout.visibility = View.VISIBLE
                     }
-                    one_id.visibility = View.GONE
-                    logout.visibility = View.VISIBLE
-
                     one_id.setOnClickListener {
                         startActivity<OneActivity>()
                     }

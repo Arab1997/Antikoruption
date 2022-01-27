@@ -41,7 +41,6 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 tools:text="Person Name" />
-
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

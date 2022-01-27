@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".screen.main.statistic.WebActivity"></activity>
+        <activity android:name=".screen.main.statistic.WebActivity"/>
         <activity android:name=".screen.main.send.detail.SendActivity" />
         <activity android:name=".screen.main.savollar.SavollarActivity" />
         <activity android:name=".screen.main.oneId.OneActivity" />
