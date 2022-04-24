@@ -14,6 +14,7 @@ import java.io.File
 import java.io.Serializable
 import android.webkit.CookieManager
 import android.os.Bundle
+import android.provider.OpenableColumns
 import android.view.View
 import android.webkit.CookieSyncManager
 import android.widget.*
@@ -23,6 +24,13 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import es.dmoral.toasty.Toasty
 import anticordev.group.anticoruption.R
+import com.blankj.utilcode.util.Utils
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okio.BufferedSink
+import okio.source
+import java.io.FileNotFoundException
 import java.util.ArrayList
 
 fun Context.showToast(string: String) {
@@ -333,3 +341,33 @@ fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
 
 val Int.dp: Int get() = (this / Resources.getSystem().displayMetrics.density).toInt()
 val Int.px: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+
+fun Uri.toMultiPartData(partName: String = "file"): MultipartBody.Part {
+    val contentResolver = Utils.getApp().contentResolver
+    val mime = contentResolver.getType(this).orEmpty()
+    var size = 0L
+    var name = "file"
+    val inputStream = contentResolver.openInputStream(this)
+        ?: throw FileNotFoundException("Failed to open input stream")
+
+    contentResolver.query(this, null, null, null, null)?.use { cursor ->
+        val sizeIndex = cursor.getColumnIndex(OpenableColumns.SIZE)
+        val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+        cursor.moveToFirst()
+
+        size = cursor.getLong(sizeIndex)
+        name = cursor.getString(nameIndex)
+    }
+
+    val requestFile: RequestBody = object : RequestBody() {
+        override fun contentType() = mime.toMediaTypeOrNull()
+
+        override fun contentLength() = size
+
+        override fun writeTo(sink: BufferedSink) {
+            inputStream.source().use { source -> sink.writeAll(source) }
+        }
+    }
+
+    return MultipartBody.Part.createFormData(partName, name, requestFile)
+}

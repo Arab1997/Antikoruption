@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import anticordev.group.anticoruption.base.startActivity
+import anticordev.group.anticoruption.model.getToken.UploadFileResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import anticordev.group.anticoruption.model.send_models.*
@@ -15,6 +16,7 @@ import anticordev.group.anticoruption.screen.main.aboutapp.AboutAppActivity
 import anticordev.group.anticoruption.util.utils.Prefs
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Response
 import java.lang.Exception
@@ -29,6 +31,7 @@ class SendViewModel(
     val organizations: MutableLiveData<Response<List<Organization>>> = MutableLiveData()
     val regionsById: MutableLiveData<Response<Region>> = MutableLiveData()
     val complains: MutableLiveData<Response<Appeal>> = MutableLiveData()
+    val uploadResponse = MutableLiveData<Response<UploadFileResponse>>()
 
     fun getRegions() = viewModelScope.launch {
         val response = sendRepository.getRegions()
@@ -82,6 +85,15 @@ class SendViewModel(
 
             }
 
+        }
+    }
+
+    fun chatUploadFile(
+        file: MultipartBody.Part
+    ) {
+        viewModelScope.launch {
+           val data =  sendRepository.chatUploadFile(file)
+            uploadResponse.postValue(data)
         }
     }
 }

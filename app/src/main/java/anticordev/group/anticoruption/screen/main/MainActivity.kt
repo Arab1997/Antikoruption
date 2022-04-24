@@ -49,7 +49,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         one_id.visibility = View.VISIBLE
                         logout.visibility = View.GONE
 
-                    }else{
+                    } else {
                         one_id.visibility = View.GONE
                         logout.visibility = View.VISIBLE
                     }
@@ -77,7 +77,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         one_id.visibility = View.VISIBLE
                         logout.visibility = View.GONE
 
-                    }else{
+                    } else {
                         one_id.visibility = View.GONE
                         logout.visibility = View.VISIBLE
                     }
@@ -102,7 +102,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         one_id.visibility = View.VISIBLE
                         logout.visibility = View.GONE
 
-                    }else{
+                    } else {
                         one_id.visibility = View.GONE
                         logout.visibility = View.VISIBLE
                     }
@@ -134,7 +134,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             builder.setPositiveButton(android.R.string.yes) { _, _ ->
                 Prefs.clearAll()
 
-                    startActivity<SplashActivity>()
+                startActivity<SplashActivity>()
             }
             builder.setNegativeButton(android.R.string.no) { _, _ ->
 
@@ -247,6 +247,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             EventBus.getDefault().unregister(this)
         }
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>, grantResults: IntArray
@@ -259,6 +260,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             return
         }
     }
+
     @SuppressLint("MissingPermission")
     fun callPhone() {
         val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "1253 "))

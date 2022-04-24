@@ -1,5 +1,7 @@
 package anticordev.group.anticoruption.screen.main.send.detail
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -20,11 +22,17 @@ import anticordev.group.anticoruption.screen.viewmodels.SendViewModelProviderFac
 import android.widget.RadioButton
 
 import android.widget.RadioGroup
+import androidx.lifecycle.lifecycleScope
 import anticordev.group.anticoruption.base.startActivity
 import anticordev.group.anticoruption.base.startClearTopActivity
+import anticordev.group.anticoruption.base.toMultiPartData
 import anticordev.group.anticoruption.screen.main.MainActivity
 import anticordev.group.anticoruption.screen.main.oneId.OneActivity
 import anticordev.group.anticoruption.util.utils.Prefs
+import com.blankj.utilcode.util.ToastUtils
+import kotlinx.coroutines.launch
+
+private const val PICK_FILE_FOR_UPLOAD = 1001
 
 class SendActivity : BaseActivity() {
 
@@ -45,7 +53,7 @@ class SendActivity : BaseActivity() {
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(SendViewModel::class.java)
 
         viewModel.getRegions()
-        viewModel.regions.observe(this, { response ->
+        viewModel.regions.observe(this) { response ->
             if (response.isSuccessful) {
                 regions.addAll(response.body()!!)
 
@@ -78,9 +86,9 @@ class SendActivity : BaseActivity() {
             } else {
                 Log.d("SendActivity", response.message())
             }
-        })
+        }
 
-        viewModel.regionsById.observe(this, { response ->
+        viewModel.regionsById.observe(this) { response ->
             if (response.isSuccessful) {
                 response.body()!!.areas.forEach {
                     areas.clear()
@@ -117,10 +125,10 @@ class SendActivity : BaseActivity() {
             } else {
                 Log.d("SendActivity", response.message())
             }
-        })
+        }
 
         viewModel.getOrganizations()
-        viewModel.organizations.observe(this, { response ->
+        viewModel.organizations.observe(this) { response ->
             if (response.isSuccessful) {
                 orgs.addAll(response.body()!!)
 
@@ -145,19 +153,19 @@ class SendActivity : BaseActivity() {
                     override fun onNothingSelected(parent: AdapterView<*>) {}
                 }
             }
-        })
+        }
 
-        viewModel.complains.observe(this, { response ->
+        viewModel.complains.observe(this) { response ->
             if (response.isSuccessful && (response.code() in 200..299)) {
-               // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
+                // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
                 Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
 
                 startActivity<MainActivity>()
             } else {
                 Toasty.warning(this, R.string.error, Toast.LENGTH_SHORT).show()
-              //  Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
+                //  Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
             }
-        })
+        }
 
 
 
@@ -171,10 +179,11 @@ class SendActivity : BaseActivity() {
             }
         }
 
-//        send.setOnClickListener {
-//           // if (validate() && Prefs.getToken().isNotEmpty() ){
-//
-//
+        send.setOnClickListener {
+           // if (validate() && Prefs.getToken().isNotEmpty() ){
+
+            selectFile()
+
 //            if (Prefs.getToken().isNullOrEmpty() ) {
 //                startClearTopActivity<OneActivity>()
 //            }
@@ -188,7 +197,7 @@ class SendActivity : BaseActivity() {
 //            } else {
 //                //Toasty.error(this, "", Toast.LENGTH_SHORT).show()
 //            }
-//        }
+        }
         send.setOnClickListener {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
@@ -200,6 +209,21 @@ class SendActivity : BaseActivity() {
             } else {
                 Toasty.error(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun selectFile() {
+        var intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "*/*"
+        intent = Intent.createChooser(intent, "Select a file")
+        startActivityForResult(intent, PICK_FILE_FOR_UPLOAD)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, result: Intent?) {
+        super.onActivityResult(requestCode, resultCode, result)
+        val file = result?.data
+        if (requestCode == PICK_FILE_FOR_UPLOAD && resultCode == RESULT_OK && file != null) {
+            fileUpload(file)
         }
     }
 
@@ -274,6 +298,20 @@ class SendActivity : BaseActivity() {
         super.onDestroy()
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this)
+        }
+    }
+
+    private fun fileUpload(file: Uri) {
+        lifecycleScope.launch {
+            try {
+                viewModel.chatUploadFile(
+                    file.toMultiPartData()
+                )
+
+                ToastUtils.showShort("Success")
+            } catch (e: Exception) {
+                ToastUtils.showShort("Error")
+            }
         }
     }
 }

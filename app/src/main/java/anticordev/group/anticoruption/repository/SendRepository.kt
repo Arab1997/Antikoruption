@@ -3,8 +3,11 @@ package anticordev.group.anticoruption.repository
 
 import anticordev.group.anticoruption.api.send_apis.RetrofitInstance
 import anticordev.group.anticoruption.model.getToken.GetTokenResponse
+import anticordev.group.anticoruption.model.getToken.UploadFileResponse
 import anticordev.group.anticoruption.model.send_models.*
+import okhttp3.MultipartBody
 import retrofit2.Response
+import retrofit2.Retrofit
 
 class SendRepository {
 
@@ -29,5 +32,9 @@ class SendRepository {
     }
     suspend fun getToken(code:String,state:String): Response<GetTokenResponse> {
         return RetrofitInstance.api.getToken(code, state)
+    }
+
+    suspend fun chatUploadFile( file: MultipartBody.Part): Response<UploadFileResponse> {
+        return RetrofitInstance.api.sendFile(file)
     }
 }

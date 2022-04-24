@@ -7,3 +7,7 @@ data class GetTokenResponse(
     @SerializedName("token")
     val token: String
 )
+
+data class UploadFileResponse(
+    val message:String
+)

@@ -1,7 +1,9 @@
 package anticordev.group.anticoruption.api.send_apis
 
 import anticordev.group.anticoruption.model.getToken.GetTokenResponse
+import anticordev.group.anticoruption.model.getToken.UploadFileResponse
 import anticordev.group.anticoruption.model.send_models.*
+import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -36,4 +38,10 @@ interface SendApi {
         @Query("code") code:String,
         @Query ("state") state:String,
     ):Response<GetTokenResponse>
+
+    @POST("url")
+    @Multipart
+    suspend fun sendFile(
+        @Part file: MultipartBody.Part
+    ): Response<UploadFileResponse>
 }
