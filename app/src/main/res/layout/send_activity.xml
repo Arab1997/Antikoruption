@@ -9,6 +9,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     tools:context=".screen.main.send.detail.SendActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,8 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:padding="10dp"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="@string/zayavka"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
@@ -99,18 +100,21 @@
                     android:text="@string/tashkilot"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
+
                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/spinner_org"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:paddingTop="10dp"
                     tools:context="info.hoang8f.android.segmented.SampleActivity$PlaceholderFragment">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -120,10 +124,12 @@
                         android:text="@string/valyuta"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center">
+
                         <info.hoang8f.android.segmented.SegmentedGroup
                             android:id="@+id/currency"
                             android:layout_width="match_parent"
@@ -202,9 +208,9 @@
                             android:id="@+id/amount"
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
+                            android:hint="@string/pora_hajmi"
                             android:inputType="number"
                             android:maxLength="9"
-                            android:hint="@string/pora_hajmi"
                             android:textColorHint="@color/black" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -247,10 +253,43 @@
                     android:layout_gravity="bottom"
                     android:background="@color/white"
                     android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/select_file"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_upload_file"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_baseline_attach_file_24" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_name_file"
+                            android:layout_width="0dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical"
+                            android:text="Upload file name" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1px"
                         android:background="@color/gray_text" />
+
                     <androidx.cardview.widget.CardView
                         android:id="@+id/send"
                         android:layout_width="match_parent"
@@ -260,6 +299,7 @@
                         app:cardCornerRadius="8dp"
                         app:cardElevation="1dp"
                         app:contentPadding="10dp">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

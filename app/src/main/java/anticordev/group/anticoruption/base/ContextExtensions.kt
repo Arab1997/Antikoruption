@@ -9,29 +9,29 @@ import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
-import android.os.Parcelable
-import java.io.File
-import java.io.Serializable
-import android.webkit.CookieManager
 import android.os.Bundle
+import android.os.Parcelable
 import android.provider.OpenableColumns
 import android.view.View
+import android.webkit.CookieManager
 import android.webkit.CookieSyncManager
+import android.webkit.MimeTypeMap
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import es.dmoral.toasty.Toasty
 import anticordev.group.anticoruption.R
 import com.blankj.utilcode.util.Utils
+import es.dmoral.toasty.Toasty
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okio.BufferedSink
 import okio.source
+import java.io.File
 import java.io.FileNotFoundException
-import java.util.ArrayList
+import java.io.Serializable
 
 fun Context.showToast(string: String) {
     Toast.makeText(this, string, Toast.LENGTH_LONG).show()
@@ -45,19 +45,19 @@ fun Context.showToast(string: Int) {
     Toast.makeText(this, string, Toast.LENGTH_LONG).show()
 }
 
-fun Context.showError(message: String){
+fun Context.showError(message: String) {
     Toasty.error(this, message, Toast.LENGTH_LONG, true).show()
 }
 
-fun Context.showWarning(message: String){
+fun Context.showWarning(message: String) {
     Toasty.warning(this, message, Toast.LENGTH_SHORT, true).show()
 }
 
-fun Context.showInfo(message: String){
+fun Context.showInfo(message: String) {
     Toasty.info(this, message, Toast.LENGTH_SHORT, true).show()
 }
 
-fun Context.showSuccess(message: String){
+fun Context.showSuccess(message: String) {
     Toasty.success(this, message, Toast.LENGTH_LONG, true).show()
 }
 
@@ -66,7 +66,7 @@ fun Context.showSuccess(message: String){
  */
 
 inline fun <reified T : Activity> Context.startActivity() =
-        this.startActivity(newIntent<T>())
+    this.startActivity(newIntent<T>())
 
 inline fun <reified T : Activity> Context.startActivity(key: String, value: String) {
     val intent = newIntent<T>(key, value)
@@ -75,28 +75,52 @@ inline fun <reified T : Activity> Context.startActivity(key: String, value: Stri
 }
 
 inline fun <reified T : Activity> Context.startActivity(key: String, value: Int) =
-        this.startActivity(newIntent<T>(key, value))
+    this.startActivity(newIntent<T>(key, value))
 
 inline fun <reified T : Activity> Context.startActivity(key: String, value: ArrayList<String>) =
-        this.startActivity(newIntent<T>(key, value))
+    this.startActivity(newIntent<T>(key, value))
 
 inline fun <reified T : Activity> Context.startActivity(key: String, value: Serializable) =
-        this.startActivity(newIntent<T>(key, value))
+    this.startActivity(newIntent<T>(key, value))
 
-inline fun <reified T : Activity> Context.startActivity(key: String, value: Serializable, key2: String, value2: String) =
-        this.startActivity(newIntent<T>(key, value, key2, value2))
+inline fun <reified T : Activity> Context.startActivity(
+    key: String,
+    value: Serializable,
+    key2: String,
+    value2: String
+) =
+    this.startActivity(newIntent<T>(key, value, key2, value2))
 
-inline fun <reified T : Activity> Context.startActivity(key: String, value: Serializable, key2: String, value2: Serializable) =
-        this.startActivity(newIntent<T>(key, value, key2, value2))
+inline fun <reified T : Activity> Context.startActivity(
+    key: String,
+    value: Serializable,
+    key2: String,
+    value2: Serializable
+) =
+    this.startActivity(newIntent<T>(key, value, key2, value2))
 
-inline fun <reified T : Activity> Context.startActivity(key: String, value: String, key2: String, value2: String, key3: String, value3: String) =
-        this.startActivity(newIntent<T>(key, value, key2, value2, key3, value3))
+inline fun <reified T : Activity> Context.startActivity(
+    key: String,
+    value: String,
+    key2: String,
+    value2: String,
+    key3: String,
+    value3: String
+) =
+    this.startActivity(newIntent<T>(key, value, key2, value2, key3, value3))
 
-inline fun <reified T : Activity> Context.startActivity(key: String, value: String, key2: String, value2: String, key3: String, value3: Serializable?) =
-        this.startActivity(newIntent<T>(key, value, key2, value2, key3, value3))
+inline fun <reified T : Activity> Context.startActivity(
+    key: String,
+    value: String,
+    key2: String,
+    value2: String,
+    key3: String,
+    value3: Serializable?
+) =
+    this.startActivity(newIntent<T>(key, value, key2, value2, key3, value3))
 
 inline fun <reified T : Activity> Context.startActivity(key: String, value: Parcelable) =
-        this.startActivity(newIntent<T>(key, value))
+    this.startActivity(newIntent<T>(key, value))
 
 inline fun <reified T : Activity> Context.startActivity(intent: Intent) {
     return this.startActivity(newIntent<T>().putExtras(intent))
@@ -109,7 +133,7 @@ fun Context.startActivityToShareText(sharedText: String) {
     startActivity(Intent.createChooser(intent, "Share"))
 }
 
- fun Context.startActivityToOpenUrlInBrowser(url: String?) {
+fun Context.startActivityToOpenUrlInBrowser(url: String?) {
     val browserIntent = newIntentToOpenUrlInBrowser(url)
     if (browserIntent == null) return
     browserIntent.addCategory(Intent.CATEGORY_BROWSABLE);
@@ -150,7 +174,12 @@ inline fun <reified T : Activity> Context.startClearTopActivity(key: String, val
     this.startActivity(intent)
 }
 
-inline fun <reified T : Activity> Context.startClearTopActivity(key1: String, value1: String?, key2: String, value2: String?) {
+inline fun <reified T : Activity> Context.startClearTopActivity(
+    key1: String,
+    value1: String?,
+    key2: String,
+    value2: String?
+) {
     var intent = newIntent<T>()
     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
     intent.putExtra(key1, value1)
@@ -178,19 +207,31 @@ inline fun <reified T : Activity> Context.startActivityForResult(requestCode: In
     (this as Activity).startActivityForResult(intent, requestCode)
 }
 
-inline fun <reified T : Activity> Context.startActivityForResult(requestCode: Int, key: String, value: String) {
+inline fun <reified T : Activity> Context.startActivityForResult(
+    requestCode: Int,
+    key: String,
+    value: String
+) {
     val intent = newIntent<T>()
     intent.putExtra(key, value)
     (this as Activity).startActivityForResult(intent, requestCode)
 }
 
-inline fun <reified T : Activity> Context.startActivityForResult(requestCode: Int, key: String, value: Serializable) {
+inline fun <reified T : Activity> Context.startActivityForResult(
+    requestCode: Int,
+    key: String,
+    value: Serializable
+) {
     val intent = newIntent<T>()
     intent.putExtra(key, value)
     (this as Activity).startActivityForResult(intent, requestCode)
 }
 
-inline fun <reified T : Activity> Context.startActivityForResult(requestCode: Int, longitude: Double, latitude: Double) {
+inline fun <reified T : Activity> Context.startActivityForResult(
+    requestCode: Int,
+    longitude: Double,
+    latitude: Double
+) {
     val intent = newIntent<T>()
     intent.putExtra("longitude", longitude)
     intent.putExtra("latitude", latitude)
@@ -215,8 +256,11 @@ fun Context.startPdfActivity(pdfFilePath: String?) {
 }
 
 fun Context.startEmailActivity(email: String?, subject: String?, body: String?) {
-    val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-            "mailto", email, null))
+    val emailIntent = Intent(
+        Intent.ACTION_SENDTO, Uri.fromParts(
+            "mailto", email, null
+        )
+    )
     emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
     emailIntent.putExtra(Intent.EXTRA_TEXT, body)
     emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayListOf(email))
@@ -228,50 +272,96 @@ fun Context.startEmailActivity(email: String?, subject: String?, body: String?) 
  */
 
 inline fun <reified T : Activity> Context.newIntent(): Intent =
-        Intent(this, T::class.java)
+    Intent(this, T::class.java)
 
 inline fun <reified T : Activity> Context.newIntent(key: String, value: String): Intent =
-        Intent(this, T::class.java).putExtra(key, value)
+    Intent(this, T::class.java).putExtra(key, value)
 
 inline fun <reified T : Activity> Context.newIntent(key: String, value: Int): Intent =
-        Intent(this, T::class.java).putExtra(key, value)
+    Intent(this, T::class.java).putExtra(key, value)
 
 inline fun <reified T : Activity> Context.newIntent(key: String, value: ArrayList<String>): Intent =
-        Intent(this, T::class.java).putExtra(key, value)
+    Intent(this, T::class.java).putExtra(key, value)
 
 inline fun <reified T : Activity> Context.newIntent(key: String, value: Serializable): Intent =
-        Intent(this, T::class.java).putExtra(key, value)
+    Intent(this, T::class.java).putExtra(key, value)
 
 
-inline fun <reified T : Activity> Context.newIntent(key: String, value: Serializable, key2: String, value2: String): Intent =
-        Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2)
+inline fun <reified T : Activity> Context.newIntent(
+    key: String,
+    value: Serializable,
+    key2: String,
+    value2: String
+): Intent =
+    Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2)
 
-inline fun <reified T : Activity> Context.newIntent(key: String, value: String, key2: String, value2: String): Intent =
-        Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2)
+inline fun <reified T : Activity> Context.newIntent(
+    key: String,
+    value: String,
+    key2: String,
+    value2: String
+): Intent =
+    Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2)
 
-inline fun <reified T : Activity> Context.newIntent(key: String, value: Serializable, key2: String, value2: Serializable): Intent =
-        Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2)
+inline fun <reified T : Activity> Context.newIntent(
+    key: String,
+    value: Serializable,
+    key2: String,
+    value2: Serializable
+): Intent =
+    Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2)
 
-inline fun <reified T : Activity> Context.newIntent(key: String, value: String?, key2: String, value2: String?, key3: String, value3: String?): Intent =
-        Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2).putExtra(key3, value3)
+inline fun <reified T : Activity> Context.newIntent(
+    key: String,
+    value: String?,
+    key2: String,
+    value2: String?,
+    key3: String,
+    value3: String?
+): Intent =
+    Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2).putExtra(key3, value3)
 
-inline fun <reified T : Activity> Context.newIntent(key: String, value: Boolean?, key2: String, value2: String?, key3: String, value3: String?): Intent =
-        Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2).putExtra(key3, value3)
+inline fun <reified T : Activity> Context.newIntent(
+    key: String,
+    value: Boolean?,
+    key2: String,
+    value2: String?,
+    key3: String,
+    value3: String?
+): Intent =
+    Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2).putExtra(key3, value3)
 
-inline fun <reified T : Activity> Context.newIntent(key: String, value: String?, key2: String, value2: String?, key3: String, value3: Serializable?): Intent =
-        Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2).putExtra(key3, value3)
+inline fun <reified T : Activity> Context.newIntent(
+    key: String,
+    value: String?,
+    key2: String,
+    value2: String?,
+    key3: String,
+    value3: Serializable?
+): Intent =
+    Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2).putExtra(key3, value3)
 
-inline fun <reified T : Activity> Context.newIntent(key: String, value: String?, key2: String, value2: String?, key3: String, value3: String?, key4: String, value4: Array<String>): Intent =
-        Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2).putExtra(key3, value3).putExtra(key4, value4)
+inline fun <reified T : Activity> Context.newIntent(
+    key: String,
+    value: String?,
+    key2: String,
+    value2: String?,
+    key3: String,
+    value3: String?,
+    key4: String,
+    value4: Array<String>
+): Intent =
+    Intent(this, T::class.java).putExtra(key, value).putExtra(key2, value2).putExtra(key3, value3)
+        .putExtra(key4, value4)
 
 inline fun <reified T : Activity> Context.newIntent(key: String, value: Parcelable): Intent =
-        Intent(this, T::class.java).putExtra(key, value)
+    Intent(this, T::class.java).putExtra(key, value)
 
 inline fun <reified T : Activity> Context.newIntent(action: String): Intent =
-        Intent(this, T::class.java).setAction(action)
+    Intent(this, T::class.java).setAction(action)
 
 inline fun <reified T : Activity> Context.newIntent(key: String, value: String, bundle: Bundle) =
-        Intent(this, T::class.java).putExtra(key, value).putExtras(bundle)
+    Intent(this, T::class.java).putExtra(key, value).putExtras(bundle)
 
 fun Context.newIntentToOpenUrlInBrowser(url: String?): Intent? {
     if (url == null || url.isEmpty()) return null
@@ -322,17 +412,18 @@ fun Context.clearCookies() {
 }
 
 
-fun View.getColor(color: Int): Int{
+fun View.getColor(color: Int): Int {
     return ContextCompat.getColor(this.context, color)
 }
 
-fun ImageView.loadImage(url: String?){
-    if (url != null){
+fun ImageView.loadImage(url: String?) {
+    if (url != null) {
         //GlideUtils.loadImage(this, url)
-    }else{
+    } else {
         this.setImageResource(R.drawable.placeholder)
     }
 }
+
 fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
     val tmp = this[index1] // 'this' corresponds to the list
     this[index1] = this[index2]
@@ -370,4 +461,22 @@ fun Uri.toMultiPartData(partName: String = "file"): MultipartBody.Part {
     }
 
     return MultipartBody.Part.createFormData(partName, name, requestFile)
+}
+
+fun Any.toMultipartData(name: String): MultipartBody.Part {
+    return MultipartBody.Part.createFormData(name, this.toString())
+}
+
+fun Uri.getName(context: Context): String {
+    var fileName = "file"
+    val cR = context.contentResolver
+    val mime = MimeTypeMap.getSingleton()
+    val type = mime.getExtensionFromMimeType(cR.getType(this))
+    context.contentResolver.query(this, null, null, null, null)?.use { returnCursor ->
+        val nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+        returnCursor.moveToFirst()
+        fileName = returnCursor.getString(nameIndex)
+        returnCursor.close()
+    }
+    return "$fileName.$type"
 }

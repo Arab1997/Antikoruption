@@ -23,7 +23,7 @@ class SendRepository {
         return RetrofitInstance.api.getRegionsById(regionId)
     }
 
-    suspend fun postComplain(map: Map<String, Any>): Response<Appeal>{
+    suspend fun postComplain(map: Map<String, MultipartBody.Part>): Response<Appeal>{
         return RetrofitInstance.api.postComplain(map)
     }
 

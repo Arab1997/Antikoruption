@@ -13,7 +13,6 @@ import com.blankj.utilcode.util.NetworkUtils
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.send_activity.*
 import org.greenrobot.eventbus.EventBus
-import anticordev.group.anticoruption.base.BaseActivity
 import anticordev.group.anticoruption.R
 import anticordev.group.anticoruption.model.send_models.*
 import anticordev.group.anticoruption.repository.SendRepository
@@ -23,9 +22,7 @@ import android.widget.RadioButton
 
 import android.widget.RadioGroup
 import androidx.lifecycle.lifecycleScope
-import anticordev.group.anticoruption.base.startActivity
-import anticordev.group.anticoruption.base.startClearTopActivity
-import anticordev.group.anticoruption.base.toMultiPartData
+import anticordev.group.anticoruption.base.*
 import anticordev.group.anticoruption.screen.main.MainActivity
 import anticordev.group.anticoruption.screen.main.oneId.OneActivity
 import anticordev.group.anticoruption.util.utils.Prefs
@@ -44,10 +41,12 @@ class SendActivity : BaseActivity() {
     private lateinit var area: Area
     private var orgs: MutableList<Organization> = mutableListOf()
     private lateinit var org: Organization
+    private val complain = Complain()
+    private var file: Uri?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val complain = Complain()
+
         val sendRepository = SendRepository()
         val viewModelProviderFactory = SendViewModelProviderFactory(sendRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(SendViewModel::class.java)
@@ -156,6 +155,7 @@ class SendActivity : BaseActivity() {
         }
 
         viewModel.complains.observe(this) { response ->
+            Log.d("RESPONSETAG", "onCreate: $response")
             if (response.isSuccessful && (response.code() in 200..299)) {
                 // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
                 Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
@@ -170,7 +170,7 @@ class SendActivity : BaseActivity() {
 
 
         currency.setOnCheckedChangeListener { radioGroup, i ->
-            when(i) {
+            when (i) {
                 2131362020 -> complain.currency = 0
                 2131362448 -> complain.currency = 1
                 // 2131362448 -> complain.currency = 2
@@ -179,32 +179,33 @@ class SendActivity : BaseActivity() {
             }
         }
 
-        send.setOnClickListener {
-           // if (validate() && Prefs.getToken().isNotEmpty() ){
-
+        select_file.setOnClickListener {
             selectFile()
-
-//            if (Prefs.getToken().isNullOrEmpty() ) {
-//                startClearTopActivity<OneActivity>()
-//            }
-//            else if (validate() && Prefs.getToken().isNotEmpty()){
-//
-//                complain.amount = amount.text.toString().toInt()
-//                complain.text = edComment.text.toString()
-//
-//                viewModel.postComplain(complain)
-//
-//            } else {
-//                //Toasty.error(this, "", Toast.LENGTH_SHORT).show()
-//            }
         }
+
+//        send.setOnClickListener {
+//            // if (validate() && Prefs.getToken().isNotEmpty() ){
+//
+////            if (Prefs.getToken().isNullOrEmpty() ) {
+////                startClearTopActivity<OneActivity>()
+////            }
+////            else if (validate() && Prefs.getToken().isNotEmpty()){
+////
+////                complain.amount = amount.text.toString().toInt()
+////                complain.text = edComment.text.toString()
+////
+////                viewModel.postComplain(complain)
+////
+////            } else {
+////                //Toasty.error(this, "", Toast.LENGTH_SHORT).show()
+////            }
+//        }
         send.setOnClickListener {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
                 complain.text = edComment.text.toString()
 
-                viewModel.postComplain(complain)
-
+                viewModel.postComplain(complain, file?.toMultiPartData())
 
             } else {
                 Toasty.error(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
@@ -223,7 +224,8 @@ class SendActivity : BaseActivity() {
         super.onActivityResult(requestCode, resultCode, result)
         val file = result?.data
         if (requestCode == PICK_FILE_FOR_UPLOAD && resultCode == RESULT_OK && file != null) {
-            fileUpload(file)
+            this.file = file
+            tv_name_file.text = file.getName(this)
         }
     }
 
@@ -283,6 +285,7 @@ class SendActivity : BaseActivity() {
             }
         })
     }
+
     override fun loadData() {
 
     }
@@ -298,20 +301,6 @@ class SendActivity : BaseActivity() {
         super.onDestroy()
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this)
-        }
-    }
-
-    private fun fileUpload(file: Uri) {
-        lifecycleScope.launch {
-            try {
-                viewModel.chatUploadFile(
-                    file.toMultiPartData()
-                )
-
-                ToastUtils.showShort("Success")
-            } catch (e: Exception) {
-                ToastUtils.showShort("Error")
-            }
         }
     }
 }

@@ -29,7 +29,7 @@ interface SendApi {
     @Multipart
     @POST("appeal/")
     suspend fun postComplain(
-        @PartMap complain: Map<String, Any>,
+        @PartMap complain: Map<String, MultipartBody.Part>,
     ): Response<Appeal>
 
     //https://eanticor.uz/ru/api/login-one/
@@ -39,7 +39,7 @@ interface SendApi {
         @Query ("state") state:String,
     ):Response<GetTokenResponse>
 
-    @POST("url")
+    @POST("appeal/")
     @Multipart
     suspend fun sendFile(
         @Part file: MultipartBody.Part

@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import anticordev.group.anticoruption.base.startActivity
+import anticordev.group.anticoruption.base.toMultipartData
 import anticordev.group.anticoruption.model.getToken.UploadFileResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,7 +25,7 @@ import java.lang.Exception
 
 class SendViewModel(
     val sendRepository: SendRepository
-): ViewModel() {
+) : ViewModel() {
 
     val regions: MutableLiveData<Response<List<Region>>> = MutableLiveData()
     val areas: MutableLiveData<Response<List<Area>>> = MutableLiveData()
@@ -53,21 +54,24 @@ class SendViewModel(
         regionsById.postValue(response)
     }
 
-    fun postComplain(complain: Complain) = viewModelScope.launch {
-        try{
-            var map = HashMap<String, Any>()
-            map["area"] = complain.area
-            map["region"] = complain.region
-            map["organization"] = complain.organization
-            map["amount"] = complain.amount
-            map["currency"] = complain.currency
-            map["button_type"] = complain.button_type
-            map["text"] = complain.text
+    fun postComplain(complain: Complain, file: MultipartBody.Part? = null) = viewModelScope.launch {
+        try {
+            var map = HashMap<String, MultipartBody.Part>()
+            map["area"] = complain.area.toMultipartData("area")
+            map["region"] = complain.region.toMultipartData("region")
+            map["organization"] = complain.organization.toMultipartData("organization")
+            map["amount"] = complain.amount.toMultipartData("amount")
+            map["currency"] = complain.currency.toMultipartData("currency")
+            map["button_type"] = complain.button_type.toMultipartData("button_type")
+            map["text"] = complain.text.toMultipartData("text")
+            if (file != null) {
+                map["file"] = file
+            }
             val request = sendRepository.postComplain(map)
 
             Log.d("SendViewModelTAG", request.toString())
             complains.postValue(request)
-        } catch (e:Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
@@ -81,7 +85,7 @@ class SendViewModel(
                 data.body()?.token?.let { Prefs.setToken(it) }
                 Log.d("SendViewModelTAG", "getToken: ${data.body()?.token}")
                 Prefs.getToken()
-                Log.d("savetoken",  Prefs.getToken())
+                Log.d("savetoken", Prefs.getToken())
 
             }
 
@@ -92,7 +96,7 @@ class SendViewModel(
         file: MultipartBody.Part
     ) {
         viewModelScope.launch {
-           val data =  sendRepository.chatUploadFile(file)
+            val data = sendRepository.chatUploadFile(file)
             uploadResponse.postValue(data)
         }
     }
