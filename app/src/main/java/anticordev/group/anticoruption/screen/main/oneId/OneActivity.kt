@@ -48,8 +48,8 @@ class OneActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_one)
         Hawk.init(this).build()
-        val url = "http://sso.egov.uz:8443/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
-
+        //val url = "http://sso.egov.uz:8443/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
+          val url = "https://sso.egov.uz/sso/oauth/Authorization.do?response_type=$responceType&client_id=$clientId&redirect_uri=$redirect_url&scope=$scope&state=$state"
         Prefs.setToken(state)
         Prefs.getToken()
         webView.webViewClient = MyWebViewClient(binding.root.context)

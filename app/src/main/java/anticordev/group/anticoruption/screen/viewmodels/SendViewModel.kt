@@ -54,20 +54,42 @@ class SendViewModel(
         regionsById.postValue(response)
     }
 
+//    fun postComplain(complain: Complain, file: MultipartBody.Part? = null) = viewModelScope.launch {
+//        try {
+//            val map = HashMap<String, MultipartBody.Part>()
+//            map["area"] = complain.area.toMultipartData("area")
+//            map["region"] = complain.region.toMultipartData("region")
+//            map["organization"] = complain.organization.toMultipartData("organization")
+//            map["amount"] = complain.amount.toMultipartData("amount")
+//            map["currency"] = complain.currency.toMultipartData("currency")
+//            map["button_type"] = complain.button_type.toMultipartData("button_type")
+//            map["text"] = complain.text.toMultipartData("text")
+//            if (file != null) {
+//                map["file"] = file
+//            }
+//            val request = sendRepository.postComplain(map)
+//
+//            Log.d("SendViewModelTAG", request.toString())
+//            complains.postValue(request)
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
+//    }
+
+
+
     fun postComplain(complain: Complain, file: MultipartBody.Part? = null) = viewModelScope.launch {
         try {
-            var map = HashMap<String, MultipartBody.Part>()
-            map["area"] = complain.area.toMultipartData("area")
-            map["region"] = complain.region.toMultipartData("region")
-            map["organization"] = complain.organization.toMultipartData("organization")
-            map["amount"] = complain.amount.toMultipartData("amount")
-            map["currency"] = complain.currency.toMultipartData("currency")
-            map["button_type"] = complain.button_type.toMultipartData("button_type")
-            map["text"] = complain.text.toMultipartData("text")
-            if (file != null) {
-                map["file"] = file
-            }
-            val request = sendRepository.postComplain(map)
+            val request = sendRepository.postComplain(
+                area = complain.area,
+                regionId = complain.region,
+                organization = complain.organization,
+                amount = complain.amount,
+                currency = complain.currency,
+                button_type = complain.button_type,
+                text = complain.text,
+                file = file
+            )
 
             Log.d("SendViewModelTAG", request.toString())
             complains.postValue(request)

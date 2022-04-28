@@ -25,12 +25,27 @@ interface SendApi {
     @GET("ref/regions/")
     suspend fun getRegions(): Response<List<Region>>
 
-    //https://eanticor.uz/uz/api/login-one/
-    @Multipart
+//    //https://eanticor.uz/uz/api/login-one/
+//    @Multipart
+//    @POST("appeal/")
+//    suspend fun postComplain(
+//        @PartMap complain: Map<String, MultipartBody.Part>,
+//    ): Response<Appeal>
+
+
     @POST("appeal/")
+    @Multipart
     suspend fun postComplain(
-        @PartMap complain: Map<String, MultipartBody.Part>,
+        @Part region:MultipartBody.Part,
+        @Part area:MultipartBody.Part,
+        @Part organization:MultipartBody.Part,
+        @Part amount:MultipartBody.Part,
+        @Part currency:MultipartBody.Part,
+        @Part file:MultipartBody.Part?=null,
+        @Part text:MultipartBody.Part,
+        @Part button_type:MultipartBody.Part,
     ): Response<Appeal>
+
 
     //https://eanticor.uz/ru/api/login-one/
     @POST("login-one/")

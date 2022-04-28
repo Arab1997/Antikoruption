@@ -3,6 +3,7 @@ package anticordev.group.anticoruption.screen.main.send.detail
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.OpenableColumns
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
@@ -27,7 +28,10 @@ import anticordev.group.anticoruption.screen.main.MainActivity
 import anticordev.group.anticoruption.screen.main.oneId.OneActivity
 import anticordev.group.anticoruption.util.utils.Prefs
 import com.blankj.utilcode.util.ToastUtils
+import com.blankj.utilcode.util.Utils
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
+import java.io.FileNotFoundException
 
 private const val PICK_FILE_FOR_UPLOAD = 1001
 
@@ -158,7 +162,7 @@ class SendActivity : BaseActivity() {
             Log.d("RESPONSETAG", "onCreate: $response")
             if (response.isSuccessful && (response.code() in 200..299)) {
                 // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
-                Toasty.success(this, response.body().toString(), Toast.LENGTH_SHORT).show()
+                Toasty.success(this, getString(R.string.successs) + response.body().toString(), Toast.LENGTH_SHORT).show()
 
                 startActivity<MainActivity>()
             } else {
@@ -166,8 +170,6 @@ class SendActivity : BaseActivity() {
                 //  Toasty.warning(this, response.code().toString(), Toast.LENGTH_LONG).show()
             }
         }
-
-
 
         currency.setOnCheckedChangeListener { radioGroup, i ->
             when (i) {
@@ -183,29 +185,14 @@ class SendActivity : BaseActivity() {
             selectFile()
         }
 
-//        send.setOnClickListener {
-//            // if (validate() && Prefs.getToken().isNotEmpty() ){
-//
-////            if (Prefs.getToken().isNullOrEmpty() ) {
-////                startClearTopActivity<OneActivity>()
-////            }
-////            else if (validate() && Prefs.getToken().isNotEmpty()){
-////
-////                complain.amount = amount.text.toString().toInt()
-////                complain.text = edComment.text.toString()
-////
-////                viewModel.postComplain(complain)
-////
-////            } else {
-////                //Toasty.error(this, "", Toast.LENGTH_SHORT).show()
-////            }
-//        }
         send.setOnClickListener {
             if (validate()) {
                 complain.amount = amount.text.toString().toInt()
                 complain.text = edComment.text.toString()
 
                 viewModel.postComplain(complain, file?.toMultiPartData())
+                file?.toMultiPartData()?.let { it1 -> viewModel.chatUploadFile(it1) }
+
 
             } else {
                 Toasty.error(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
@@ -213,7 +200,37 @@ class SendActivity : BaseActivity() {
         }
     }
 
-    private fun selectFile() {
+    fun Uri.toMultiPartData(partName: String = "file"): MultipartBody.Part {
+        val contentResolver = Utils.getApp().contentResolver
+        val mime = contentResolver.getType(this).orEmpty()
+        var size = 0L
+        var name = "file"
+        val inputStream = contentResolver.openInputStream(this)
+            ?: throw FileNotFoundException("Failed to open input stream")
+
+        contentResolver.query(this, null, null, null, null)?.use { cursor ->
+            val sizeIndex = cursor.getColumnIndex(OpenableColumns.SIZE)
+            val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+            cursor.moveToFirst()
+
+            size = cursor.getLong(sizeIndex)
+            name = cursor.getString(nameIndex)
+        }
+
+//    val requestFile: RequestBody = object : RequestBody() {
+//        override fun contentType() = mime.toMediaTypeOrNull()
+//
+//        override fun contentLength() = size
+//
+//        override fun writeTo(sink: BufferedSink) {
+//            inputStream.source().use { source -> sink.writeAll(source) }
+//        }
+//    }
+
+        return MultipartBody.Part.createFormData(partName, name)
+    }
+
+     fun selectFile() {
         var intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "*/*"
         intent = Intent.createChooser(intent, "Select a file")
@@ -228,36 +245,6 @@ class SendActivity : BaseActivity() {
             tv_name_file.text = file.getName(this)
         }
     }
-
-    private fun getCurrencyPosition(view: View): Int {
-        if (view is RadioButton) {
-            // Is the button now checked?
-            val checked = view.isChecked
-
-            // Check which radio button was clicked
-            when (view.getId()) {
-                R.id.tenge ->
-                    if (checked) {
-                        return 3
-                    }
-                R.id.rubl ->
-                    if (checked) {
-                        return 2
-                    }
-                R.id.dollar ->
-                    if (checked) {
-                        return 1
-                    }
-                R.id.sum ->
-                    if (checked) {
-                        return 0
-                    }
-            }
-        }
-
-        return 0
-    }
-
     private fun validate(): Boolean {
         if (
             amount.text.isNullOrEmpty() ||
