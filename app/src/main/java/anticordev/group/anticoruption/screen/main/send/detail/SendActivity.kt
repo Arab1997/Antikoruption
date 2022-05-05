@@ -1,8 +1,12 @@
 package anticordev.group.anticoruption.screen.main.send.detail
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.provider.OpenableColumns
 import android.util.Log
 import android.view.View
@@ -10,28 +14,27 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.blankj.utilcode.util.NetworkUtils
-import es.dmoral.toasty.Toasty
-import kotlinx.android.synthetic.main.send_activity.*
-import org.greenrobot.eventbus.EventBus
 import anticordev.group.anticoruption.R
-import anticordev.group.anticoruption.model.send_models.*
+import anticordev.group.anticoruption.base.BaseActivity
+import anticordev.group.anticoruption.base.getName
+import anticordev.group.anticoruption.base.startActivity
+import anticordev.group.anticoruption.model.send_models.Area
+import anticordev.group.anticoruption.model.send_models.Complain
+import anticordev.group.anticoruption.model.send_models.Organization
+import anticordev.group.anticoruption.model.send_models.Region
 import anticordev.group.anticoruption.repository.SendRepository
+import anticordev.group.anticoruption.screen.main.MainActivity
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModel
 import anticordev.group.anticoruption.screen.viewmodels.SendViewModelProviderFactory
-import android.widget.RadioButton
-
-import android.widget.RadioGroup
-import androidx.lifecycle.lifecycleScope
-import anticordev.group.anticoruption.base.*
-import anticordev.group.anticoruption.screen.main.MainActivity
-import anticordev.group.anticoruption.screen.main.oneId.OneActivity
-import anticordev.group.anticoruption.util.utils.Prefs
-import com.blankj.utilcode.util.ToastUtils
+import com.blankj.utilcode.util.NetworkUtils
 import com.blankj.utilcode.util.Utils
-import kotlinx.coroutines.launch
+import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.send_activity.*
 import okhttp3.MultipartBody
+import org.greenrobot.eventbus.EventBus
 import java.io.FileNotFoundException
+import java.io.IOException
+
 
 private const val PICK_FILE_FOR_UPLOAD = 1001
 
@@ -46,7 +49,7 @@ class SendActivity : BaseActivity() {
     private var orgs: MutableList<Organization> = mutableListOf()
     private lateinit var org: Organization
     private val complain = Complain()
-    private var file: Uri?=null
+    private var file: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -162,7 +165,7 @@ class SendActivity : BaseActivity() {
             Log.d("RESPONSETAG", "onCreate: $response")
             if (response.isSuccessful && (response.code() in 200..299)) {
                 // Toasty.success(this, R.string.success, Toast.LENGTH_SHORT).show()
-                Toasty.success(this, getString(R.string.successs) + response.body().toString(), Toast.LENGTH_SHORT).show()
+                Toasty.success(this, getString(R.string.successs) + "\n" + response.body().toString(), Toast.LENGTH_SHORT).show()
 
                 startActivity<MainActivity>()
             } else {
@@ -193,13 +196,11 @@ class SendActivity : BaseActivity() {
                 viewModel.postComplain(complain, file?.toMultiPartData())
                 file?.toMultiPartData()?.let { it1 -> viewModel.chatUploadFile(it1) }
 
-
             } else {
                 Toasty.error(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
             }
         }
     }
-
     fun Uri.toMultiPartData(partName: String = "file"): MultipartBody.Part {
         val contentResolver = Utils.getApp().contentResolver
         val mime = contentResolver.getType(this).orEmpty()
@@ -237,14 +238,102 @@ class SendActivity : BaseActivity() {
         startActivityForResult(intent, PICK_FILE_FOR_UPLOAD)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, result: Intent?) {
+     @Deprecated("Deprecated in Java")
+     override fun onActivityResult(requestCode: Int, resultCode: Int, result: Intent?) {
         super.onActivityResult(requestCode, resultCode, result)
         val file = result?.data
         if (requestCode == PICK_FILE_FOR_UPLOAD && resultCode == RESULT_OK && file != null) {
             this.file = file
-            tv_name_file.text = file.getName(this)
+            tv_name_file.text = file.getName(this, file)
         }
     }
+
+//    @Deprecated("Deprecated in Java")
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == PICK_FILE_FOR_UPLOAD && resultCode == RESULT_OK && null != data) {
+//            val selectedImage = data.data
+//            val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
+//            val cursor = contentResolver.query(
+//                selectedImage!!,
+//                filePathColumn, null, null, null
+//            )
+//            cursor!!.moveToFirst()
+//            val columnIndex = cursor.getColumnIndex(filePathColumn[0])
+//            val picturePath = cursor.getString(columnIndex)
+//            cursor.close()
+//
+//           // tv_name_file.text = file!!.getName(selectedImage)
+//            tv_name_file.text = file!!.getPath(selectedImage)
+//        }
+//    }
+
+//
+//    @Deprecated("Deprecated in Java")
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == PICK_FILE_FOR_UPLOAD && resultCode == RESULT_OK) {
+//            val uri = data!!.data
+//            val path = getRealPathFromURI(applicationContext, uri)
+//
+//            Log.e("Check", "URI Path : " + uri!!.path)
+//            Log.e("Check", "Real Path : $path")
+//        }
+//    }
+
+
+
+
+//    // Method to get the absolute path of the selected image from its URI
+//    @Deprecated("Deprecated in Java")
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == PICK_FILE_FOR_UPLOAD) {
+//            if (resultCode == RESULT_OK) {
+//                file = data!!.data // Get the image file URI
+//
+//            }
+//        }
+//    }
+
+
+    @SuppressLint("Range")
+    fun getRealPathFromURI(context: Context?, contentUri: Uri?): String? {
+        var cursor = contentResolver.query(contentUri!!, null, null, null, null)
+        cursor!!.moveToFirst()
+        var document_id = cursor.getString(0)
+        document_id = document_id.substring(document_id.lastIndexOf(":") + 1)
+        cursor.close()
+        cursor = contentResolver.query(
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            null,
+            MediaStore.Images.Media._ID + " = ? ",
+            arrayOf(document_id),
+            null
+        )
+        cursor!!.moveToFirst()
+        val path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA))
+        cursor.close()
+        return path
+    }
+
+
+
+//    fun getRealPathFromURI(context: Context, contentUri: Uri?): String? {
+//        var cursor: Cursor? = null
+//        return try {
+//            val proj = arrayOf(MediaStore.Images.Media.DATA)
+//            cursor = context.getContentResolver().query(contentUri!!, proj, null, null, null)
+//            val column_index: Int = cursor!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+//            cursor.moveToFirst()
+//            cursor.getString(column_index)
+//        } finally {
+//            if (cursor != null) {
+//                cursor.close()
+//            }
+//        }
+//    }
+
     private fun validate(): Boolean {
         if (
             amount.text.isNullOrEmpty() ||
